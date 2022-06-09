@@ -32,6 +32,60 @@ export default function Accessories() {
         ul + * {
           margin-top: 0.8em;
         }
+
+        @media only screen and (min-width: 834px) {
+          #ac-localnav .ac-ln-menu-tray {
+            display: none;
+          }
+          #ac-localnav .ac-ln-action-menucta {
+            display: block;
+          }
+          /* :checked */
+          #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-tray,
+          #ac-ln-menustate:target ~ #ac-localnav .ac-ln-menu-tray {
+            display: flex;
+          }
+
+          .ac-ln-menu-tray {
+            margin: 0 auto 54px;
+            padding: 26px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            width: 100%;
+          }
+
+          .ac-ln-menu-tray > ul {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            min-width: 0;
+          }
+          .ac-ln-menu-tray > ul:first-child {
+            flex-basis: 25%;
+            max-width: 25%;
+            columns: 1 auto;
+          }
+          .ac-ln-menu-tray > ul:nth-child(2) {
+            flex-basis: 75%;
+            max-width: 75%;
+            columns: 3 auto;
+            border-left: 1px solid #d2d2d7;
+            margin-left: -3.26%;
+            padding-left: 3.26%;
+          }
+
+          #ac-localnav .ac-ln-menu-item {
+            margin: 34px 0 -34px;
+            width: 100%;
+            height: 34px;
+            display: flex;
+            align-items: center;
+          }
+          #ac-localnav .as-localnav-listtitle.ac-ln-menu-item {
+            margin-top: 0;
+          }
+        }
       `}</style>
     </>
   )

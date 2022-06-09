@@ -1,10 +1,15 @@
 import Header from './Header'
 import SearchPlaceholder from './SearchPlaceholder'
 import List from './List'
-import SearchView from './SearchView'
-import BagView from './BagView'
 
-import { useState, useEffect } from 'react'
+// import SearchView from './SearchView'
+// import BagView from './BagView'
+import dynamic from 'next/dynamic'
+
+const SearchView = dynamic(() => import('./SearchView'))
+const BagView = dynamic(() => import('./BagView'))
+
+import { useState, useEffect, Suspense } from 'react'
 
 export default function GlobalNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

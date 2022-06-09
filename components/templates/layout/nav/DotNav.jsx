@@ -8,12 +8,11 @@ export default function DotNav({ current, length, handleDotClick }) {
             <button
               type='button'
               role='tab'
-              aria-controls={`97439d60-e0c6-11ec-bb44-35cae391b59c-gallery-item-${i}`}
               aria-selected={i === current}
               aria-label={`Item ${i + 1}`}
               tabIndex={i === current ? 0 : -1}
               className={`dotnav-item ${current === i ? 'current' : ''}`}
-              data-autom={`gallery-dot-nav-${i}`}
+              data-autom={`dot-nav-${i}`}
               onClick={() => handleDotClick(i)}
             />
           </li>

@@ -1,48 +1,6 @@
 import Link from 'next/link'
 
 export default function List({ setIsSearchView, isBagView, setIsBagView }) {
-  let transition = ''
-  let searchTransition = ''
-  for (let i = 1; i <= 11; i++) {
-    transition += `
-    #ac-globalnav .ac-gn-item-menu:nth-child(${i}) {
-      transform: translateY(${-52 + i * 4}px);
-      transition: opacity ${0.35 - (i - 1) / 75}s
-          cubic-bezier(0.52, 0.16, 0.52, 0.84) ${0.15 - (i - 2) / 75}s,
-        transform ${0.48 - (i - 1) / 90}s
-          cubic-bezier(0.52, 0.16, 0.52, 0.84)
-          ${0.108 - ((i - 2) * 2) / 225}s;
-    }
-    #ac-gn-menustate:checked
-          ~ #ac-globalnav
-          .ac-gn-item-menu:nth-child(${i}),
-        #ac-gn-menustate:target
-          ~ #ac-globalnav
-          .ac-gn-item-menu:nth-child(${i}) {
-          transition: opacity ${0.3 + ((i - 1) * 2) / 225}s
-              cubic-bezier(0.32, 0.08, 0.24, 1) ${0.03 + (i - 2) / 75}s,
-            transform ${0.3 + ((i + 3) * 2) / 225}s
-              cubic-bezier(0.32, 0.08, 0.24, 1) ${0.02 + (i - 2) / 75}s;
-        }
-      #ac-globalnav .ac-gn-item-menu:nth-child(${i})::before {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 1px;
-        background: #424245;
-      }
-      `
-    searchTransition += `
-      #ac-globalnav.searchshow .ac-gn-item-menu:nth-child(${i}) {
-        animation-delay: ${0.39 - i * 0.03}s;
-      }
-
-      #ac-globalnav.searchhide .ac-gn-item-menu:nth-child(${i}) {
-        animation-delay: ${-0.03 + i * 0.03}s;
-      }
-    `
-  }
-
   return (
     <>
       <ul className='ac-gn-list'>
@@ -252,12 +210,193 @@ export default function List({ setIsSearchView, isBagView, setIsBagView }) {
             transition-delay: 0s;
           }
 
+          #ac-globalnav .ac-gn-item-menu::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #424245;
+          }
           #ac-globalnav .ac-gn-item-menu:nth-child(1)::before,
           #ac-globalnav .ac-gn-item-menu:nth-child(2)::before {
             display: none;
           }
 
-          ${transition}
+          #ac-globalnav .ac-gn-item-menu:nth-child(1) {
+            transform: translateY(-48px);
+            transition: opacity 0.35s cubic-bezier(0.52, 0.16, 0.52, 0.84)
+                0.163s,
+              transform 0.48s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.117s;
+          }
+          #ac-gn-menustate:checked
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(1),
+          #ac-gn-menustate:target
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(1) {
+            transition: opacity 0.3s cubic-bezier(0.32, 0.08, 0.24, 1) 0.017s,
+              transform 0.336s cubic-bezier(0.32, 0.08, 0.24, 1) 0.007s;
+          }
+
+          #ac-globalnav .ac-gn-item-menu:nth-child(2) {
+            transform: translateY(-44px);
+            transition: opacity 0.337s cubic-bezier(0.52, 0.16, 0.52, 0.84)
+                0.15s,
+              transform 0.469s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.108s;
+          }
+          #ac-gn-menustate:checked
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(2),
+          #ac-gn-menustate:target
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(2) {
+            transition: opacity 0.309s cubic-bezier(0.32, 0.08, 0.24, 1) 0.03s,
+              transform 0.344s cubic-bezier(0.32, 0.08, 0.24, 1) 0.02s;
+          }
+
+          #ac-globalnav .ac-gn-item-menu:nth-child(3) {
+            transform: translateY(-40px);
+            transition: opacity 0.323s cubic-bezier(0.52, 0.16, 0.52, 0.84)
+                0.137s,
+              transform 0.458s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.099s;
+          }
+          #ac-gn-menustate:checked
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(3),
+          #ac-gn-menustate:target
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(3) {
+            transition: opacity 0.318s cubic-bezier(0.32, 0.08, 0.24, 1) 0.043s,
+              transform 0.353s cubic-bezier(0.32, 0.08, 0.24, 1) 0.033s;
+          }
+
+          #ac-globalnav .ac-gn-item-menu:nth-child(4) {
+            transform: translateY(-36px);
+            transition: opacity 0.31s cubic-bezier(0.52, 0.16, 0.52, 0.84)
+                0.123s,
+              transform 0.447s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.09s;
+          }
+          #ac-gn-menustate:checked
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(4),
+          #ac-gn-menustate:target
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(4) {
+            transition: opacity 0.327s cubic-bezier(0.32, 0.08, 0.24, 1) 0.057s,
+              transform 0.362s cubic-bezier(0.32, 0.08, 0.24, 1) 0.047s;
+          }
+
+          #ac-globalnav .ac-gn-item-menu:nth-child(5) {
+            transform: translateY(-32px);
+            transition: opacity 0.297s cubic-bezier(0.52, 0.16, 0.52, 0.84)
+                0.11s,
+              transform 0.436s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.081s;
+          }
+          #ac-gn-menustate:checked
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(5),
+          #ac-gn-menustate:target
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(5) {
+            transition: opacity 0.336s cubic-bezier(0.32, 0.08, 0.24, 1) 0.07s,
+              transform 0.371s cubic-bezier(0.32, 0.08, 0.24, 1) 0.06s;
+          }
+
+          #ac-globalnav .ac-gn-item-menu:nth-child(6) {
+            transform: translateY(-28px);
+            transition: opacity 0.283s cubic-bezier(0.52, 0.16, 0.52, 0.84)
+                0.097s,
+              transform 0.424s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.072s;
+          }
+          #ac-gn-menustate:checked
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(6),
+          #ac-gn-menustate:target
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(6) {
+            transition: opacity 0.344s cubic-bezier(0.32, 0.08, 0.24, 1) 0.083s,
+              transform 0.38s cubic-bezier(0.32, 0.08, 0.24, 1) 0.073s;
+          }
+
+          #ac-globalnav .ac-gn-item-menu:nth-child(7) {
+            transform: translateY(-24px);
+            transition: opacity 0.27s cubic-bezier(0.52, 0.16, 0.52, 0.84)
+                0.083s,
+              transform 0.413s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.064s;
+          }
+          #ac-gn-menustate:checked
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(7),
+          #ac-gn-menustate:target
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(7) {
+            transition: opacity 0.353s cubic-bezier(0.32, 0.08, 0.24, 1) 0.097s,
+              transform 0.389s cubic-bezier(0.32, 0.08, 0.24, 1) 0.087s;
+          }
+
+          #ac-globalnav .ac-gn-item-menu:nth-child(8) {
+            transform: translateY(-20px);
+            transition: opacity 0.257s cubic-bezier(0.52, 0.16, 0.52, 0.84)
+                0.07s,
+              transform 0.402s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.055s;
+          }
+          #ac-gn-menustate:checked
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(8),
+          #ac-gn-menustate:target
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(8) {
+            transition: opacity 0.362s cubic-bezier(0.32, 0.08, 0.24, 1) 0.11s,
+              transform 0.398s cubic-bezier(0.32, 0.08, 0.24, 1) 0.1s;
+          }
+
+          #ac-globalnav .ac-gn-item-menu:nth-child(9) {
+            transform: translateY(-16px);
+            transition: opacity 0.243s cubic-bezier(0.52, 0.16, 0.52, 0.84)
+                0.057s,
+              transform 0.391s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.046s;
+          }
+          #ac-gn-menustate:checked
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(9),
+          #ac-gn-menustate:target
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(9) {
+            transition: opacity 0.371s cubic-bezier(0.32, 0.08, 0.24, 1) 0.123s,
+              transform 0.407s cubic-bezier(0.32, 0.08, 0.24, 1) 0.113s;
+          }
+
+          #ac-globalnav .ac-gn-item-menu:nth-child(10) {
+            transform: translateY(-12px);
+            transition: opacity 0.23s cubic-bezier(0.52, 0.16, 0.52, 0.84)
+                0.043s,
+              transform 0.38s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.037s;
+          }
+          #ac-gn-menustate:checked
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(10),
+          #ac-gn-menustate:target
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(10) {
+            transition: opacity 0.38s cubic-bezier(0.32, 0.08, 0.24, 1) 0.137s,
+              transform 0.416s cubic-bezier(0.32, 0.08, 0.24, 1) 0.127s;
+          }
+
+          #ac-globalnav .ac-gn-item-menu:nth-child(11) {
+            transform: translateY(-8px);
+            transition: opacity 0.217s cubic-bezier(0.52, 0.16, 0.52, 0.84)
+                0.03s,
+              transform 0.369s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.028s;
+          }
+          #ac-gn-menustate:checked
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(11),
+          #ac-gn-menustate:target
+            ~ #ac-globalnav
+            .ac-gn-item-menu:nth-child(11) {
+            transition: opacity 0.389s cubic-bezier(0.32, 0.08, 0.24, 1) 0.15s,
+              transform 0.424s cubic-bezier(0.32, 0.08, 0.24, 1) 0.14s;
+          }
         }
 
         #ac-globalnav.searchshow .ac-gn-apple,
@@ -269,7 +408,84 @@ export default function List({ setIsSearchView, isBagView, setIsBagView }) {
           animation-delay: 0.36s;
         }
 
-        ${searchTransition}
+        /* searchshow searchhide */
+        #ac-globalnav.searchshow .ac-gn-item-menu:nth-child(1) {
+          animation-delay: 0.36s;
+        }
+        #ac-globalnav.searchhide .ac-gn-item-menu:nth-child(1) {
+          animation-delay: 0s;
+        }
+
+        #ac-globalnav.searchshow .ac-gn-item-menu:nth-child(2) {
+          animation-delay: 0.33s;
+        }
+        #ac-globalnav.searchhide .ac-gn-item-menu:nth-child(2) {
+          animation-delay: 0.03s;
+        }
+
+        #ac-globalnav.searchshow .ac-gn-item-menu:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+        #ac-globalnav.searchhide .ac-gn-item-menu:nth-child(3) {
+          animation-delay: 0.06s;
+        }
+
+        #ac-globalnav.searchshow .ac-gn-item-menu:nth-child(4) {
+          animation-delay: 0.27s;
+        }
+        #ac-globalnav.searchhide .ac-gn-item-menu:nth-child(4) {
+          animation-delay: 0.09s;
+        }
+
+        #ac-globalnav.searchshow .ac-gn-item-menu:nth-child(5) {
+          animation-delay: 0.24s;
+        }
+        #ac-globalnav.searchhide .ac-gn-item-menu:nth-child(5) {
+          animation-delay: 0.12s;
+        }
+
+        #ac-globalnav.searchshow .ac-gn-item-menu:nth-child(6) {
+          animation-delay: 0.21s;
+        }
+        #ac-globalnav.searchhide .ac-gn-item-menu:nth-child(6) {
+          animation-delay: 0.15s;
+        }
+
+        #ac-globalnav.searchshow .ac-gn-item-menu:nth-child(7) {
+          animation-delay: 0.18s;
+        }
+        #ac-globalnav.searchhide .ac-gn-item-menu:nth-child(7) {
+          animation-delay: 0.18s;
+        }
+
+        #ac-globalnav.searchshow .ac-gn-item-menu:nth-child(8) {
+          animation-delay: 0.15s;
+        }
+        #ac-globalnav.searchhide .ac-gn-item-menu:nth-child(8) {
+          animation-delay: 0.21s;
+        }
+
+        #ac-globalnav.searchshow .ac-gn-item-menu:nth-child(9) {
+          animation-delay: 0.12s;
+        }
+        #ac-globalnav.searchhide .ac-gn-item-menu:nth-child(9) {
+          animation-delay: 0.24s;
+        }
+
+        #ac-globalnav.searchshow .ac-gn-item-menu:nth-child(10) {
+          animation-delay: 0.09s;
+        }
+        #ac-globalnav.searchhide .ac-gn-item-menu:nth-child(10) {
+          animation-delay: 0.27s;
+        }
+
+        #ac-globalnav.searchshow .ac-gn-item-menu:nth-child(11) {
+          animation-delay: 0.06s;
+        }
+        #ac-globalnav.searchhide .ac-gn-item-menu:nth-child(11) {
+          animation-delay: 0.3s;
+        }
+        /* searchshow searchhide */
 
         #ac-globalnav.searchhide .ac-gn-apple,
         #ac-globalnav.searchhide .ac-gn-item-menu,
