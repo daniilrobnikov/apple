@@ -1,0 +1,18 @@
+[data-core-gallery] {
+  overflow: hidden;
+  position: relative;
+  min-height: 100px;
+}
+
+[data-core-gallery-scroller] {
+  width: 100%;
+  white-space: normal;
+  display: flex;
+  position: relative;
+}
+
+[data-core-gallery-item] {
+  cursor: auto;
+  width: 100%;
+  overflow: hidden;
+}

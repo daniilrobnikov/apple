@@ -1,0 +1,140 @@
+.a11y,
+.visuallyhidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(0 0 99.9% 99.9%);
+  clip-path: inset(0 0 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+}
+
+.cover-link {
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+.column {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-width: 0px;
+}
+
+/* .section-content */
+.section-content {
+  margin-left: auto;
+  margin-right: auto;
+} /* desktop ////////////////////////// */
+@media only screen and (min-width: 1069px) {
+  .section-content {
+    width: 980px;
+    min-width: 980px;
+  }
+} /* tablet ////////////////////////// */
+@media only screen and (min-width: 735px) and (max-width: 1068px) {
+  .section-content {
+    width: 692px;
+    min-width: 692px;
+  }
+} /* mobile ////////////////////////// */
+@media only screen and (max-width: 734px) {
+  .section-content {
+    width: 87.5%;
+    min-width: 87.5%;
+  }
+}
+
+/* flex-sizes */
+/* desktop */
+.large-12 {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+.large-9 {
+  flex-basis: 75%;
+  max-width: 75%;
+}
+.large-8 {
+  flex-basis: 66.66667%;
+  max-width: 66.66667%;
+}
+.large-6 {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+.large-4 {
+  flex-basis: 33.33333%;
+  max-width: 33.33333%;
+}
+.large-3 {
+  flex-basis: 25%;
+  max-width: 25%;
+}
+
+/* mobile */
+@media only screen and (max-width: 1068px) {
+  .medium-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .medium-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+/* mobile */
+@media only screen and (max-width: 734px) {
+  .small-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .small-8 {
+    flex-basis: 66.66667%;
+    max-width: 66.66667%;
+  }
+  .small-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  .small-3 {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+}
+
+.large-centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+.fullwidth {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* typography */
+
+.violator-frameless {
+  box-sizing: border-box;
+  white-space: nowrap;
+  display: block;
+  color: #bf4800;
+}
+.violator-reduced {
+  font-size: 12px;
+  line-height: 1.33337;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
+  border-radius: 12px;
+  padding: 3px 11px;
+}
