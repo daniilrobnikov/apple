@@ -27,7 +27,7 @@ export default function Browser({ tabs }) {
             data-core-tabs-panels=''
             className='rf-browser-wrapper section-content'
           >
-            {tabs.map((section, i) => (
+            {tabs?.map((section, i) => (
               <ul
                 className={`rf-browser-list ${tab === i ? 'current' : ''}`}
                 key={i}
@@ -39,30 +39,31 @@ export default function Browser({ tabs }) {
                   data-core-tabs-panel-selected=''
                   role='tabpanel'
                 >
-                  {section.pages
-                    .filter((value) => value.href !== router.asPath)
-                    .slice(0, length)
-                    .map((page, i) => (
-                      <li className='rf-browser-item' key={i}>
-                        <a
-                          className='column large-12'
-                          href={page.href}
-                          data-autom={page.title}
-                        >
-                          <div className='rf-browser-itemiconwrapper small-3'>
-                            <img
-                              className='rf-browser-itemicon'
-                              aria-hidden='true'
-                              src={page.icon}
-                              alt={`${page.title} - Icon`}
-                            />
-                          </div>
-                          <span className='rf-browser-itemname small-8'>
-                            {page.title}
-                          </span>
-                        </a>
-                      </li>
-                    ))}
+                  {section.pages &&
+                    section.pages
+                      .filter((value) => value.href !== router.asPath)
+                      .slice(0, length)
+                      .map((page, i) => (
+                        <li className='rf-browser-item' key={i}>
+                          <a
+                            className='column large-12'
+                            href={page.href}
+                            data-autom={page.title}
+                          >
+                            <div className='rf-browser-itemiconwrapper small-3'>
+                              <img
+                                className='rf-browser-itemicon'
+                                aria-hidden='true'
+                                src={page.icon}
+                                alt={`${page.title} - Icon`}
+                              />
+                            </div>
+                            <span className='rf-browser-itemname small-8'>
+                              {page.title}
+                            </span>
+                          </a>
+                        </li>
+                      ))}
                 </div>
                 <div className='rf-browser-borderline'>
                   {section.pages.filter((value) => value.href !== router.asPath)

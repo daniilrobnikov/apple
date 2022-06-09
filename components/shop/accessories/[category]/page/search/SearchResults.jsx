@@ -17,7 +17,7 @@ export default function SearchResults() {
               data-analytics-region='results'
               role='list'
             >
-              {[...Array(30).fill(0)].map((_, i) => (
+              {[...Array(30).fill(0)]?.map((_, i) => (
                 <ProductTile key={i} />
               ))}
             </section>

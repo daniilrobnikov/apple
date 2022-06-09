@@ -80,14 +80,14 @@ export default function LocalNav({ localnav }) {
             <div className='ac-ln-menu'>
               {localnav.menu && (
                 <div className='ac-ln-menu-tray'>
-                  {localnav.menu.map((list, i) => (
+                  {localnav.menu?.map((list, i) => (
                     <ul className='ac-ln-menu-items' key={i}>
                       {list.title && (
                         <li className='ac-ln-menu-item as-localnav-listtitle'>
                           <span className='ac-ln-menu-link'>{list.title}</span>
                         </li>
                       )}
-                      {list.links.map((link, i) => (
+                      {list.links?.map((link, i) => (
                         <li className='ac-ln-menu-item' key={i}>
                           <a
                             href={link.href}
@@ -124,12 +124,11 @@ export default function LocalNav({ localnav }) {
                     </label>
                   </div>
                 )}
-                {localnav.actions &&
-                  localnav.actions.map((link, i) => (
-                    <div className='ac-ln-action ac-ln-action-button' key={i}>
-                      <StyledLink link={link} styles='button-reduced' />
-                    </div>
-                  ))}
+                {localnav.actions?.map((link, i) => (
+                  <div className='ac-ln-action ac-ln-action-button' key={i}>
+                    <StyledLink link={link} styles='button-reduced' />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
