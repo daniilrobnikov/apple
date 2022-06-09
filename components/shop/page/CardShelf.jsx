@@ -1,5 +1,4 @@
 import PaddleNav from '@/components/templates/layout/nav/PaddleNav'
-import $ from 'jquery'
 
 import { useState, useEffect, useRef } from 'react'
 
@@ -35,19 +34,8 @@ export default function CardShelf({ children, type }) {
 
     return () => {
       window.removeEventListener('resize', updateScroll)
-      // ref.current
-      //   .querySelector(`.cards-scroller-snap`)
-      //   .removeEventListener('scroll', updateScroll)
     }
   }, [])
-
-  useEffect(() => {
-    $(ref.current)
-      .find(`.cards-scroller-snap > *`)
-      .css({
-        justifyContent: visibleWidth === scrollWidth ? 'center' : 'flex-start',
-      })
-  }, [visibleWidth, scrollWidth])
 
   const handleArrowClick = (e) => {
     ref.current.querySelector(`.cards-scroller-snap`).scrollBy({
@@ -71,7 +59,15 @@ export default function CardShelf({ children, type }) {
           <div className='cards-scroller' ref={ref}>
             <div className='cards-scroller-crop'>
               <div className='cards-scroller-snap'>
-                <div className='cards-scroller-platter'>{children}</div>
+                <div
+                  className='cards-scroller-platter'
+                  style={{
+                    justifyContent:
+                      visibleWidth === scrollWidth ? 'center' : 'flex-start',
+                  }}
+                >
+                  {children}
+                </div>
               </div>
             </div>
             {/* TODO: import header */}

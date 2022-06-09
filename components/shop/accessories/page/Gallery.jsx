@@ -7,13 +7,15 @@ import Link from 'next/link'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 
 import { Suspense } from 'react'
-const PaddleNav = dynamic(() =>
-  import('@/components/templates/layout/nav/PaddleNav')
+const PaddleNav = dynamic(
+  () => import('@/components/templates/layout/nav/PaddleNav'),
+  { ssr: true }
 )
 const DotNav = dynamic(
   () => import('@/components/templates/layout/nav/DotNav'),
   {
     suspense: true,
+    ssr: true,
   }
 )
 

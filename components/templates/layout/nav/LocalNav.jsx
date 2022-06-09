@@ -1,7 +1,6 @@
 import StyledLink from '../styled/StyledLink'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import $ from 'jquery'
 
 // TODO: Add children for change tray variations
 
@@ -31,12 +30,14 @@ export default function LocalNav({ localnav }) {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    if (isOpen) {
-      $(window).on('scroll', () => {
-        setIsOpen(false)
-      })
+    function closeMenu() {
+      setIsOpen(false)
     }
-  })
+    window.addEventListener('scroll', closeMenu)
+    return () => {
+      window.removeEventListener('scroll', closeMenu)
+    }
+  }, [])
 
   return (
     <>
