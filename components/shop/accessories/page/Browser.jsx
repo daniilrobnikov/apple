@@ -27,7 +27,7 @@ export default function Browser({ tabs }) {
             data-core-tabs-panels=''
             className='rf-browser-wrapper section-content'
           >
-            {tabs?.map((section, i) => (
+            {tabs.map((section, i) => (
               <ul
                 className={`rf-browser-list ${tab === i ? 'current' : ''}`}
                 key={i}

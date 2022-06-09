@@ -1,14 +1,10 @@
 import Link from 'next/link'
 
 export default function StyledLink({ link, styles }) {
-  link.href = link.href || '#'
-  styles = styles || ''
-
   if (link.type === 'button') {
     link.text = link.text || 'Buy'
     styles += ' button'
   } else {
-    link.text = link.text || 'Learn more'
     styles += ' icon-after'
     if (!link.href.startsWith('/')) {
       styles += ' icon-external'
@@ -214,4 +210,12 @@ export default function StyledLink({ link, styles }) {
       `}</style>
     </>
   )
+}
+
+StyledLink.defaultProps = {
+  link: {
+    href: '#',
+    text: 'Learn more',
+  },
+  styles: '',
 }
