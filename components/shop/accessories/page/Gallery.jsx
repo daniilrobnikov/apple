@@ -1,8 +1,15 @@
-import DotNav from '@/components/templates/layout/nav/DotNav'
-import PaddleNav from '@/components/templates/layout/nav/PaddleNav'
-import StyledLink from '@/components/templates/layout/styled/StyledLink'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
+// import PaddleNav from '@/components/templates/layout/nav/PaddleNav'
+// import DotNav from '@/components/templates/layout/nav/DotNav'
+
+import StyledLink from '@/components/templates/layout/styled/StyledLink'
+
+const PaddleNav = dynamic(() =>
+  import('@/components/templates/layout/nav/PaddleNav')
+)
+const DotNav = dynamic(() => import('@/components/templates/layout/nav/DotNav'))
 
 import { useState, useRef } from 'react'
 

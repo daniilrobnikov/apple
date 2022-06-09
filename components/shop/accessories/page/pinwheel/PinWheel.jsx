@@ -1,7 +1,6 @@
-import StyledLink from '@/components/templates/layout/styled/StyledLink'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import StyledLink from '@/components/templates/layout/styled/StyledLink'
 import PinWheelTile from './PinWheelTile'
 
 export default function PinWheel() {
