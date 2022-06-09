@@ -6,10 +6,19 @@ import Link from 'next/link'
 
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 
-const PaddleNav = dynamic(() =>
-  import('@/components/templates/layout/nav/PaddleNav')
+import { Suspense } from 'react'
+const PaddleNav = dynamic(
+  () => import('@/components/templates/layout/nav/PaddleNav'),
+  {
+    suspense: true,
+  }
 )
-const DotNav = dynamic(() => import('@/components/templates/layout/nav/DotNav'))
+const DotNav = dynamic(
+  () => import('@/components/templates/layout/nav/DotNav'),
+  {
+    suspense: true,
+  }
+)
 
 import { useState, useRef } from 'react'
 
@@ -40,11 +49,13 @@ export default function Gallery({ items }) {
             aria-label='Gallery'
             ref={ref}
           >
-            <DotNav
-              handleDotClick={handleDotClick}
-              length={items.length}
-              current={-slide / step}
-            />
+            <Suspense>
+              <DotNav
+                handleDotClick={handleDotClick}
+                length={items.length}
+                current={-slide / step}
+              />
+            </Suspense>
 
             <div
               id='6c145670-e40e-11ec-933f-27ac4d87258a'
@@ -242,13 +253,14 @@ export default function Gallery({ items }) {
                 </div>
               </div>
             </div>
-
-            <PaddleNav
-              disablePrevious={slide === 0}
-              disableNext={slide === -width + step}
-              handleArrowClick={handleArrowClick}
-              parentClass='rc-inline-gallery'
-            />
+            <Suspense>
+              <PaddleNav
+                disablePrevious={slide === 0}
+                disableNext={slide === -width + step}
+                handleArrowClick={handleArrowClick}
+                parentClass='rc-inline-gallery'
+              />
+            </Suspense>
           </div>
         </div>
       </div>
