@@ -2,11 +2,7 @@ import Layout from '@/components/templates/layout/global/layout'
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
 
 export default function Sitemap() {
-  return (
-    <>
-      <LocalNav localnav={localnav} />
-    </>
-  )
+  return <>{/* <LocalNav localnav={localnav} /> */}</>
 }
 
 const localnav = {
