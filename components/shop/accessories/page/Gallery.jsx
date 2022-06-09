@@ -7,11 +7,8 @@ import Link from 'next/link'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 
 import { Suspense } from 'react'
-const PaddleNav = dynamic(
-  () => import('@/components/templates/layout/nav/PaddleNav'),
-  {
-    suspense: true,
-  }
+const PaddleNav = dynamic(() =>
+  import('@/components/templates/layout/nav/PaddleNav')
 )
 const DotNav = dynamic(
   () => import('@/components/templates/layout/nav/DotNav'),
@@ -253,14 +250,12 @@ export default function Gallery({ items }) {
                 </div>
               </div>
             </div>
-            <Suspense>
-              <PaddleNav
-                disablePrevious={slide === 0}
-                disableNext={slide === -width + step}
-                handleArrowClick={handleArrowClick}
-                parentClass='rc-inline-gallery'
-              />
-            </Suspense>
+            <PaddleNav
+              disablePrevious={slide === 0}
+              disableNext={slide === -width + step}
+              handleArrowClick={handleArrowClick}
+              parentClass='rc-inline-gallery'
+            />
           </div>
         </div>
       </div>
