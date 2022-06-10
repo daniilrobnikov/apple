@@ -1,23 +1,11 @@
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
-// import PaddleNav from '@/components/templates/layout/nav/PaddleNav'
-// import DotNav from '@/components/templates/layout/nav/DotNav'
+import PaddleNav from '@/components/templates/layout/nav/PaddleNav'
+import DotNav from '@/components/templates/layout/nav/DotNav'
 
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 
 import { Suspense } from 'react'
-const PaddleNav = dynamic(
-  () => import('@/components/templates/layout/nav/PaddleNav'),
-  { ssr: true }
-)
-const DotNav = dynamic(
-  () => import('@/components/templates/layout/nav/DotNav'),
-  {
-    suspense: true,
-    ssr: true,
-  }
-)
 
 import { useState, useRef } from 'react'
 
