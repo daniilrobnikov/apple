@@ -30,3 +30,9 @@ export default function Sitemap() {
     </>
   )
 }
+
+export async function getStaticProps() {
+  return {
+    props: {},
+  }
+}
