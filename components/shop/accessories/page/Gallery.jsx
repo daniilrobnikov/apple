@@ -1,13 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import PaddleNav from '@/components/templates/layout/nav/PaddleNav'
-import DotNav from '@/components/templates/layout/nav/DotNav'
+import { useState, useRef } from 'react'
 
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 
-import { Suspense } from 'react'
-
-import { useState, useRef } from 'react'
+import PaddleNav from '@/components/templates/layout/nav/PaddleNav'
+import DotNav from '@/components/templates/layout/nav/DotNav'
 
 export default function Gallery({ items }) {
   const ref = useRef(null)
@@ -36,13 +34,11 @@ export default function Gallery({ items }) {
             aria-label='Gallery'
             ref={ref}
           >
-            <Suspense>
-              <DotNav
-                handleDotClick={handleDotClick}
-                length={items.length}
-                current={-slide / step}
-              />
-            </Suspense>
+            <DotNav
+              handleDotClick={handleDotClick}
+              length={items.length}
+              current={-slide / step}
+            />
 
             <div
               id='6c145670-e40e-11ec-933f-27ac4d87258a'
