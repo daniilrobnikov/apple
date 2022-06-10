@@ -4,8 +4,6 @@ import PinWheel from '@/components/shop/accessories/page/pinwheel/PinWheel'
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
 import SearchBox from '@/components/templates/layout/SearchBox'
 
-export const config = { amp: 'hybrid' }
-
 export default function Accessories({ family }) {
   return (
     <>
