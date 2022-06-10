@@ -298,6 +298,11 @@ export default function Gallery({ items }) {
           display: flex;
           align-items: center;
         }
+        .dd-acc-header .column:last-child {
+          display: flex;
+          align-items: flex-end;
+          height: 440px;
+        }
 
         .dd-acc-header .dd-info {
           z-index: 2;
@@ -338,23 +343,15 @@ export default function Gallery({ items }) {
           margin-top: 0.8em;
         }
 
-        .dd-acc-header .column:last-child {
-          display: flex;
-          align-items: flex-end;
-          height: 440px;
-        }
-
         .dd-acc-header .dd-background {
           z-index: 1;
           margin-left: -160px;
           height: 440px;
           width: 736px;
-          position: absolute;
         }
 
         .dd-hero {
           vertical-align: bottom;
-          position: absolute;
         }
 
         /* desktop */
