@@ -4,7 +4,7 @@ import PinWheel from '@/components/shop/accessories/page/pinwheel/PinWheel'
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
 import SearchBox from '@/components/templates/layout/SearchBox'
 
-export default function Accessories() {
+export default function Accessories({ family }) {
   return (
     <>
       <LocalNav localnav={localnav} />
@@ -366,3 +366,24 @@ const accessories = [
     ],
   },
 ]
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { family: 'all' } },
+      { params: { family: 'mac' } },
+      { params: { family: 'ipad' } },
+      { params: { family: 'watch' } },
+      { params: { family: 'iphone' } },
+      { params: { family: 'smart-home' } },
+    ],
+    fallback: false,
+  }
+}
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      family: params.family,
+    },
+  }
+}

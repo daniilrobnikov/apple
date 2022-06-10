@@ -25,11 +25,16 @@ export default function SearchBox({ title, placeholder }) {
                   input && ' form-textbox-entered'
                 }`}
                 aria-invalid='false'
+                aria-labelledby='form-textbox-label'
                 autoComplete='off'
                 value={input}
                 onChange={(e) => hangleInput(e)}
               />
-              <span className='form-textbox-label' aria-hidden='true'>
+              <span
+                id='form-textbox-label'
+                className='form-textbox-label'
+                aria-hidden='true'
+              >
                 {placeholder}
               </span>
               <div className='search-input-lefticon'>
