@@ -1,4 +1,3 @@
-import React from 'react'
 import PortalProductModal from './PortalProductModal'
 import PortalTabNav from './PortalTabNav'
 

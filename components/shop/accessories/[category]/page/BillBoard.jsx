@@ -17,11 +17,6 @@ export default function BillBoard() {
           align-items: center;
           min-height: 128px;
         }
-        .rf-category-billboard .rf-category-billboard-header {
-          font-weight: 600;
-          font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
-            Helvetica, Arial, sans-serif;
-        }
 
         @media only screen and (min-width: 735px) {
           font-size: 40px;

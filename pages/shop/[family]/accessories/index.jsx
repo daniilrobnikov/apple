@@ -1,7 +1,6 @@
 import Browser from '@/components/shop/accessories/page/Browser'
 import Gallery from '@/components/shop/accessories/page/Gallery'
 import PinWheel from '@/components/shop/accessories/page/pinwheel/PinWheel'
-import Layout from '@/components/templates/layout/global/layout'
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
 import SearchBox from '@/components/templates/layout/SearchBox'
 
@@ -9,27 +8,19 @@ export default function Accessories() {
   return (
     <>
       <LocalNav localnav={localnav} />
-      <Gallery items={[0, 0, 0]} />
-      <SearchBox
-        title='Find the accessories you’re looking for.'
-        placeholder='Search accessories'
-      />
-      <Browser tabs={accessories} />
+      <main>
+        <Gallery items={[0, 0, 0]} />
+        <SearchBox
+          title='Find the accessories you’re looking for.'
+          placeholder='Search accessories'
+        />
+        <Browser tabs={accessories} />
 
-      <PinWheel />
+        <PinWheel />
+      </main>
 
       <style global jsx>{`
-        h1 + *,
-        h2 + *,
-        h3 + *,
-        h4 + *,
-        h5 + *,
-        h6 + * {
-          margin-top: 0.8em;
-        }
-        ol + *,
-        p + *,
-        ul + * {
+        :is(h1, h2, h3, h4, h5, h6, p, ul, ol) + * {
           margin-top: 0.8em;
         }
 
@@ -41,8 +32,9 @@ export default function Accessories() {
             display: block;
           }
           /* :checked */
-          #ac-ln-menustate:checked ~ #ac-localnav .ac-ln-menu-tray,
-          #ac-ln-menustate:target ~ #ac-localnav .ac-ln-menu-tray {
+          #ac-ln-menustate:is(:checked, :target)
+            ~ #ac-localnav
+            .ac-ln-menu-tray {
             display: flex;
           }
 
@@ -374,7 +366,3 @@ const accessories = [
     ],
   },
 ]
-
-Accessories.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
-}

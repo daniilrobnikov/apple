@@ -1,7 +1,5 @@
 import Link from 'next/link'
 
-import React from 'react'
-
 export default function StyledLink({ link, styles }) {
   link.href = link.href || '#'
   styles = styles || ''
@@ -62,48 +60,35 @@ export default function StyledLink({ link, styles }) {
         .more::before,
         .more::after {
           font-family: 'SF Pro Icons';
+
           color: inherit;
-          display: inline-block;
           font-style: normal;
           font-weight: inherit;
           font-size: inherit;
           line-height: 1;
-          text-decoration: underline;
-          position: relative;
-          z-index: 1;
-        }
-        .icon::before,
-        .icon::after,
-        .more::before,
-        .more::after {
           text-decoration: none;
-        }
-        .icon-after::after,
-        .more::after {
-          content: '';
-          position: absolute;
-          background-color: currentColor;
-          padding-left: 0.3em;
-          mask-repeat: no-repeat;
-          height: 1em;
-          width: 1em;
-          top: unset;
-        }
-        .icon-before:before {
-          content: '';
-          /* Test */
+
           display: inline-block;
           position: relative;
+          z-index: 1;
+
           background-color: currentColor;
+          -webkit-mask-repeat: no-repeat;
           margin-right: 0.3em;
-          mask-repeat: no-repeat;
           height: 1em;
           width: 1em;
           top: unset;
         }
-
+        .icon-after::after,
+        .icon-before:before {
+          content: '';
+        }
         .icon-after::after {
-          mask-image: url(data:image/svg+xml;base64,${btoa(
+          position: absolute;
+        }
+
+        .icon-after[target='_self']::after {
+          -webkit-mask-image: url(data:image/svg+xml;base64,${btoa(
             `<svg
             stroke='currentColor'
             fill='currentColor'
@@ -122,20 +107,17 @@ export default function StyledLink({ link, styles }) {
         }
 
         /* icon-external */
-        .icon-external {
-          position: relative;
-        }
         .icon-external::after {
-          mask-image: url(data:image/svg+xml;base64,${btoa(
+          -webkit-mask-image: url(data:image/svg+xml;base64,${btoa(
             `<svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>`
           )});
           transform: rotate(45deg);
-          margin-top: 5.5px;
+          margin-top: 4.5px;
           margin-left: 0.1em;
         }
 
         .icon-pluscircle::after {
-          mask-image: url(data:image/svg+xml;base64,${btoa(
+          -webkit-mask-image: url(data:image/svg+xml;base64,${btoa(
             `
   <svg
     stroke='currentColor'
@@ -163,7 +145,7 @@ export default function StyledLink({ link, styles }) {
         }
 
         .icon-filter::before {
-          mask-image: url(data:image/svg+xml;base64,${btoa(
+          -webkit-mask-image: url(data:image/svg+xml;base64,${btoa(
             `
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg>
             `

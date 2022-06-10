@@ -24,7 +24,3 @@ export default function Custom500() {
     </>
   )
 }
-
-Custom500.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
-}

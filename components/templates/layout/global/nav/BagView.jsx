@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function BagView() {
   return (
     <aside className='ac-gn-bagview' data-analytics-region='bag'>

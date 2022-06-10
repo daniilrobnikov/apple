@@ -2,7 +2,6 @@
 .visuallyhidden {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
-  -webkit-clip-path: inset(0 0 99.9% 99.9%);
   clip-path: inset(0 0 99.9% 99.9%);
   overflow: hidden;
   height: 1px;
@@ -65,6 +64,10 @@
 .large-8 {
   flex-basis: 66.66667%;
   max-width: 66.66667%;
+}
+.large-7 {
+  flex-basis: 58.33333%;
+  max-width: 58.33333%;
 }
 .large-6 {
   flex-basis: 50%;

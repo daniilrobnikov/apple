@@ -13,24 +13,10 @@ export default function Category() {
       <SearchResults />
 
       <style global jsx>{`
-        h1 + *,
-        h2 + *,
-        h3 + *,
-        h4 + *,
-        h5 + *,
-        h6 + * {
-          margin-top: 0.8em;
-        }
-        ol + *,
-        p + *,
-        ul + * {
+        :is(h1, h2, h3, h4, h5, h6, p, ul, ol) + * {
           margin-top: 0.8em;
         }
       `}</style>
     </>
   )
-}
-
-Category.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
 }

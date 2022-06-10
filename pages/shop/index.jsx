@@ -79,24 +79,10 @@ export default function Store() {
           background-color: #f5f5f7;
         }
 
-        h1 + *,
-        h2 + *,
-        h3 + *,
-        h4 + *,
-        h5 + *,
-        h6 + * {
-          margin-top: 0.8em;
-        }
-        ol + *,
-        p + *,
-        ul + * {
+        :is(h1, h2, h3, h4, h5, h6, p, ul, ol) + * {
           margin-top: 0.8em;
         }
       `}</style>
     </main>
   )
-}
-
-Store.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
 }

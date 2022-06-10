@@ -60,7 +60,7 @@ export default function PaddleNav({
           margin-top: -2.64706rem;
         }
         .paddlenav .paddlenav-arrow {
-          background-color: transparent;
+          background-color: rgba(210, 210, 215, 0.2);
           color: rgba(134, 134, 139, 0.8);
         }
         .paddlenav-compact .paddlenav-arrow {
@@ -70,9 +70,6 @@ export default function PaddleNav({
           line-height: 3.05882rem;
 
           margin-top: -1.52941rem;
-        }
-        .paddlenav-framed .paddlenav-arrow {
-          background-color: rgba(210, 210, 215, 0.2);
         }
         .paddlenav .paddlenav-arrow:disabled {
           cursor: default;

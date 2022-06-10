@@ -341,6 +341,7 @@ export default function Gallery({ items }) {
         .dd-acc-header .column:last-child {
           display: flex;
           align-items: flex-end;
+          height: 440px;
         }
 
         .dd-acc-header .dd-background {
@@ -348,6 +349,7 @@ export default function Gallery({ items }) {
           margin-left: -160px;
           height: 440px;
           width: 736px;
+          position: absolute;
         }
 
         .dd-hero {
@@ -420,6 +422,7 @@ export default function Gallery({ items }) {
 
           .dd-acc-header .column:last-child {
             justify-content: center;
+            height: auto;
           }
 
           .dd-acc-header .dd-background {

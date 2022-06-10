@@ -3,6 +3,7 @@ import '@/styles/classes.css'
 import '@/styles/data.css'
 
 import { useState, useEffect } from 'react'
+import Layout from '@/components/templates/layout/global/layout'
 
 export default function MyApp({ Component, pageProps }) {
   // const [links, setLinks] = useState([])
@@ -60,5 +61,5 @@ export default function MyApp({ Component, pageProps }) {
 
   const getLayout = Component.getLayout || ((page) => page)
 
-  return getLayout(<Component {...pageProps} />)
+  return <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
 }

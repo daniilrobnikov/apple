@@ -32,7 +32,3 @@ export default function Sitemap() {
     </>
   )
 }
-
-Sitemap.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
-}

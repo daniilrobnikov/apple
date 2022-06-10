@@ -1,4 +1,3 @@
-import Layout from '@/components/templates/layout/global/layout'
 import SearchBox from '@/components/templates/layout/SearchBox'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 
@@ -23,8 +22,4 @@ export default function Custom404() {
       `}</style>
     </>
   )
-}
-
-Custom404.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
 }

@@ -1,19 +1,21 @@
 import Header from './Header'
-import SearchPlaceholder from './SearchPlaceholder'
 import List from './List'
 
+// import SearchPlaceholder from './SearchPlaceholder'
 // import SearchView from './SearchView'
 // import BagView from './BagView'
 import dynamic from 'next/dynamic'
+import { useState, useEffect } from 'react'
 
+const SearchPlaceholder = dynamic(() => import('./SearchPlaceholder'), {
+  ssr: true,
+})
 const SearchView = dynamic(() => import('./SearchView'), {
   ssr: true,
 })
 const BagView = dynamic(() => import('./BagView'), {
   ssr: true,
 })
-
-import { useState, useEffect } from 'react'
 
 export default function GlobalNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -83,23 +85,19 @@ export default function GlobalNav() {
 
         /* #ac-globalnav */
         #ac-globalnav {
+          display: block;
           position: absolute;
           top: 0;
           right: 0;
           left: 0;
           z-index: 9999;
-          display: block;
-          margin: 0;
           width: 100%;
           min-width: 1024px;
           height: 48px;
           max-height: 44px;
-          background: rgba(0, 0, 0, 0.92);
           font-size: 17px;
           user-select: none;
-        }
-        #ac-globalnav {
-          background: rgba(0, 0, 0, 0.8);
+          background-color: rgba(0, 0, 0, 0.8);
           backdrop-filter: saturate(180%) blur(20px);
         }
         #ac-globalnav,
@@ -120,16 +118,6 @@ export default function GlobalNav() {
           float: initial;
           pointer-events: auto;
           letter-spacing: normal;
-        }
-        /* ac-gn-content */
-        #ac-globalnav .ac-gn-content {
-          margin: 0 auto;
-          max-width: 980px;
-          padding: 0 22px;
-          position: relative;
-          z-index: 2;
-          padding-left: max(22px, env(safe-area-inset-left));
-          padding-right: max(22px, env(safe-area-inset-right));
         }
 
         .ac-gn-blur {
@@ -154,9 +142,9 @@ export default function GlobalNav() {
           display: block;
         }
         #ac-globalnav.searchhide ~ #ac-gn-curtain {
-          animation: ac-gn-curtain-show 0.2s reverse both;
+          animation: curtain-show 0.2s reverse both;
         }
-        @keyframes ac-gn-curtain-show {
+        @keyframes curtain-show {
           0% {
             opacity: 0;
             animation-timing-function: ease;
@@ -170,7 +158,19 @@ export default function GlobalNav() {
           height: var(--globalnav-height);
         }
 
-        /*  Tablet */
+        /*  Tablet & Desktop */
+        @media only screen and (min-width: 834px) {
+          /* ac-gn-content */
+          #ac-globalnav .ac-gn-content {
+            margin: 0 auto;
+            max-width: 980px;
+            position: relative;
+            z-index: 2;
+            padding-left: max(22px, env(safe-area-inset-left));
+            padding-right: max(22px, env(safe-area-inset-right));
+          }
+        }
+        /*  Tablet & Mobile */
         @media only screen and (max-width: 1044px) {
           #ac-globalnav {
             min-width: 320px;
@@ -182,14 +182,14 @@ export default function GlobalNav() {
             overflow-y: hidden;
             max-height: none;
             backdrop-filter: none;
-            transition: background 0.44s 0.2s cubic-bezier(0.52, 0.16, 0.24, 1),
+            transition: background-color 0.44s 0.2s
+                cubic-bezier(0.52, 0.16, 0.24, 1),
               height 0.56s cubic-bezier(0.52, 0.16, 0.24, 1);
           }
-          #ac-gn-menustate:checked ~ #ac-globalnav,
-          #ac-gn-menustate:target ~ #ac-globalnav {
+          #ac-gn-menustate:is(:checked, :target) ~ #ac-globalnav {
             height: 100%;
-            background: #000;
-            transition: background 0.36s cubic-bezier(0.32, 0.08, 0.24, 1),
+            background-color: #000;
+            transition: background-color 0.36s cubic-bezier(0.32, 0.08, 0.24, 1),
               height 0.56s cubic-bezier(0.52, 0.16, 0.24, 1);
           }
 
@@ -221,9 +221,9 @@ export default function GlobalNav() {
           /* #ac-gn-curtain */
           #ac-globalnav.with-bagview ~ #ac-gn-curtain {
             display: block;
-            animation: ac-gn-curtain-show 0.2s both;
+            animation: curtain-show 0.2s both;
           }
-          @keyframes ac-gn-curtain-show {
+          @keyframes curtain-show {
             0% {
               opacity: 0;
               animation-timing-function: ease;
@@ -272,52 +272,44 @@ export default function GlobalNav() {
         #ac-globalnav .ac-gn-link-search,
         #ac-globalnav .ac-gn-link-bag {
           background-color: currentColor;
-          mask-position: center center;
-          mask-repeat: no-repeat;
-          -webkit-mask-size: 13px var(--globalnav-height);
-          min-width: 13px;
+          -webkit-mask-position: center center;
+          -webkit-mask-repeat: no-repeat;
         }
 
         #ac-globalnav .ac-gn-link-apple {
-          mask-image: url(data:image/svg+xml;base64,${btoa(
-            `
-<svg
+          -webkit-mask-image: url(data:image/svg+xml;base64,${btoa(
+            `<svg
   xmlns='http://www.w3.org/2000/svg'
   viewBox='0 0 814 1000'
   enable-background='new 0 0 814 1000'
   xml:space='preserve'
 >
   <path d='M788.1,340.9c-5.8,4.5-108.2,62.2-108.2,190.5c0,148.4,130.3,200.9,134.2,202.2c-0.6,3.2-20.7,71.9-68.7,141.9  c-42.8,61.6-87.5,123.1-155.5,123.1s-85.5-39.5-164-39.5c-76.5,0-103.7,40.8-165.9,40.8s-105.6-57-155.5-127  C46.7,790.7,0,663,0,541.8c0-194.4,126.4-297.5,250.8-297.5c66.1,0,121.2,43.4,162.7,43.4c39.5,0,101.1-46,176.3-46  C618.3,241.7,720.7,244.3,788.1,340.9z M554.1,159.4c31.1-36.9,53.1-88.1,53.1-139.3c0-7.1-0.6-14.3-1.9-20.1  c-50.6,1.9-110.8,33.7-147.1,75.8c-28.5,32.4-55.1,83.6-55.1,135.5c0,7.8,1.3,15.6,1.9,18.1c3.2,0.6,8.4,1.3,13.6,1.3  C464,230.7,521.1,200.3,554.1,159.4z' />
-</svg>
-`
+</svg>`
           )});
         }
         #ac-globalnav .ac-gn-link-bag {
-          mask-image: url(data:image/svg+xml;base64,${btoa(
-            `
-            <svg
+          -webkit-mask-image: url(data:image/svg+xml;base64,${btoa(
+            `<svg
                 xmlns='http://www.w3.org/2000/svg'
                 viewBox='4.011000156402588 2 12.979000091552734 14.992000579833984'
               >
                 <path
                   d='M14.934,5.017H13.828A3.413,3.413,0,0,0,10.5,2,3.413,3.413,0,0,0,7.172,5.017H6.066A2.058,2.058,0,0,0,4.011,7.072v7.865a2.058,2.058,0,0,0,2.056,2.055h8.867a2.058,2.058,0,0,0,2.056-2.055V7.072A2.058,2.058,0,0,0,14.934,5.017ZM10.5,3a2.413,2.413,0,0,1,2.328,2.017H8.172A2.413,2.413,0,0,1,10.5,3Zm5.511,11.938a1.079,1.079,0,0,1-1.077,1.078H6.066a1.079,1.079,0,0,1-1.077-1.078V7.072A1.079,1.079,0,0,1,6.066,5.995h8.867a1.079,1.079,0,0,1,1.077,1.078Z'
                 />
-              </svg>
-`
+              </svg>`
           )});
         }
         #ac-globalnav .ac-gn-link-search {
-          mask-image: url(data:image/svg+xml;base64,${btoa(
-            `
-            <svg
+          -webkit-mask-image: url(data:image/svg+xml;base64,${btoa(
+            `<svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0.8333399295806885 14.968915939331055 13.308326721191406 13.312753677368164'
             >
               <path
                 d='M13.98,27.343l-3.5-3.5a5.436,5.436,0,1,0-.778.777l3.5,3.5a.55.55,0,1,0,.778-.778ZM1.959,20.418a4.319,4.319,0,1,1,4.319,4.32A4.323,4.323,0,0,1,1.959,20.418Z'
               />
-            </svg>
-`
+            </svg>`
           )});
         }
 
@@ -363,7 +355,7 @@ export default function GlobalNav() {
           width: 1.3em;
           height: 1.3em;
           top: auto;
-          z-index: 1;
+          z-index: 3;
           box-sizing: border-box;
           float: none;
 
@@ -490,6 +482,12 @@ export default function GlobalNav() {
             font-size: 12px;
             line-height: 3.66667;
             letter-spacing: -0.01em;
+          }
+          #ac-globalnav .ac-gn-link-apple,
+          #ac-globalnav .ac-gn-link-search,
+          #ac-globalnav .ac-gn-link-bag {
+            -webkit-mask-size: 13px var(--globalnav-height);
+            min-width: 13px;
           }
 
           #ac-globalnav .ac-gn-bag-badge {

@@ -26,8 +26,8 @@ export default function SearchBox({ title, placeholder }) {
                 }`}
                 aria-invalid='false'
                 autoComplete='off'
-                onChange={(e) => hangleInput(e)}
                 value={input}
+                onChange={(e) => hangleInput(e)}
               />
               <span className='form-textbox-label' aria-hidden='true'>
                 {placeholder}
@@ -35,7 +35,7 @@ export default function SearchBox({ title, placeholder }) {
               <div className='search-input-lefticon'>
                 <button type='submit'>
                   <span className='form-icons form-icons-search15'>
-                    <span className='visuallyhidden'>submit</span>
+                    <span className='visuallyhidden'>Submit</span>
                   </span>
                 </button>
               </div>
@@ -90,23 +90,15 @@ export default function SearchBox({ title, placeholder }) {
           background-color: hsla(0, 0%, 100%, 0.8);
           text-overflow: ellipsis;
         }
-        .form-textbox-with-righticon .form-textbox-input {
+        .form-textbox .form-textbox-input {
           padding-right: 2.88235rem;
-        }
-        .form-textbox-with-button .form-textbox-input {
-          padding-right: 3.82353rem;
-        }
-        .search-box .form-textbox-input {
           padding-left: 2.82353rem;
         } // :focus
-        .form-textbox-input.focused,
         .form-textbox-input:focus {
           box-shadow: 0 0 0 4px rgb(0 125 250 / 60%);
           outline: none;
         }
-        .form-textbox .form-textarea.focused,
         .form-textbox .form-textarea:focus,
-        .form-textbox .form-textbox-input.focused,
         .form-textbox .form-textbox-input:focus {
           border-color: #0071e3;
         }
@@ -134,9 +126,7 @@ export default function SearchBox({ title, placeholder }) {
         .search-box .form-textbox-label {
           padding-left: 1.88235rem;
         } // :focus
-        .form-textbox
-          .form-textbox-input:not(:disabled).focused
-          ~ .form-textbox-label,
+
         .form-textbox
           .form-textbox-input:not(:disabled).form-textarea-with-placeholder
           ~ .form-textbox-label,
@@ -157,9 +147,6 @@ export default function SearchBox({ title, placeholder }) {
           ~ .form-textbox-label {
           color: #6e6e73;
         }
-        .form-textbox-input.focused ~ .form-textbox-label,
-        .form-textbox-input.form-textarea-with-placeholder
-          ~ .form-textbox-label,
         .form-textbox-input.form-textbox-entered ~ .form-textbox-label,
         .form-textbox-input:focus ~ .form-textbox-label,
         .form-textbox-input:valid[required] ~ .form-textbox-label,

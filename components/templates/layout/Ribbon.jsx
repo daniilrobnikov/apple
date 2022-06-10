@@ -1,7 +1,6 @@
 import StyledLink from './styled/StyledLink'
 
-export default function Ribbon() {
-  var link
+export default function Ribbon({ link }) {
   return (
     <div
       className='ribbon ribbon-blue-to-default'
@@ -41,12 +40,8 @@ export default function Ribbon() {
         /* .ribbon-content-wrapper */
         .ribbon-content-wrapper {
           text-align: center;
-        }
-        .ribbon .ribbon-content-wrapper {
           padding-top: 0.9411764706em;
           padding-bottom: 0.9411764706em;
-        }
-        .ribbon .ribbon-content-wrapper {
           background-color: var(--ribbon-background-color);
         }
         .ribbon-blue-to-default .ribbon-content-wrapper {

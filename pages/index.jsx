@@ -62,42 +62,16 @@ export default function Home() {
         .main [data-unit-id] {
           position: relative;
         }
-        @supports (
-          height:
-            calc(
-              var(--global-nav-collective-height) + var(--content-height) + 12px
-            )
-        ) {
-          .main [data-module-template='ribbon'] {
-            --content-height: auto;
-            --columns: 1;
-            --gutter-width: 12px;
-            --gutter-half-width: 6px;
-            --gutter-and-half-width: 18px;
-            --gutter-color: #fff;
-            --double-edge-border-width: 0px;
-            --edge-border-width: 0px;
-            --background-color: #fbfbfd;
-            --text-color: #1d1d1f;
-            --edge-border-width-fallback: 0px;
-          }
-        }
+
         .main [data-module-template]:nth-child(1),
         .main [data-unit-id]:nth-child(1) {
           z-index: 42;
-        }
-        .main [data-module-template].collection-module {
-          display: grid;
-          width: 100%;
         }
 
         /* [data-unit-id] */
         .main [data-module-template='ribbon'] [data-unit-id],
         .main [data-module-template='ribbon'] .module-content {
           width: 100%;
-        }
-        .main [data-module-template='ribbon'] [data-unit-id],
-        .main [data-module-template='ribbon'] .module-content {
           height: auto;
         }
         .main
@@ -107,7 +81,6 @@ export default function Home() {
         }
         .main [data-module-template].collection-module [data-unit-id] {
           box-sizing: border-box;
-          position: relative;
           padding-top: 0px;
           border-style: none;
           overflow: visible;
@@ -134,27 +107,9 @@ export default function Home() {
           height: 32px;
           position: relative;
         }
-        .main
-          [data-module-template='ribbon']
-          [data-unit-id='unicef-relief-fund']
-          .logo-image {
-          margin: unset;
-        }
 
         /* mobile ////////////////////////// */
         @media only screen and (max-width: 734px) {
-          @supports (
-            height:
-              calc(
-                var(--global-nav-collective-height) + var(--content-height) +
-                  12px
-              )
-          ) {
-            .main [data-module-template='ribbon'] {
-              --content-height: 500px;
-            }
-          }
-
           /* section-content */
           .main
             [data-module-template='ribbon']
@@ -173,8 +128,4 @@ export default function Home() {
       `}</style>
     </main>
   )
-}
-
-Home.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>
 }
