@@ -1,5 +1,3 @@
-import Layout from '@/components/templates/layout/global/layout'
-
 export default function Sitemap() {
   const localnav = {
     title: 'Apple Site Map',

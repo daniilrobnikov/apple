@@ -1,7 +1,6 @@
 import Image from 'next/image'
 
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
-import Layout from '@/components/templates/layout/global/layout'
 
 export default function Home() {
   return (

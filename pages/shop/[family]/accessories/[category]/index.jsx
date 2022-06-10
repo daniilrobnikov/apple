@@ -1,6 +1,5 @@
 import BillBoard from '@/components/shop/accessories/[category]/page/BillBoard'
 import SearchResults from '@/components/shop/accessories/[category]/page/search/SearchResults'
-import Layout from '@/components/templates/layout/global/layout'
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
 
 export default function Category() {

@@ -14,9 +14,8 @@ import SmallCard from '@/components/shop/page/cards/SmallCard'
 import Portal from '@/components/shop/page/portals/Portal'
 import ProductPortal from '@/components/shop/page/portals/ProductPortal'
 import RecomCard from '@/components/shop/page/cards/RecomCard'
-import Layout from '@/components/templates/layout/global/layout'
 
-export default function Store() {
+export default function Store({ family }) {
   const router = useRouter()
   const { pathname } = router
 
@@ -85,4 +84,24 @@ export default function Store() {
       `}</style>
     </main>
   )
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { family: 'all' } },
+      { params: { family: 'buy-mac' } },
+      { params: { family: 'buy-ipad' } },
+      { params: { family: 'buy-watch' } },
+      { params: { family: 'buy-iphone' } },
+    ],
+    fallback: false,
+  }
+}
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      family: params.family.replace('buy-', ''),
+    },
+  }
 }

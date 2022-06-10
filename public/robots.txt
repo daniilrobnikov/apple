@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://apple-ashen.vercel.app/
+
+# Sitemaps
+Sitemap: https://apple-ashen.vercel.app/sitemap.xml

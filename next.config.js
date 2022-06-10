@@ -47,11 +47,16 @@ const nextConfig = {
   reactStrictMode: true,
   async redirects() {
     return [
-      {
-        source: '/shop',
+      ...['/shop', '/shop/all'].map((source) => ({
+        source,
         destination: '/store',
         permanent: true,
-      },
+      })),
+      ...['mac', 'ipad', 'watch', 'iphone'].map((family) => ({
+        source: `/shop/${family}`,
+        destination: `/shop/buy-${family}`,
+        permanent: true,
+      })),
       {
         source: '/shop/all/accessories',
         destination: '/shop/accessories/all',
@@ -68,7 +73,7 @@ const nextConfig = {
     return [
       {
         source: '/store',
-        destination: '/shop',
+        destination: '/shop/all',
       },
       {
         source: '/shop/accessories/all',

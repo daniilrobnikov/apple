@@ -1,8 +1,8 @@
 /** @type {import('next-sitemap').IConfig} */
+
 const config = {
-  siteUrl: 'https://apple-ashen.vercel.app',
-  generateRobotsTxt: true, // (optional)
-  // ...other options
+  siteUrl: 'https://apple-ashen.vercel.app/',
+  generateRobotsTxt: true,
 }
 
-export default config
+module.exports = config

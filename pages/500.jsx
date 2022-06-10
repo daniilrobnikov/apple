@@ -1,4 +1,3 @@
-import Layout from '@/components/templates/layout/global/layout'
 import SearchBox from '@/components/templates/layout/SearchBox'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 
