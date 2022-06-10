@@ -50,7 +50,7 @@ export default function GlobalNav() {
         .classList.remove('ac-gn-noscroll', 'ac-gn-noscroll-long')
     }
 
-    setTimeout(() => {
+    let searchTimer = setTimeout(() => {
       if (isSearchView) {
         document.getElementById('ac-globalnav').className = document
           .getElementById('ac-globalnav')
@@ -59,6 +59,9 @@ export default function GlobalNav() {
         document.getElementById('ac-globalnav').classList.remove('searchhide')
       }
     }, 685)
+    return () => {
+      clearTimeout(searchTimer)
+    }
   }, [isSearchView])
 
   useEffect(() => {
