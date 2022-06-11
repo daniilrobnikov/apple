@@ -1,3 +1,5 @@
+import LocalNav from '@/components/templates/layout/nav/LocalNav'
+
 export default function Sitemap() {
   return (
     <>
