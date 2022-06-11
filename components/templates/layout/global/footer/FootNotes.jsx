@@ -7,7 +7,7 @@ export default function FootNotes() {
         <div className='as-footnotes-content'>
           <div className='as-footnotes-sosumi'>
             <div className='footnotes' role='list' aria-label='footnotes'>
-              <p>
+              <p role='listitem'>
                 * Pricing for iPhone 13 and iPhone 13 mini includes a $30
                 carrier instant discount that requires activation with AT&amp;T,
                 T-Mobile, Sprint, or Verizon. Available to qualified customers
@@ -29,7 +29,7 @@ export default function FootNotes() {
                 >
                   Apple Card Customer Agreement
                 </a>
-                . Additional iPhone Payments terms are{' '}
+                . Additional iPhone Payments{' '}
                 <a
                   href='https://www.apple.com/legal/sales-support/iphoneinstallments_us'
                   data-slot-name='footnotesText'
@@ -38,14 +38,14 @@ export default function FootNotes() {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  here
+                  terms are here
                 </a>
                 . ACMI is not available for purchases made online at special
                 storefronts. The last month’s payment for each product will be
                 the product’s purchase price, less all other payments at the
                 monthly payment amount.
               </p>
-              <p>
+              <p role='listitem'>
                 ** Offer is available for new subscribers who connect an
                 eligible device to an Apple device running iOS 15 or iPadOS 15
                 or later, for a limited time only. Offer good for 3 months after
@@ -63,7 +63,7 @@ export default function FootNotes() {
                 </a>{' '}
                 apply.
               </p>
-              <p>
+              <p role='listitem'>
                 ◊ Apple Card Monthly Installments (ACMI) is a 0% APR payment
                 option available to select at checkout for certain Apple
                 products purchased at Apple Store locations,{' '}
@@ -110,7 +110,7 @@ export default function FootNotes() {
                 with one of these national carriers: AT&amp;T, Sprint, Verizon,
                 or T-Mobile.
               </p>
-              <p>
+              <p role='listitem'>
                 <sup>†</sup> Monthly pricing is available when you select Apple
                 Card Monthly Installments (ACMI) as payment type at checkout at
                 Apple, and is subject to credit approval and credit limit.
@@ -132,19 +132,21 @@ export default function FootNotes() {
                 product will be the product’s purchase price, less all other
                 payments at the monthly payment amount.
               </p>
-              <p>
+              <p role='listitem'>
                 To access and use all the features of Apple Card, you must add
                 Apple Card to Wallet on an iPhone or iPad with the latest
                 version of iOS or iPadOS. Update to the latest version by going
                 to Settings &gt; General &gt; Software Update. Tap Download and
                 Install.
               </p>
-              <p>Available for qualifying applicants in the United States.</p>
-              <p>
+              <p role='listitem'>
+                Available for qualifying applicants in the United States.
+              </p>
+              <p role='listitem'>
                 Apple Card is issued by Goldman Sachs Bank USA, Salt Lake City
                 Branch.
               </p>
-              <p>
+              <p role='listitem'>
                 1. Special pricing available to qualified customers. To learn
                 more about how to start qualifying toward special pricing, talk
                 to an Apple Specialist in a store or give us a call at
