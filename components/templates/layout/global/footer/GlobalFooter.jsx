@@ -310,9 +310,9 @@ export default function GlobalFooter() {
           {/* <BreadCrumbs /> */}
 
           <nav className='as-globalfooter-directory'>
-            {/* {directory.map((section, index) => (
+            {directory.map((section, index) => (
               <Directory section={section} key={index} index={index} />
-            ))} */}
+            ))}
           </nav>
           {/* <Legal /> */}
         </div>
