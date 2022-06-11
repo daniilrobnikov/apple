@@ -15,11 +15,11 @@ import Legal from './Legal'
 export default function GlobalFooter() {
   return (
     <>
-      <FootNotes />
+      {/* <FootNotes /> */}
 
       <footer className='as-globalfooter js flexbox' id='apple-footer'>
         <div className='as-globalfooter-content'>
-          <BreadCrumbs />
+          {/* <BreadCrumbs /> */}
 
           <nav className='as-globalfooter-directory'>
             {directory.map((section, index) => (
