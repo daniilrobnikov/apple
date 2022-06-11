@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 // TODO: Add children for change tray variations
 
-export default function LocalNav({ page, menu, actions }) {
+export default function LocalNav({ page = {}, menu, actions }) {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -52,7 +52,9 @@ export default function LocalNav({ page, menu, actions }) {
                 data-analytics-title='product index'
               >
                 {page.title}
-                <span className='ac-ln-title-comingsoon'>{page.eyebrow}</span>
+                {page.eyebrow && (
+                  <span className='ac-ln-title-comingsoon'>{page.eyebrow}</span>
+                )}
               </a>
             </div>
             <div className='ac-ln-menu'>
@@ -72,6 +74,7 @@ export default function LocalNav({ page, menu, actions }) {
                           aria-disabled='true'
                           aria-current='page'
                           role='link'
+                          disabled
                         >
                           {page.title}
                         </a>
@@ -340,11 +343,15 @@ export default function LocalNav({ page, menu, actions }) {
         #ac-localnav .ac-ln-menu-link.current {
           opacity: 0.56;
           cursor: default;
+          pointer-events: none;
         }
         #ac-localnav .ac-ln-menu-link:hover {
           color: #06c;
           opacity: 1;
           text-decoration: none;
+        }
+        #ac-localnav .ac-ln-menu-link.current:hover {
+          color: #000;
         }
 
         #ac-localnav .ac-ln-actions {

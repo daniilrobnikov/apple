@@ -11,12 +11,16 @@ export default function Sitemap() {
         }}
         menu={[
           {
-            title: 'Why Mac',
-            href: '/macbook-pro-14-and-16/why-mac/',
-          },
-          {
-            title: 'Tech Specs',
-            href: '/macbook-pro-14-and-16/specs/',
+            pages: [
+              {
+                title: 'Why Mac',
+                href: '/macbook-pro-14-and-16/why-mac/',
+              },
+              {
+                title: 'Tech Specs',
+                href: '/macbook-pro-14-and-16/specs/',
+              },
+            ],
           },
         ]}
         actions={[

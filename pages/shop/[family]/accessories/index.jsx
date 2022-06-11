@@ -159,10 +159,7 @@ export default function Accessories({ family }) {
   return (
     <>
       <LocalNav
-        page={{
-          title: 'Accessories',
-          href: families.find((page) => page.href.includes(family)),
-        }}
+        page={families.find((page) => page.href.includes(family))}
         menu={accessories}
       />
       <main>
