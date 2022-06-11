@@ -6,12 +6,12 @@
 .pnp.js
 
 # PWA files
-**/public/favicons/sw.js
-**/public/favicons/workbox-*.js
-**/public/favicons/worker-*.js
-**/public/favicons/sw.js.map
-**/public/favicons/workbox-*.js.map
-**/public/favicons/worker-*.js.map
+**/public/sw.js
+**/public/workbox-*.js
+**/public/worker-*.js
+**/public/sw.js.map
+**/public/workbox-*.js.map
+**/public/worker-*.js.map
 
 # testing
 /coverage
