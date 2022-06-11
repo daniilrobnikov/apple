@@ -13,6 +13,294 @@ import Directory from './Directory'
 import Legal from './Legal'
 
 export default function GlobalFooter() {
+  const directory = [
+    {
+      title: 'Shop and Learn',
+      pages: [
+        {
+          title: 'Store',
+          url: '/store/',
+        },
+        {
+          title: 'Mac',
+          url: '/mac/',
+        },
+        {
+          title: 'iPad',
+          url: '/ipad/',
+        },
+        {
+          title: 'iPhone',
+          url: '/iphone/',
+        },
+        {
+          title: 'Watch',
+          url: '/watch/',
+        },
+        {
+          title: 'AirPods',
+          url: '/airpods/',
+        },
+        {
+          title: 'TV & Home',
+          url: '/tv-home/',
+        },
+        {
+          title: 'iPod touch',
+          url: '/ipod-touch/',
+        },
+        {
+          title: 'AirTag',
+          url: '/airtag/',
+        },
+        {
+          title: 'Accessories',
+          url: '/shop/accessories',
+        },
+        {
+          title: 'Gift Cards',
+          url: '/shop/gift-cards',
+        },
+      ],
+    },
+    {
+      title: 'Services',
+      pages: [
+        {
+          title: 'Apple Music',
+          url: '/apple-music/',
+        },
+        {
+          title: 'Apple TV+',
+          url: '/apple-tv-plus/',
+        },
+        {
+          title: 'Apple Fitness+',
+          url: '/apple-fitness-plus/',
+        },
+        {
+          title: 'Apple News+',
+          url: '/apple-news/',
+        },
+        {
+          title: 'Apple Arcade',
+          url: '/apple-arcade/',
+        },
+        {
+          title: 'iCloud',
+          url: '/icloud/',
+        },
+        {
+          title: 'Apple One',
+          url: '/apple-one/',
+        },
+        {
+          title: 'Apple Card',
+          url: '/apple-card/',
+        },
+        {
+          title: 'Apple Books',
+          url: '/apple-books/',
+        },
+        {
+          title: 'Apple Podcasts',
+          url: '/apple-podcasts/',
+        },
+        {
+          title: 'Apple Store',
+          url: '/apple-store/',
+        },
+      ],
+    },
+    {
+      title: 'Account',
+      pages: [
+        {
+          title: 'Manage Your Apple ID',
+          url: 'https://appleid.apple.com/us/',
+        },
+        {
+          title: 'Apple Store Account',
+          url: '/account/store',
+        },
+        {
+          title: 'iCloud.com',
+          url: '/account/icloud',
+        },
+      ],
+    },
+    {
+      title: 'Apple Store',
+      pages: [
+        {
+          title: 'Find a Store',
+          url: '/retail/',
+        },
+        {
+          title: 'Genius Bar',
+          url: '/retail/geniusbar/',
+        },
+        {
+          title: 'Today at Apple',
+          url: '/today/',
+        },
+        {
+          title: 'Apple Camp',
+          url: '/today/camp/',
+        },
+        {
+          title: 'Apple Store App',
+          url: 'https://apps.apple.com/us/app/apple-store/id375380948',
+        },
+        {
+          title: 'Refurbished and Clearance',
+          url: '/shop/refurbished/',
+        },
+        {
+          title: 'Financing',
+          url: '/shop/browse/financing',
+        },
+        {
+          title: 'Apple Trade In',
+          url: '/shop/trade-in/',
+        },
+        {
+          title: 'Order Status',
+          url: '/404',
+        },
+        {
+          title: 'Shopping Help',
+          url: '/shop/help/',
+        },
+      ],
+    },
+    {
+      title: 'For Business',
+      pages: [
+        {
+          title: 'Apple and Business',
+          url: '/business/',
+        },
+        {
+          title: 'Shop for Business',
+          url: '/retail/business/',
+        },
+      ],
+    },
+    {
+      title: 'For Education',
+      pages: [
+        {
+          title: 'Apple and Education',
+          url: '/education/',
+        },
+        {
+          title: 'Shop for K-12',
+          url: '/education/k12/how-to-buy/',
+        },
+        {
+          title: 'Shop for College',
+          url: '/us-edu/store/',
+        },
+      ],
+    },
+    {
+      title: 'For Healthcare',
+      pages: [
+        {
+          title: 'Apple in Healthcare',
+          url: '/healthcare/',
+        },
+        {
+          title: 'Health on Apple Watch',
+          url: '/healthcare/apple-watch/',
+        },
+        {
+          title: 'Health Records on iPhone',
+          url: '/healthcare/health-records/',
+        },
+      ],
+    },
+    {
+      title: 'For Government',
+      pages: [
+        {
+          title: 'Shop for Government',
+          url: '/r/store/government/',
+        },
+        {
+          title: 'Shop for Veterans and Military',
+          url: '/us-edu/shop/browse/home/veterans_military/',
+        },
+      ],
+    },
+    {
+      title: 'Apple Values',
+      pages: [
+        {
+          title: 'Accessibility',
+          url: '/accessibility/',
+        },
+        {
+          title: 'Education',
+          url: '/connectED/',
+        },
+        {
+          title: 'Environment',
+          url: '/environment/',
+        },
+        {
+          title: 'Inclusion and Diversity',
+          url: '/diversity/',
+        },
+        {
+          title: 'Privacy',
+          url: '/privacy/',
+        },
+        {
+          title: 'Racial Equity and Justice',
+          url: '/racial-equity-justice-initiative/',
+        },
+        {
+          title: 'Supplier Responsibility',
+          url: '/supplier-responsibility/',
+        },
+      ],
+    },
+    {
+      title: 'About Apple',
+      pages: [
+        {
+          title: 'Newsroom',
+          url: '/newsroom/',
+        },
+        {
+          title: 'Apple Leadership',
+          url: '/leadership/',
+        },
+        {
+          title: 'Career Opportunities',
+          url: '/careers/',
+        },
+        {
+          title: 'Investors',
+          url: 'https://investor.apple.com/',
+        },
+        {
+          title: 'Ethics & Compliance',
+          url: '/compliance/',
+        },
+        {
+          title: 'Events',
+          url: '/apple-events/',
+        },
+        {
+          title: 'Contact Apple',
+          url: '/contact/',
+        },
+      ],
+    },
+  ]
   return (
     <>
       {/* <FootNotes /> */}
@@ -22,11 +310,11 @@ export default function GlobalFooter() {
           {/* <BreadCrumbs /> */}
 
           <nav className='as-globalfooter-directory'>
-            {directory.map((section, index) => (
+            {/* {directory.map((section, index) => (
               <Directory section={section} key={index} index={index} />
-            ))}
+            ))} */}
           </nav>
-          <Legal />
+          {/* <Legal /> */}
         </div>
       </footer>
 
@@ -103,292 +391,3 @@ export default function GlobalFooter() {
     </>
   )
 }
-
-const directory = [
-  {
-    title: 'Shop and Learn',
-    pages: [
-      {
-        title: 'Store',
-        url: '/store/',
-      },
-      {
-        title: 'Mac',
-        url: '/mac/',
-      },
-      {
-        title: 'iPad',
-        url: '/ipad/',
-      },
-      {
-        title: 'iPhone',
-        url: '/iphone/',
-      },
-      {
-        title: 'Watch',
-        url: '/watch/',
-      },
-      {
-        title: 'AirPods',
-        url: '/airpods/',
-      },
-      {
-        title: 'TV & Home',
-        url: '/tv-home/',
-      },
-      {
-        title: 'iPod touch',
-        url: '/ipod-touch/',
-      },
-      {
-        title: 'AirTag',
-        url: '/airtag/',
-      },
-      {
-        title: 'Accessories',
-        url: '/shop/accessories',
-      },
-      {
-        title: 'Gift Cards',
-        url: '/shop/gift-cards',
-      },
-    ],
-  },
-  {
-    title: 'Services',
-    pages: [
-      {
-        title: 'Apple Music',
-        url: '/apple-music/',
-      },
-      {
-        title: 'Apple TV+',
-        url: '/apple-tv-plus/',
-      },
-      {
-        title: 'Apple Fitness+',
-        url: '/apple-fitness-plus/',
-      },
-      {
-        title: 'Apple News+',
-        url: '/apple-news/',
-      },
-      {
-        title: 'Apple Arcade',
-        url: '/apple-arcade/',
-      },
-      {
-        title: 'iCloud',
-        url: '/icloud/',
-      },
-      {
-        title: 'Apple One',
-        url: '/apple-one/',
-      },
-      {
-        title: 'Apple Card',
-        url: '/apple-card/',
-      },
-      {
-        title: 'Apple Books',
-        url: '/apple-books/',
-      },
-      {
-        title: 'Apple Podcasts',
-        url: '/apple-podcasts/',
-      },
-      {
-        title: 'Apple Store',
-        url: '/apple-store/',
-      },
-    ],
-  },
-  {
-    title: 'Account',
-    pages: [
-      {
-        title: 'Manage Your Apple ID',
-        url: 'https://appleid.apple.com/us/',
-      },
-      {
-        title: 'Apple Store Account',
-        url: '/account/store',
-      },
-      {
-        title: 'iCloud.com',
-        url: '/account/icloud',
-      },
-    ],
-  },
-  {
-    title: 'Apple Store',
-    pages: [
-      {
-        title: 'Find a Store',
-        url: '/retail/',
-      },
-      {
-        title: 'Genius Bar',
-        url: '/retail/geniusbar/',
-      },
-      {
-        title: 'Today at Apple',
-        url: '/today/',
-      },
-      {
-        title: 'Apple Camp',
-        url: '/today/camp/',
-      },
-      {
-        title: 'Apple Store App',
-        url: 'https://apps.apple.com/us/app/apple-store/id375380948',
-      },
-      {
-        title: 'Refurbished and Clearance',
-        url: '/shop/refurbished/',
-      },
-      {
-        title: 'Financing',
-        url: '/shop/browse/financing',
-      },
-      {
-        title: 'Apple Trade In',
-        url: '/shop/trade-in/',
-      },
-      {
-        title: 'Order Status',
-        url: '/404',
-      },
-      {
-        title: 'Shopping Help',
-        url: '/shop/help/',
-      },
-    ],
-  },
-  {
-    title: 'For Business',
-    pages: [
-      {
-        title: 'Apple and Business',
-        url: '/business/',
-      },
-      {
-        title: 'Shop for Business',
-        url: '/retail/business/',
-      },
-    ],
-  },
-  {
-    title: 'For Education',
-    pages: [
-      {
-        title: 'Apple and Education',
-        url: '/education/',
-      },
-      {
-        title: 'Shop for K-12',
-        url: '/education/k12/how-to-buy/',
-      },
-      {
-        title: 'Shop for College',
-        url: '/us-edu/store/',
-      },
-    ],
-  },
-  {
-    title: 'For Healthcare',
-    pages: [
-      {
-        title: 'Apple in Healthcare',
-        url: '/healthcare/',
-      },
-      {
-        title: 'Health on Apple Watch',
-        url: '/healthcare/apple-watch/',
-      },
-      {
-        title: 'Health Records on iPhone',
-        url: '/healthcare/health-records/',
-      },
-    ],
-  },
-  {
-    title: 'For Government',
-    pages: [
-      {
-        title: 'Shop for Government',
-        url: '/r/store/government/',
-      },
-      {
-        title: 'Shop for Veterans and Military',
-        url: '/us-edu/shop/browse/home/veterans_military/',
-      },
-    ],
-  },
-  {
-    title: 'Apple Values',
-    pages: [
-      {
-        title: 'Accessibility',
-        url: '/accessibility/',
-      },
-      {
-        title: 'Education',
-        url: '/connectED/',
-      },
-      {
-        title: 'Environment',
-        url: '/environment/',
-      },
-      {
-        title: 'Inclusion and Diversity',
-        url: '/diversity/',
-      },
-      {
-        title: 'Privacy',
-        url: '/privacy/',
-      },
-      {
-        title: 'Racial Equity and Justice',
-        url: '/racial-equity-justice-initiative/',
-      },
-      {
-        title: 'Supplier Responsibility',
-        url: '/supplier-responsibility/',
-      },
-    ],
-  },
-  {
-    title: 'About Apple',
-    pages: [
-      {
-        title: 'Newsroom',
-        url: '/newsroom/',
-      },
-      {
-        title: 'Apple Leadership',
-        url: '/leadership/',
-      },
-      {
-        title: 'Career Opportunities',
-        url: '/careers/',
-      },
-      {
-        title: 'Investors',
-        url: 'https://investor.apple.com/',
-      },
-      {
-        title: 'Ethics & Compliance',
-        url: '/compliance/',
-      },
-      {
-        title: 'Events',
-        url: '/apple-events/',
-      },
-      {
-        title: 'Contact Apple',
-        url: '/contact/',
-      },
-    ],
-  },
-]
