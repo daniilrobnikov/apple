@@ -158,7 +158,13 @@ export default function Accessories({ family }) {
 
   return (
     <>
-      <LocalNav menu={accessories} title='Accessories' />
+      <LocalNav
+        page={{
+          title: 'Accessories',
+          href: families.find((page) => page.href.includes(family)),
+        }}
+        menu={accessories}
+      />
       <main>
         <Gallery items={[0, 0, 0]} />
         <SearchBox

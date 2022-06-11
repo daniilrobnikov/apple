@@ -103,5 +103,6 @@ export async function getStaticProps({ params }) {
     props: {
       family: params.family.replace('buy-', ''),
     },
+    revalidate: 60,
   }
 }

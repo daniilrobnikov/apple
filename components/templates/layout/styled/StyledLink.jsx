@@ -136,6 +136,7 @@ export default function StyledLink({ link, styles }) {
           )});
           -webkit-mask-position: center;
           margin-left: 0.3em;
+          margin-top: 0.24em;
           transform: scale(1.3);
           transition: transform 0.56s ease;
           transform-origin: center;

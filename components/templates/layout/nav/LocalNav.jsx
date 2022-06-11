@@ -1,34 +1,11 @@
+import Link from 'next/link'
+
 import StyledLink from '../styled/StyledLink'
-import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 // TODO: Add children for change tray variations
 
-export default function LocalNav({ eyebrow, title, menu, actions }) {
-  const router = useRouter()
-
-  const { asPath } = router
-
-  if (menu) {
-    var delay = ''
-    for (let i = 0; i < 20; i++) {
-      delay += `
-      #ac-localnav .ac-ln-menu-item:nth-child(${i + 1}) .ac-ln-menu-link {
-        transition-delay: ${0.07 + i * 0.07}s;
-      }
-   #ac-ln-menustate:checked
-   ~ #ac-localnav
-   .ac-ln-menu-item:nth-child(${i + 1})
-   .ac-ln-menu-link,
- #ac-ln-menustate:target
-   ~ #ac-localnav
-   .ac-ln-menu-item:nth-child(${i + 1})
-   .ac-ln-menu-link {
-   transition-delay: ${0.56 - i * 0.07}s;
- }
-   `
-    }
-  }
+export default function LocalNav({ page, menu, actions }) {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -56,7 +33,7 @@ export default function LocalNav({ eyebrow, title, menu, actions }) {
       <nav
         id='ac-localnav'
         className={`${
-          eyebrow && 'ac-localnav-stacked'
+          page.eyebrow && 'ac-localnav-stacked'
         } js touch css-sticky ac-localnav-scrim ac-localnav-light`} //ac-localnav-dark
         lang='en-US'
         dir='ltr'
@@ -74,41 +51,42 @@ export default function LocalNav({ eyebrow, title, menu, actions }) {
                 href='/macbook-pro-14-and-16/'
                 data-analytics-title='product index'
               >
-                {title}
-                <span className='ac-ln-title-comingsoon'>{eyebrow}</span>
+                {page.title}
+                <span className='ac-ln-title-comingsoon'>{page.eyebrow}</span>
               </a>
             </div>
             <div className='ac-ln-menu'>
-              {menu && (
-                <div className='ac-ln-menu-tray'>
-                  {menu.map((list, i) => (
-                    <ul className='ac-ln-menu-items' key={i}>
-                      {list.title && (
-                        <li className='ac-ln-menu-item as-localnav-listtitle'>
-                          <span className='ac-ln-menu-link'>{list.title}</span>
-                        </li>
-                      )}
-                      {list.pages?.map((link, i) => (
-                        <li className='ac-ln-menu-item' key={i}>
-                          <a
-                            href={link.href}
-                            className={`ac-ln-menu-link ${
-                              link.href === asPath && 'current'
-                            }`}
-                            aria-disabled={
-                              link.href === asPath ? 'true' : 'false'
-                            }
-                            aria-current={link.href === asPath && 'page'}
-                            role='link'
-                          >
-                            {link.title}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  ))}
-                </div>
-              )}
+              <div className='ac-ln-menu-tray'>
+                {menu?.map((list, i) => (
+                  <ul className='ac-ln-menu-items' key={i}>
+                    {list.title && (
+                      <li className='ac-ln-menu-item as-localnav-listtitle'>
+                        <span className='ac-ln-menu-link'>{list.title}</span>
+                      </li>
+                    )}
+                    {i === 0 && (
+                      <li className='ac-ln-menu-item'>
+                        <a
+                          href={page.href}
+                          className='ac-ln-menu-link current'
+                          aria-disabled='true'
+                          aria-current='page'
+                          role='link'
+                        >
+                          {page.title}
+                        </a>
+                      </li>
+                    )}
+                    {list.pages.map((link, i) => (
+                      <li className='ac-ln-menu-item' key={i}>
+                        <Link href={link.href}>
+                          <a className='ac-ln-menu-link'>{link.title}</a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                ))}
+              </div>
               <div className='ac-ln-actions'>
                 {menu && (
                   <div
@@ -605,7 +583,6 @@ export default function LocalNav({ eyebrow, title, menu, actions }) {
             opacity: 0.56;
             border-color: rgba(0, 0, 0, 0.285714);
           }
-          ${delay}
 
           #ac-localnav .ac-ln-actions {
             padding-top: 16px;
@@ -623,6 +600,106 @@ export default function LocalNav({ eyebrow, title, menu, actions }) {
           #ac-localnav .ac-ln-action-violator {
             margin-left: 17px;
             margin-top: -3px;
+          }
+
+          #ac-localnav .ac-ln-menu-item:nth-child(1) .ac-ln-menu-link {
+            transition-delay: 0.07s;
+          }
+          #ac-ln-menustate:is(:target, :checked)
+            ~ #ac-localnav
+            .ac-ln-menu-item:nth-child(1)
+            .ac-ln-menu-link {
+            transition-delay: 0.56s;
+          }
+
+          #ac-localnav .ac-ln-menu-item:nth-child(2) .ac-ln-menu-link {
+            transition-delay: 0.14s;
+          }
+          #ac-ln-menustate:is(:target, :checked)
+            ~ #ac-localnav
+            .ac-ln-menu-item:nth-child(2)
+            .ac-ln-menu-link {
+            transition-delay: 0.49s;
+          }
+
+          #ac-localnav .ac-ln-menu-item:nth-child(3) .ac-ln-menu-link {
+            transition-delay: 0.21s;
+          }
+          #ac-ln-menustate:is(:target, :checked)
+            ~ #ac-localnav
+            .ac-ln-menu-item:nth-child(3)
+            .ac-ln-menu-link {
+            transition-delay: 0.42s;
+          }
+
+          #ac-localnav .ac-ln-menu-item:nth-child(4) .ac-ln-menu-link {
+            transition-delay: 0.28s;
+          }
+          #ac-ln-menustate:is(:target, :checked)
+            ~ #ac-localnav
+            .ac-ln-menu-item:nth-child(4)
+            .ac-ln-menu-link {
+            transition-delay: 0.35s;
+          }
+
+          #ac-localnav .ac-ln-menu-item:nth-child(5) .ac-ln-menu-link {
+            transition-delay: 0.35s;
+          }
+          #ac-ln-menustate:is(:target, :checked)
+            ~ #ac-localnav
+            .ac-ln-menu-item:nth-child(5)
+            .ac-ln-menu-link {
+            transition-delay: 0.28s;
+          }
+
+          #ac-localnav .ac-ln-menu-item:nth-child(6) .ac-ln-menu-link {
+            transition-delay: 0.42s;
+          }
+          #ac-ln-menustate:is(:target, :checked)
+            ~ #ac-localnav
+            .ac-ln-menu-item:nth-child(6)
+            .ac-ln-menu-link {
+            transition-delay: 0.21s;
+          }
+
+          #ac-localnav .ac-ln-menu-item:nth-child(7) .ac-ln-menu-link {
+            transition-delay: 0.49s;
+          }
+          #ac-ln-menustate:is(:target, :checked)
+            ~ #ac-localnav
+            .ac-ln-menu-item:nth-child(7)
+            .ac-ln-menu-link {
+            transition-delay: 0.14s;
+          }
+
+          #ac-localnav .ac-ln-menu-item:nth-child(8) .ac-ln-menu-link {
+            transition-delay: 0.56s;
+          }
+          #ac-ln-menustate:is(:target, :checked)
+            ~ #ac-localnav
+            .ac-ln-menu-item:nth-child(8)
+            .ac-ln-menu-link {
+            transition-delay: 0.07s;
+          }
+
+          #ac-localnav .ac-ln-menu-item:nth-child(9) .ac-ln-menu-link {
+            transition-delay: 0.63s;
+          }
+          #ac-ln-menustate:is(:target, :checked)
+            ~ #ac-localnav
+            .ac-ln-menu-item:nth-child(9)
+            .ac-ln-menu-link {
+            transition-delay: 0s;
+          }
+
+          #ac-localnav .ac-ln-menu-item:nth-child(10) .ac-ln-menu-link {
+            transition-delay: 0.7s;
+          }
+          #ac-ln-menustate:is(:target, :checked)
+            ~ #ac-localnav
+            .ac-ln-menu-item:nth-child(10)
+            .ac-ln-menu-link {
+            transition-delay: -0.07s;
           }
         }
       `}</style>

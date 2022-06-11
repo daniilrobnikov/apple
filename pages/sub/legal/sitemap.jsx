@@ -4,13 +4,12 @@ export default function Sitemap() {
   return (
     <>
       <LocalNav
-        title='Apple Site Map'
-        eyebrow='14” and 16” models'
+        page={{
+          title: 'Apple Site Map',
+          eyebrow: '14” and 16” models',
+          href: '/macbook-pro-14-and-16/',
+        }}
         menu={[
-          {
-            title: 'Overview',
-            href: '/macbook-pro-14-and-16/',
-          },
           {
             title: 'Why Mac',
             href: '/macbook-pro-14-and-16/why-mac/',
