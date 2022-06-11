@@ -25,16 +25,14 @@ export default function TabNav({ parentClass, tabs, tab, handleTabChange }) {
       <style global jsx>{`
         .tabnav {
           --scroll-container-paddle-width: 34px;
-           {
-            /* --scroll-container-paddle-chevron-color: #1d1d1f;
+          --scroll-container-paddle-chevron-color: #1d1d1f;
           --scroll-container-border-color: #d2d2d7;
           --scroll-container-paddle-opacity: 0.8;
           --scroll-container-paddle-hover-opacity: 1;
           --scroll-container-paddle-hover-duration: 200ms;
           --scroll-container-paddle-fade-duration: 150ms;
           --scroll-container-paddle-horizontal-offset: -0.5px;
-          --scroll-container-border-width: 1px; */
-          }
+          --scroll-container-border-width: 1px;
           --scroll-container-safearea-offset: -10px;
           width: 100%;
           position: relative;

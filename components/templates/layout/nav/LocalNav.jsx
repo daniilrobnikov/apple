@@ -4,10 +4,12 @@ import { useEffect, useState } from 'react'
 
 // TODO: Add children for change tray variations
 
-export default function LocalNav({ localnav }) {
+export default function LocalNav({ eyebrow, title, menu, actions }) {
   const router = useRouter()
 
-  if (localnav.menu) {
+  const { asPath } = router
+
+  if (menu) {
     var delay = ''
     for (let i = 0; i < 20; i++) {
       delay += `
@@ -54,7 +56,7 @@ export default function LocalNav({ localnav }) {
       <nav
         id='ac-localnav'
         className={`${
-          localnav.eyebrow && 'ac-localnav-stacked'
+          eyebrow && 'ac-localnav-stacked'
         } js touch css-sticky ac-localnav-scrim ac-localnav-light`} //ac-localnav-dark
         lang='en-US'
         dir='ltr'
@@ -72,35 +74,31 @@ export default function LocalNav({ localnav }) {
                 href='/macbook-pro-14-and-16/'
                 data-analytics-title='product index'
               >
-                {localnav.title}
-                <span className='ac-ln-title-comingsoon'>
-                  {localnav.eyebrow}
-                </span>
+                {title}
+                <span className='ac-ln-title-comingsoon'>{eyebrow}</span>
               </a>
             </div>
             <div className='ac-ln-menu'>
-              {localnav.menu && (
+              {menu && (
                 <div className='ac-ln-menu-tray'>
-                  {localnav.menu?.map((list, i) => (
+                  {menu.map((list, i) => (
                     <ul className='ac-ln-menu-items' key={i}>
                       {list.title && (
                         <li className='ac-ln-menu-item as-localnav-listtitle'>
                           <span className='ac-ln-menu-link'>{list.title}</span>
                         </li>
                       )}
-                      {list.links?.map((link, i) => (
+                      {list.pages?.map((link, i) => (
                         <li className='ac-ln-menu-item' key={i}>
                           <a
                             href={link.href}
                             className={`ac-ln-menu-link ${
-                              link.href === router.pathname && 'current'
+                              link.href === asPath && 'current'
                             }`}
                             aria-disabled={
-                              link.href === router.pathname ? 'true' : 'false'
+                              link.href === asPath ? 'true' : 'false'
                             }
-                            aria-current={
-                              link.href === router.pathname && 'page'
-                            }
+                            aria-current={link.href === asPath && 'page'}
                             role='link'
                           >
                             {link.title}
@@ -112,7 +110,7 @@ export default function LocalNav({ localnav }) {
                 </div>
               )}
               <div className='ac-ln-actions'>
-                {localnav.menu && (
+                {menu && (
                   <div
                     className='ac-ln-action ac-ln-action-menucta'
                     aria-hidden='true'
@@ -121,11 +119,11 @@ export default function LocalNav({ localnav }) {
                       <span
                         className='ac-ln-menucta-chevron'
                         onClick={() => setIsOpen(!isOpen)}
-                      ></span>
+                      />
                     </label>
                   </div>
                 )}
-                {localnav.actions?.map((link, i) => (
+                {actions?.map((link, i) => (
                   <div className='ac-ln-action ac-ln-action-button' key={i}>
                     <StyledLink link={link} styles='button-reduced' />
                   </div>
@@ -744,8 +742,4 @@ export default function LocalNav({ localnav }) {
       `}</style>
     </>
   )
-}
-
-LocalNav.defaultProps = {
-  localnav: {},
 }

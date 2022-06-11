@@ -1,17 +1,13 @@
 import TabNav from '@/components/templates/layout/nav/TabNav'
 
 import { useState } from 'react'
-import { useRouter } from 'next/router'
 
 export default function Browser({ tabs }) {
-  const router = useRouter()
-  const { asPath } = router
-
   const [length, setLength] = useState(5)
-  const [tab, setTab] = useState(0)
+  const [curTab, setCurTab] = useState(0)
 
   function handleTabChange(e) {
-    setTab(e)
+    setCurTab(e)
     setLength(5)
   }
   return (
@@ -21,16 +17,16 @@ export default function Browser({ tabs }) {
           <TabNav
             parentClass='rf-browser-wrapper'
             tabs={tabs}
-            tab={tab}
+            tab={curTab}
             handleTabChange={handleTabChange}
           />
           <div
             data-core-tabs-panels=''
             className='rf-browser-wrapper section-content'
           >
-            {tabs.map((section, i) => (
+            {tabs.map((tab, i) => (
               <div
-                className={`rf-browser-list ${tab === i ? 'current' : ''}`}
+                className={`rf-browser-list ${curTab === i ? 'current' : ''}`}
                 key={i}
               >
                 <ul
@@ -39,57 +35,49 @@ export default function Browser({ tabs }) {
                   data-core-tabs-panel=''
                   data-core-tabs-panel-selected=''
                 >
-                  {section.pages &&
-                    section.pages
-                      .filter((value) => asPath !== value.href)
-                      .slice(0, length)
-                      .map((page, i) => (
-                        <li className='rf-browser-item' key={i}>
-                          <a
-                            className='column large-12'
-                            href={page.href}
-                            data-autom={page.title}
-                          >
-                            <div className='rf-browser-itemiconwrapper small-3'>
-                              <img
-                                className='rf-browser-itemicon'
-                                aria-hidden='true'
-                                src={page.icon}
-                                alt={`${page.title} - Icon`}
-                              />
-                            </div>
-                            <span className='rf-browser-itemname small-8'>
-                              {page.title}
-                            </span>
-                          </a>
-                        </li>
-                      ))}
+                  {tab.pages.slice(0, length).map((page, i) => (
+                    <li className='rf-browser-item' key={i}>
+                      <a
+                        className='column large-12'
+                        href={page.href}
+                        data-autom={page.title}
+                      >
+                        <div className='rf-browser-itemiconwrapper small-3'>
+                          <img
+                            className='rf-browser-itemicon'
+                            aria-hidden='true'
+                            src={page.icon}
+                            alt={`${page.title} - Icon`}
+                          />
+                        </div>
+                        <span className='rf-browser-itemname small-8'>
+                          {page.title}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
                 </ul>
                 <div className='rf-browser-borderline'>
-                  {section.pages &&
-                    section.pages.filter((value) => asPath !== value.href)
-                      .length > 5 && (
-                      <button
-                        type='button'
-                        className='rf-see-all-link small-12'
-                        aria-expanded='false'
-                        onClick={() =>
-                          setLength(
-                            section.pages.length === length
-                              ? 5
-                              : section.pages.length
-                          )
-                        }
+                  {tab.pages.length > 5 && (
+                    <button
+                      type='button'
+                      className='rf-see-all-link small-12'
+                      aria-expanded='false'
+                      onClick={() =>
+                        setLength(
+                          tab.pages.length === length ? 5 : tab.pages.length
+                        )
+                      }
+                    >
+                      <div
+                        className='icon icon-after icon-pluscircle'
+                        data-display-name='tabs-1 : see-all-link : See all categories'
+                        data-autom='See all categories'
                       >
-                        <div
-                          className='icon icon-after icon-pluscircle'
-                          data-display-name='tabs-1 : see-all-link : See all categories'
-                          data-autom='See all categories'
-                        >
-                          See all categories
-                        </div>
-                      </button>
-                    )}
+                        See all categories
+                      </div>
+                    </button>
+                  )}
                 </div>
               </div>
             ))}
