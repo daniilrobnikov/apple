@@ -23,7 +23,7 @@ export default function GlobalFooter() {
 
           <nav className='as-globalfooter-directory'>
             {directory.map((section, index) => (
-              <Directory section={section} key={index} index />
+              <Directory section={section} key={index} index={index} />
             ))}
           </nav>
           <Legal />
