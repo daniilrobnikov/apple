@@ -25,6 +25,7 @@ export default function FootNotes() {
                   data-feature-name='Astro Link'
                   data-display-name='AOS: www.goldmansachs.com/terms-and-conditions/Apple-Card-Customer-Agreement.pdf'
                   target='_blank'
+                  rel='noopener noreferrer'
                 >
                   Apple Card Customer Agreement
                 </a>
@@ -35,6 +36,7 @@ export default function FootNotes() {
                   data-feature-name='Astro Link'
                   data-display-name='AOS: www.apple.com/legal/sales-support/iphoneinstallments_us'
                   target='_blank'
+                  rel='noopener noreferrer'
                 >
                   here
                 </a>
@@ -65,13 +67,21 @@ export default function FootNotes() {
                 ◊ Apple Card Monthly Installments (ACMI) is a 0% APR payment
                 option available to select at checkout for certain Apple
                 products purchased at Apple Store locations,{' '}
-                <a href='https://www.apple.com/' target='_blank'>
+                <a
+                  href='https://www.apple.com/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   apple.com
                   <span className='a11y'> (Opens in a new window)</span>
                 </a>
                 , the Apple Store app, or by calling 1-800-MY-APPLE, and is
                 subject to credit approval and credit limit. See{' '}
-                <a href='https://support.apple.com/kb/HT211204' target='_blank'>
+                <a
+                  href='https://support.apple.com/kb/HT211204'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   https://support.apple.com/kb/HT211204
                   <span className='a11y'> (Opens in a new window)</span>
                 </a>{' '}
@@ -86,6 +96,7 @@ export default function FootNotes() {
                 <a
                   href='https://www.goldmansachs.com/terms-and-conditions/Apple-Card-Customer-Agreement.pdf'
                   target='_blank'
+                  rel='noopener noreferrer'
                 >
                   Apple Card Customer Agreement
                   <span className='a11y'> (Opens in a new window)</span>
@@ -112,6 +123,7 @@ export default function FootNotes() {
                   data-feature-name='Astro Link'
                   data-display-name='AOS: www.goldmansachs.com/terms-and-conditions/Apple-Card-Customer-Agreement.pdf'
                   target='_blank'
+                  rel='noopener noreferrer'
                 >
                   Apple Card Customer Agreement
                 </a>{' '}

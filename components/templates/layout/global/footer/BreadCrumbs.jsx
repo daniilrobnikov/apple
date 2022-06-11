@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function BreadCrumbs() {
   return (
     <>
@@ -6,20 +8,21 @@ export default function BreadCrumbs() {
         aria-label='Breadcrumbs'
         role='navigation'
       >
-        <a
-          href='https://www.apple.com/'
-          data-feature-name='Breadcrumb'
-          data-display-name='Apple'
-          className='as-globalfooter-breadcrumbs-home'
-          data-autom='footer'
-        >
-          {' '}
-          <span
-            className='as-globalfooter-breadcrumbs-home-icon'
-            aria-hidden='true'
-          />
-          <span className='visuallyhidden'>Apple</span>
-        </a>
+        <Link href='/'>
+          <a
+            data-feature-name='Breadcrumb'
+            data-display-name='Apple'
+            className='as-globalfooter-breadcrumbs-home'
+            data-autom='footer'
+          >
+            {' '}
+            <span
+              className='as-globalfooter-breadcrumbs-home-icon'
+              aria-hidden='true'
+            />
+            <span className='visuallyhidden'>Apple</span>
+          </a>
+        </Link>
         <div className='as-globalfooter-breadcrumbs-path'>
           <ol
             className='as-globalfooter-breadcrumbs-list'
@@ -30,15 +33,16 @@ export default function BreadCrumbs() {
               property='itemListElement'
               typeof='ListItem'
             >
-              <a
-                href='/shop/accessories/all'
-                data-feature-name='Breadcrumb'
-                data-display-name='All Accessories'
-                className='as-globalfooter-breadcrumbs-link'
-                data-autom='footer'
-              >
-                All Accessories
-              </a>
+              <Link href='/shop/accessories/all'>
+                <a
+                  data-feature-name='Breadcrumb'
+                  data-display-name='All Accessories'
+                  className='as-globalfooter-breadcrumbs-link'
+                  data-autom='footer'
+                >
+                  All Accessories
+                </a>
+              </Link>
             </li>
             <li
               className='as-globalfooter-breadcrumbs-item'

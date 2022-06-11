@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useState } from 'react'
 
 export default function Directory({ section, index }) {
@@ -45,15 +46,16 @@ export default function Directory({ section, index }) {
                 className='as-globalfooter-directory-column-section-item'
                 key={i}
               >
-                <a
-                  href={page.url}
-                  data-feature-name='Footer Navigation'
-                  data-display-name={page.title}
-                  className='as-globalfooter-directory-column-section-link'
-                  data-autom={`${page.title}-footer-link`}
-                >
-                  {page.title}
-                </a>
+                <Link href={page.url}>
+                  <a
+                    data-feature-name='Footer Navigation'
+                    data-display-name={page.title}
+                    className='as-globalfooter-directory-column-section-link'
+                    data-autom={`${page.title}-footer-link`}
+                  >
+                    {page.title}
+                  </a>
+                </Link>
               </li>
             ))}
           </ul>
