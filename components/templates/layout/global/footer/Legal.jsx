@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 export default function Legal() {
   return (
     <>
@@ -107,11 +108,12 @@ export default function Legal() {
                 data-autom='footer'
               >
                 Site Map
-              </a>{' '}
-            </Link>
+              </a>
+            </Link>{' '}
           </div>
         </div>
       </section>
+
       <style global jsx>{`
         .as-globalfooter .as-globalfooter-mini-shop {
           --footer-mini-shop-link-color: #0066cc;
