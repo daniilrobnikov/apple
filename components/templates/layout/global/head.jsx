@@ -9,6 +9,10 @@ export default function PageHead({
   const router = useRouter()
   const { asPath } = router
 
+  const domain = 'https://apple-ashen.vercel.app'
+  const url = router && asPath ? asPath : undefined
+  const canonical = url && url === '/' ? domain : domain + url
+
   function addProductJsonLd() {
     return {
       __html: `{
@@ -67,15 +71,12 @@ export default function PageHead({
         name='viewport'
         content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2, user-scalable=1, viewport-fit=cover'
       />
-      <link rel='canonical' href={asPath} key='canonical' />
+      <link rel='canonical' href={canonical} key='canonical' />
 
       {/* Open Graph protocol */}
       <meta property='og:locale' content='en_US' />
       <meta property='og:title' content={title} />
-      <meta
-        property='og:url'
-        content={`https://apple-ashen.vercel.app${asPath}`}
-      />
+      <meta property='og:url' content={canonical} />
       <meta property='og:type' content='product' />
       <meta property='og:site_name' content='Apple' />
       <meta property='og:description' content={description} />
