@@ -4,7 +4,7 @@ import PinWheel from '@/components/shop/accessories/page/pinwheel/PinWheel'
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
 import SearchBox from '@/components/templates/layout/SearchBox'
 
-export default function Accessories({ family }) {
+export default function Accessories() {
   return (
     <>
       <LocalNav localnav={localnav} />
@@ -14,7 +14,7 @@ export default function Accessories({ family }) {
           title='Find the accessories you’re looking for.'
           placeholder='Search accessories'
         />
-        <Browser tabs={accessories} />
+        {/* <Browser tabs={accessories} /> */}
 
         <PinWheel />
       </main>

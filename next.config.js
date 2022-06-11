@@ -52,6 +52,23 @@ module.exports = withPWA({
   },
 
   reactStrictMode: true,
+
+  async rewrites() {
+    return [
+      {
+        source: '/store',
+        destination: '/shop/all',
+      },
+      {
+        source: '/shop/accessories/all',
+        destination: '/shop/all/accessories',
+      },
+      {
+        source: '/shop/accessories/all/:category*',
+        destination: '/shop/all/accessories/:category*',
+      },
+    ]
+  },
   async redirects() {
     return [
       ...['/shop', '/shop/all'].map((source) => ({
@@ -73,22 +90,6 @@ module.exports = withPWA({
         source: '/shop/all/accessories/:category*',
         destination: '/shop/accessories/all/:category*',
         permanent: true,
-      },
-    ]
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/store',
-        destination: '/shop/all',
-      },
-      {
-        source: '/shop/accessories/all',
-        destination: '/shop/all/accessories',
-      },
-      {
-        source: '/shop/accessories/all/:category*',
-        destination: '/shop/all/accessories/:category*',
       },
     ]
   },
