@@ -53,6 +53,7 @@ module.exports = withPWA({
   },
 
   reactStrictMode: true,
+  concurrentFeatures: true,
 
   async rewrites() {
     return [

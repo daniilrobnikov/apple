@@ -2,11 +2,8 @@ import StyledLink from './styled/StyledLink'
 
 export default function Ribbon({ link }) {
   return (
-    <div
-      className='ribbon ribbon-blue-to-default'
-      data-analytics-activitymap-region-id='ribbon'
-    >
-      <style global jsx>{`
+    <>
+      <style jsx>{`
         .ribbon {
           z-index: 2;
           width: 100%;
@@ -100,25 +97,30 @@ export default function Ribbon({ link }) {
           }
         }
       `}</style>
-      <div className='ribbon-drop-wrapper'>
-        <div className='ribbon-content-wrapper'>
-          <div className='section-content row'>
-            <div className='column large-12 large-centered'>
-              <p className='ribbon-copy'>
-                Save on your new iPhone with special carrier deals at Apple.
-                {link && (
-                  <StyledLink
-                    link={{
-                      href: 'https://www.apple.com/us/shop/gift-cards/',
-                      text: 'Find your deal',
-                    }}
-                  />
-                )}
-              </p>
+      <div
+        className='ribbon ribbon-blue-to-default'
+        data-analytics-activitymap-region-id='ribbon'
+      >
+        <div className='ribbon-drop-wrapper'>
+          <div className='ribbon-content-wrapper'>
+            <div className='section-content row'>
+              <div className='column large-12 large-centered'>
+                <p className='ribbon-copy'>
+                  Save on your new iPhone with special carrier deals at Apple.
+                  {link && (
+                    <StyledLink
+                      link={{
+                        href: 'https://www.apple.com/us/shop/gift-cards/',
+                        text: 'Find your deal',
+                      }}
+                    />
+                  )}
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

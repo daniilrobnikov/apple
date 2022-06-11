@@ -119,7 +119,6 @@ function ProductPortal() {
                   at an Apple Store with one of these national carriers:
                   AT&amp;T, Sprint, Verizon, or T-Mobile.
                 </p>
-                <p></p>
                 <p>
                   To access and use all the features of Apple Card, you must add
                   Apple Card to Wallet on an iPhone or iPad with the latest
@@ -132,8 +131,6 @@ function ProductPortal() {
                   Apple Card is issued by Goldman Sachs Bank USA, Salt Lake City
                   Branch.
                 </p>
-                <p></p>
-                <p></p>
                 <p>
                   ** Get extra trade-in credit when you trade in an eligible
                   iPhone, iPad, Mac, or Apple&nbsp;Watch and purchase a new
@@ -162,7 +159,6 @@ function ProductPortal() {
                   trade-in and recycling of eligible devices. Restrictions and
                   limitations may apply.
                 </p>
-                <p></p>
               </div>
             </div>
           </div>

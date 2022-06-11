@@ -141,3 +141,9 @@
   border-radius: 12px;
   padding: 3px 11px;
 }
+
+.nowrap {
+  display: inline-block;
+  text-decoration: inherit;
+  white-space: nowrap;
+}
