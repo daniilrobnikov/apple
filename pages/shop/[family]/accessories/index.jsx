@@ -385,5 +385,6 @@ export async function getStaticProps({ params }) {
     props: {
       family: params.family,
     },
+    revalidate: 1,
   }
 }

@@ -37,7 +37,6 @@ export default function Browser({ tabs }) {
                   className='rf-browser-items-list r-fade-transition-enter-done r-fade-transition-appear-done'
                   data-core-tabs-panel=''
                   data-core-tabs-panel-selected=''
-                  role='tabpanel'
                 >
                   {section.pages &&
                     section.pages
