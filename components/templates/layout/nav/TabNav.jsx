@@ -3,7 +3,7 @@ export default function TabNav({ parentClass, tabs, tab, handleTabChange }) {
     <div className='rf-browser-navbar section-content'>
       <div className='tabnav as-l-container-mobileoverflow'>
         <ul data-core-tabs-tablist='' role='tablist' className='tabnav-items'>
-          {tabs?.map((section, i) => (
+          {tabs.map((section, i) => (
             <li key={i} className='tabnav-item' role='none'>
               <button
                 type='button'

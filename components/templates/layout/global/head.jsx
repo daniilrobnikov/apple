@@ -13,54 +13,54 @@ export default function PageHead({
   const url = router && asPath ? asPath : undefined
   const canonical = url && url === '/' ? domain : domain + url
 
-  function addProductJsonLd() {
-    return {
-      __html: `{
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "name": "Executive Anvil",
-      "image": [
-        "https://example.com/photos/1x1/photo.jpg",
-        "https://example.com/photos/4x3/photo.jpg",
-        "https://example.com/photos/16x9/photo.jpg"
-       ],
-      "description": "Sleeker than ACME's Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height.",
-      "sku": "0446310786",
-      "mpn": "925872",
-      "brand": {
-        "@type": "Brand",
-        "name": "ACME"
-      },
-      "review": {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "4",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Fred Benson"
-        }
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.4",
-        "reviewCount": "89"
-      },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://example.com/anvil",
-        "priceCurrency": "USD",
-        "price": "119.99",
-        "priceValidUntil": "2020-11-20",
-        "itemCondition": "https://schema.org/UsedCondition",
-        "availability": "https://schema.org/InStock"
-      }
-    }
-  `,
-    }
-  }
+  // function addProductJsonLd() {
+  //   return {
+  //     __html: `{
+  //     "@context": "https://schema.org/",
+  //     "@type": "Product",
+  //     "name": "Executive Anvil",
+  //     "image": [
+  //       "https://example.com/photos/1x1/photo.jpg",
+  //       "https://example.com/photos/4x3/photo.jpg",
+  //       "https://example.com/photos/16x9/photo.jpg"
+  //      ],
+  //     "description": "Sleeker than ACME's Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height.",
+  //     "sku": "0446310786",
+  //     "mpn": "925872",
+  //     "brand": {
+  //       "@type": "Brand",
+  //       "name": "ACME"
+  //     },
+  //     "review": {
+  //       "@type": "Review",
+  //       "reviewRating": {
+  //         "@type": "Rating",
+  //         "ratingValue": "4",
+  //         "bestRating": "5"
+  //       },
+  //       "author": {
+  //         "@type": "Person",
+  //         "name": "Fred Benson"
+  //       }
+  //     },
+  //     "aggregateRating": {
+  //       "@type": "AggregateRating",
+  //       "ratingValue": "4.4",
+  //       "reviewCount": "89"
+  //     },
+  //     "offers": {
+  //       "@type": "Offer",
+  //       "url": "https://example.com/anvil",
+  //       "priceCurrency": "USD",
+  //       "price": "119.99",
+  //       "priceValidUntil": "2020-11-20",
+  //       "itemCondition": "https://schema.org/UsedCondition",
+  //       "availability": "https://schema.org/InStock"
+  //     }
+  //   }
+  // `,
+  //   }
+  // }
   return (
     <Head>
       <title>{title ? `${title} - Apple` : 'Apple'}</title>
@@ -86,11 +86,11 @@ export default function PageHead({
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:creator' content='@DaniilRobnikov' />
 
-      <script
+      {/* <script
         type='application/ld+json'
         dangerouslySetInnerHTML={addProductJsonLd()}
         key='product-jsonld'
-      />
+      /> */}
     </Head>
   )
 }

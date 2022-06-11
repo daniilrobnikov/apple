@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 
 export default function Browser({ tabs }) {
   const router = useRouter()
+  const { asPath } = router
 
   const [length, setLength] = useState(5)
   const [tab, setTab] = useState(0)
@@ -40,7 +41,7 @@ export default function Browser({ tabs }) {
                 >
                   {section.pages &&
                     section.pages
-                      .filter((value) => value.href !== router.asPath)
+                      .filter((value) => asPath !== value.href)
                       .slice(0, length)
                       .map((page, i) => (
                         <li className='rf-browser-item' key={i}>
@@ -65,29 +66,30 @@ export default function Browser({ tabs }) {
                       ))}
                 </ul>
                 <div className='rf-browser-borderline'>
-                  {section.pages.filter((value) => value.href !== router.asPath)
-                    .length > 5 && (
-                    <button
-                      type='button'
-                      className='rf-see-all-link small-12'
-                      aria-expanded='false'
-                      onClick={() =>
-                        setLength(
-                          section.pages.length === length
-                            ? 5
-                            : section.pages.length
-                        )
-                      }
-                    >
-                      <div
-                        className='icon icon-after icon-pluscircle'
-                        data-display-name='tabs-1 : see-all-link : See all categories'
-                        data-autom='See all categories'
+                  {section.pages &&
+                    section.pages.filter((value) => asPath !== value.href)
+                      .length > 5 && (
+                      <button
+                        type='button'
+                        className='rf-see-all-link small-12'
+                        aria-expanded='false'
+                        onClick={() =>
+                          setLength(
+                            section.pages.length === length
+                              ? 5
+                              : section.pages.length
+                          )
+                        }
                       >
-                        See all categories
-                      </div>
-                    </button>
-                  )}
+                        <div
+                          className='icon icon-after icon-pluscircle'
+                          data-display-name='tabs-1 : see-all-link : See all categories'
+                          data-autom='See all categories'
+                        >
+                          See all categories
+                        </div>
+                      </button>
+                    )}
                 </div>
               </div>
             ))}
