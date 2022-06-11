@@ -4,10 +4,18 @@
 /node_modules
 /.pnp
 .pnp.js
-/deprecated
+
+# PWA files
+**/public/favicons/sw.js
+**/public/favicons/workbox-*.js
+**/public/favicons/worker-*.js
+**/public/favicons/sw.js.map
+**/public/favicons/workbox-*.js.map
+**/public/favicons/worker-*.js.map
 
 # testing
 /coverage
+/deprecated
 
 # next.js
 /.next/
