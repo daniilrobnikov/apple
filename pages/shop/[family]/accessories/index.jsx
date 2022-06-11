@@ -14,7 +14,7 @@ export default function Accessories() {
           title='Find the accessories you’re looking for.'
           placeholder='Search accessories'
         />
-        {/* <Browser tabs={accessories} /> */}
+        <Browser tabs={accessories} />
 
         <PinWheel />
       </main>
