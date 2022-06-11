@@ -42,8 +42,16 @@
 //     ]
 //   },
 // })
+const withPWA = require('next-pwa')
 
-const nextConfig = {
+module.exports = withPWA({
+  pwa: {
+    dest: 'public/favicons',
+    register: true,
+    skipWaiting: true,
+    disable: process.env.NODE_ENV === 'development',
+  },
+
   reactStrictMode: true,
   async redirects() {
     return [
@@ -85,5 +93,5 @@ const nextConfig = {
       },
     ]
   },
-}
+})
 module.exports = nextConfig

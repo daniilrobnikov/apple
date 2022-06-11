@@ -72,7 +72,10 @@ export default function PageHead({
       {/* Open Graph protocol */}
       <meta property='og:locale' content='en_US' />
       <meta property='og:title' content={title} />
-      <meta property='og:url' content={asPath} />
+      <meta
+        property='og:url'
+        content={`https://apple-ashen.vercel.app${asPath}`}
+      />
       <meta property='og:type' content='product' />
       <meta property='og:site_name' content='Apple' />
       <meta property='og:description' content={description} />
@@ -80,6 +83,7 @@ export default function PageHead({
 
       <meta name='twitter:site' content='@Apple' />
       <meta name='twitter:card' content='summary_large_image' />
+      <meta name='twitter:creator' content='@DaniilRobnikov' />
 
       <script
         type='application/ld+json'

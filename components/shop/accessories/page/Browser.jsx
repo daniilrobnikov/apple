@@ -28,11 +28,11 @@ export default function Browser({ tabs }) {
             className='rf-browser-wrapper section-content'
           >
             {tabs.map((section, i) => (
-              <ul
+              <div
                 className={`rf-browser-list ${tab === i ? 'current' : ''}`}
                 key={i}
               >
-                <div
+                <ul
                   data-core-fade-transition-wrapper=''
                   className='rf-browser-items-list r-fade-transition-enter-done r-fade-transition-appear-done'
                   data-core-tabs-panel=''
@@ -64,7 +64,7 @@ export default function Browser({ tabs }) {
                           </a>
                         </li>
                       ))}
-                </div>
+                </ul>
                 <div className='rf-browser-borderline'>
                   {section.pages.filter((value) => value.href !== router.asPath)
                     .length > 5 && (
@@ -90,7 +90,7 @@ export default function Browser({ tabs }) {
                     </button>
                   )}
                 </div>
-              </ul>
+              </div>
             ))}
           </div>
         </div>

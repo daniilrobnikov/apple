@@ -126,32 +126,12 @@ export default function SearchBox({ title, placeholder }) {
           transition-duration: 0.125s;
         }
         .form-textbox .form-textbox-label {
-          color: #86868b;
+          color: #6e6e73;
         }
         .search-box .form-textbox-label {
           padding-left: 1.88235rem;
         } // :focus
 
-        .form-textbox
-          .form-textbox-input:not(:disabled).form-textarea-with-placeholder
-          ~ .form-textbox-label,
-        .form-textbox
-          .form-textbox-input:not(:disabled).form-textbox-entered
-          ~ .form-textbox-label,
-        .form-textbox
-          .form-textbox-input:not(:disabled):focus
-          ~ .form-textbox-label,
-        .form-textbox
-          .form-textbox-input:not(:disabled):valid[required]
-          ~ .form-textbox-label,
-        .form-textbox
-          .form-textbox-input:not(:disabled)[placeholder]:not(:placeholder-shown)
-          ~ .form-textbox-label,
-        .form-textbox
-          .form-textbox-input:not(:disabled)[placeholder]:not([placeholder=' '])
-          ~ .form-textbox-label {
-          color: #6e6e73;
-        }
         .form-textbox-input.form-textbox-entered ~ .form-textbox-label,
         .form-textbox-input:focus ~ .form-textbox-label,
         .form-textbox-input:valid[required] ~ .form-textbox-label,
