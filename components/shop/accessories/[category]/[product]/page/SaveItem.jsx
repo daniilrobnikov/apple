@@ -19,7 +19,6 @@ export default function SaveItem() {
               type='button'
               className='rf-saveditem-button'
               aria-label='Add to Saved Items '
-              id='839d52b0-ea58-11ec-a513-15ba5200123b'
               data-core-tooltip-trigger=''
             >
               <svg

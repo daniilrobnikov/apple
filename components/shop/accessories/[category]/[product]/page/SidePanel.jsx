@@ -131,6 +131,7 @@ export default function SidePanel() {
                   </button>
                 </li>
                 <li
+                  role='presentation'
                   className='rf-pdp-inline-gallery-thumbnav-slider'
                   style={{
                     transition: 'transform 400ms ease 0s',
