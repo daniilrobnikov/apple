@@ -1,4 +1,3 @@
-import React from 'react'
 import SourceMapResolve from 'source-map-resolve'
 import SaveItem from '../../accessories/[category]/[product]/page/SaveItem'
 import Hardware from './Hardware'
