@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 export default function Pagination() {
+  const [page, setPage] = useState(1)
   return (
     <nav
       className='pagination'
@@ -17,17 +19,22 @@ export default function Pagination() {
             aria-label='Previous'
             aria-disabled='true'
             data-analytics-pagination='prev'
+            onClick={() => setPage(Math.max(page - 1))}
           >
             <span className='visuallyhidden'>Previous</span>
             <IoIosArrowBack />
           </button>
         </div>
         <div className='pagination-spacing' id='current-page-pagination'>
-          <label className='visuallyhidden'>Go to page</label>
+          <label className='visuallyhidden' htmlFor=''>
+            Go to page
+          </label>
           <input
             type='number'
             min='1'
-            value='1'
+            step='1'
+            value={page}
+            id='pagination-pageinput'
             className='pagination-pageinput'
             data-autom='paginationPageInput'
             data-analytics-pagination='pageinput'
@@ -55,6 +62,7 @@ export default function Pagination() {
             type='button'
             aria-label='Next'
             data-analytics-pagination='next'
+            onClick={() => setPage(page + 1)}
           >
             <span className='visuallyhidden'>Next</span>
             <IoIosArrowForward />
