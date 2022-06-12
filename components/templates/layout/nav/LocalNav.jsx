@@ -76,7 +76,7 @@ export default function LocalNav({ page = {}, menu, actions }) {
                           role='link'
                           disabled
                         >
-                          {page.title}
+                          Overview
                         </a>
                       </li>
                     )}

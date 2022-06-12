@@ -1,16 +1,14 @@
 import Link from 'next/link'
 
-export default function StyledLink({ link, styles }) {
+export default function StyledLink({ link = {}, styles = '' }) {
   link.href = link.href || '#'
-  styles = styles || ''
-
   if (link.type === 'button') {
     link.text = link.text || 'Buy'
     styles += ' button'
   } else {
     link.text = link.text || 'Learn more'
     styles += ' icon-after'
-    if (!link.href.startsWith('/')) {
+    if (!(link.href.startsWith('/') && link.href.startsWith('#'))) {
       styles += ' icon-external'
     }
   }
@@ -112,7 +110,7 @@ export default function StyledLink({ link, styles }) {
             `<svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>`
           )});
           transform: rotate(45deg);
-          margin-top: 4.5px;
+          margin-top: 0.25em;
           margin-left: 0.1em;
         }
 
@@ -176,6 +174,12 @@ export default function StyledLink({ link, styles }) {
           background: #0071e3;
           color: #fff;
         }
+        .button-block {
+          box-sizing: border-box;
+          display: block;
+          width: 100%;
+          border-radius: 8px;
+        }
         .button-neutral {
           background: #1d1d1f;
           color: #fff;
@@ -190,6 +194,19 @@ export default function StyledLink({ link, styles }) {
           letter-spacing: -0.01em;
           min-width: 23px;
           padding: 4px 11px;
+        }
+        .as-buttonlink {
+          background: transparent;
+          border: 0;
+          color: #06c;
+          font-size: inherit;
+          line-height: inherit;
+          font-weight: inherit;
+          letter-spacing: inherit;
+          padding: 0;
+          vertical-align: inherit;
+          cursor: pointer;
+          text-decoration: none;
         }
 
         .button:hover {

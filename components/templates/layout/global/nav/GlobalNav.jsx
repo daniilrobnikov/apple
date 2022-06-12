@@ -613,6 +613,7 @@ export default function GlobalNav() {
             setIsSearchView={setIsSearchView}
             isBagView={isBagView}
             setIsBagView={setIsBagView}
+            setIsMenuOpen={setIsMenuOpen}
           />
           <SearchView setIsSearchView={setIsSearchView} />
           <BagView />

@@ -73,6 +73,10 @@
   flex-basis: 50%;
   max-width: 50%;
 }
+.large-5 {
+  flex-basis: 41.66667%;
+  max-width: 41.66667%;
+}
 .large-4 {
   flex-basis: 33.33333%;
   max-width: 33.33333%;
@@ -88,9 +92,17 @@
     flex-basis: 100%;
     max-width: 100%;
   }
+  .medium-7 {
+    flex-basis: 58.33333%;
+    max-width: 58.33333%;
+  }
   .medium-6 {
     flex-basis: 50%;
     max-width: 50%;
+  }
+  .medium-5 {
+    flex-basis: 41.66667%;
+    max-width: 41.66667%;
   }
 }
 
@@ -124,6 +136,62 @@
 }
 
 /* typography */
+.as-svgicon-container .as-svgicon-reduced {
+  margin: -4px;
+}
+.as-svgicon {
+  fill: currentColor;
+}
+.as-svgicon,
+.as-svgicon-container {
+  display: block;
+}
+
+@media only screen and (min-width: 1069px) {
+  .typography-headline-reduced {
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: 0;
+    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
+      Helvetica, Arial, sans-serif;
+  }
+}
+@media only screen and (min-width: 735px) and (max-width: 1068px) {
+  .typography-headline-reduced {
+    font-size: 32px;
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: 0.004em;
+    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
+      Helvetica, Arial, sans-serif;
+  }
+}
+@media only screen and (max-width: 734px) {
+  .typography-headline-reduced {
+    font-size: 28px;
+    line-height: 1.28583;
+    font-weight: 600;
+    letter-spacing: 0.007em;
+    font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
+      Helvetica, Arial, sans-serif;
+  }
+}
+
+.typography-body {
+  font-size: 17px;
+  line-height: 1.47059;
+  letter-spacing: -0.022em;
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
+}
+.typography-body-reduced {
+  font-size: 14px;
+  line-height: 1.42859;
+  letter-spacing: -0.016em;
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
+}
 
 .violator-frameless {
   box-sizing: border-box;

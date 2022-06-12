@@ -77,7 +77,7 @@ export default function BagView() {
         <a
           href='https://www.apple.com/shop/bag'
           data-evar1='[pageName] |  | bag overlay |  | Check Out'
-          className='ac-gn-bagview-button ac-gn-bagview-button-block ac-gn-bagview-button-checkout'
+          className='ac-gn-bagview-button button-block ac-gn-bagview-button-checkout'
           data-ac-autom='gn-bagview-button-checkout'
           role='button'
         >
@@ -280,12 +280,6 @@ export default function BagView() {
           border-radius: 980px;
           background-color: #0071e3;
           color: #fff;
-        }
-        #ac-globalnav .ac-gn-bagview-button-block {
-          box-sizing: border-box;
-          display: block;
-          width: 100%;
-          border-radius: 8px;
         }
 
         #ac-globalnav .ac-gn-bagview-nav {

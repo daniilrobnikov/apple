@@ -69,13 +69,6 @@ export default function SmallCard() {
         }
 
         /* as-svgicon */
-        .as-svgicon {
-          fill: currentColor;
-        }
-        .as-svgicon,
-        .as-svgicon-container {
-          display: block;
-        }
         .card-content-icon .as-svgicon {
           height: 56px;
           position: absolute;

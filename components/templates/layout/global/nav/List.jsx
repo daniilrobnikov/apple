@@ -93,6 +93,7 @@ export default function List({ setIsSearchView, isBagView, setIsBagView }) {
             <a
               className='ac-gn-link ac-gn-link-accessories'
               data-analytics-title='accessories'
+              onClick={() => setIsMenuOpen(false)}
             >
               <span className='ac-gn-link-text'>Accessories</span>
             </a>
