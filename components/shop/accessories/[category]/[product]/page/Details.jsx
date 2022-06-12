@@ -786,56 +786,51 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='https://www.apple.com/shop/buy-iphone/iphone-13-pro'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPhone 13 Pro
-                                  </a>
+                                  <Link href='/shop/buy-iphone/iphone-13-pro'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPhone 13 Pro
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='https://www.apple.com/shop/buy-iphone/iphone-13-pro'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPhone 13 Pro Max
-                                  </a>
+                                  <Link href='/shop/buy-iphone/iphone-13-pro'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPhone 13 Pro Max
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='https://www.apple.com/shop/buy-iphone/iphone-13'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPhone 13 mini
-                                  </a>
+                                  <Link href='/shop/buy-iphone/iphone-13'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPhone 13 mini
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='https://www.apple.com/shop/buy-iphone/iphone-13'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPhone 13
-                                  </a>
+                                  <Link href='/shop/buy-iphone/iphone-13'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPhone 13
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='https://www.apple.com/shop/buy-iphone/iphone-se'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPhone SE (3rd generation)
-                                  </a>
+                                  <Link href='/shop/buy-iphone/iphone-se'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPhone SE (3rd generation)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -853,23 +848,21 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='https://www.apple.com/shop/buy-iphone/iphone-12'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPhone 12 mini
-                                  </a>
+                                  <Link href='/shop/buy-iphone/iphone-12'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPhone 12 mini
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='https://www.apple.com/shop/buy-iphone/iphone-12'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPhone 12
-                                  </a>
+                                  <Link href='/shop/buy-iphone/iphone-12'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPhone 12
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -887,12 +880,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='https://www.apple.com/shop/buy-iphone/iphone-11'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPhone 11
-                                  </a>
+                                  <Link href='/shop/buy-iphone/iphone-11'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPhone 11
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -980,12 +972,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='https://www.apple.com/watch'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    Apple Watch Series 7
-                                  </a>
+                                  <Link href='/watch'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      Apple Watch Series 7
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -997,12 +988,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='https://www.apple.com/watch'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    Apple Watch SE
-                                  </a>
+                                  <Link href='/watch'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      Apple Watch SE
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1020,12 +1010,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='https://www.apple.com/watch'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    Apple Watch Series 3
-                                  </a>
+                                  <Link href='/watch'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      Apple Watch Series 3
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1053,12 +1042,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-tv/apple-tv-4k'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    Apple TV 4K (2nd generation)
-                                  </a>
+                                  <Link href='/shop/buy-tv/apple-tv-4k'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      Apple TV 4K (2nd generation)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1102,12 +1090,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-ipad/ipad-pro'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPad Pro 12.9-inch (5th generation)
-                                  </a>
+                                  <Link href='/shop/buy-ipad/ipad-pro'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPad Pro 12.9-inch (5th generation)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1145,12 +1132,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-ipad/ipad-pro'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPad Pro 11-inch (3rd generation)
-                                  </a>
+                                  <Link href='/shop/buy-ipad/ipad-pro'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPad Pro 11-inch (3rd generation)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1180,12 +1166,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-ipad/ipad-air'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPad Air (5th generation)
-                                  </a>
+                                  <Link href='/shop/buy-ipad/ipad-air'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPad Air (5th generation)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1209,12 +1194,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-ipad/ipad-10-2'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPad (9th generation)
-                                  </a>
+                                  <Link href='/shop/buy-ipad/ipad-10-2'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPad (9th generation)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1244,12 +1228,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-ipad/ipad-mini'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iPad mini (6th generation)
-                                  </a>
+                                  <Link href='/shop/buy-ipad/ipad-mini'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iPad mini (6th generation)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1277,23 +1260,21 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-mac/macbook-air'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    MacBook Air (M2, 2022)
-                                  </a>
+                                  <Link href='/shop/buy-mac/macbook-air'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      MacBook Air (M2, 2022)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-mac/macbook-air/m1-chip'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    MacBook Air (M1, 2020)
-                                  </a>
+                                  <Link href='/shop/buy-mac/macbook-air/m1-chip'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      MacBook Air (M1, 2020)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1329,12 +1310,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-mac/macbook-pro'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    MacBook Pro (13-inch, M2, 2022)
-                                  </a>
+                                  <Link href='/shop/buy-mac/macbook-pro'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      MacBook Pro (13-inch, M2, 2022)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1369,23 +1349,21 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-mac/macbook-pro/14-inch'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    MacBook Pro (14-inch, 2021)
-                                  </a>
+                                  <Link href='/shop/buy-mac/macbook-pro/14-inch'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      MacBook Pro (14-inch, 2021)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-mac/macbook-pro/16-inch'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    MacBook Pro (16-inch, 2021)
-                                  </a>
+                                  <Link href='/shop/buy-mac/macbook-pro/16-inch'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      MacBook Pro (16-inch, 2021)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1422,12 +1400,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-mac/imac'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    iMac (24-inch, M1, 2021)
-                                  </a>
+                                  <Link href='/shop/buy-mac/imac'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      iMac (24-inch, M1, 2021)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1481,34 +1458,31 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-mac/mac-studio'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    Mac Studio (2022){' '}
-                                  </a>
+                                  <Link href='/shop/buy-mac/mac-studio'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      Mac Studio (2022){' '}
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-mac/mac-mini'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    Mac mini (M1, 2020)
-                                  </a>
+                                  <Link href='/shop/buy-mac/mac-mini'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      Mac mini (M1, 2020)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-mac/mac-mini'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    Mac mini (2018)
-                                  </a>
+                                  <Link href='/shop/buy-mac/mac-mini'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      Mac mini (2018)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
@@ -1520,12 +1494,11 @@ export default function Details() {
                                   role='listitem'
                                   className='rf-pdp-compatibility-productlistitems'
                                 >
-                                  <a
-                                    href='/shop/buy-mac/mac-pro/mac-pro'
-                                    className='rf-pdp-compatibility-productlistlinks'
-                                  >
-                                    Mac Pro (2019)
-                                  </a>
+                                  <Link href='/shop/buy-mac/mac-pro/mac-pro'>
+                                    <a className='rf-pdp-compatibility-productlistlinks'>
+                                      Mac Pro (2019)
+                                    </a>
+                                  </Link>
                                 </li>
                                 <li
                                   role='listitem'
