@@ -1,10 +1,10 @@
-export default function BillBoard() {
+export default function BillBoard({ title }) {
   return (
     <div className='fullwidth as-navtuck' data-events='event52'>
       <div>
         <div className='rf-category-billboard'>
           <div className='section-content rf-category-billboard-content'>
-            <h1 className='rf-category-billboard-header'>Made by Apple</h1>
+            <h1 className='rf-category-billboard-header'>{title}</h1>
           </div>
         </div>
       </div>

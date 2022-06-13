@@ -1,7 +1,7 @@
 import DotNav from '@/components/templates/layout/nav/DotNav'
 import PaddleNav from '@/components/templates/layout/nav/PaddleNav'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
-import { ExtendedPrice } from '@/components/templates/layout/styled/StyledPrice'
+import Prices from '../../accessories/[category]/[product]/page/Prices'
 
 export default function PortalProductModal() {
   return (
@@ -198,7 +198,7 @@ export default function PortalProductModal() {
                   MacBook Air
                 </h2>
                 <div className='rf-digitalmat-price-button'>
-                  <ExtendedPrice />
+                  <Prices />
                   <StyledLink
                     link={{
                       href: '/shop/buy-mac/macbook-air',

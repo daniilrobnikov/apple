@@ -66,24 +66,16 @@ export default function LocalNav({ page = {}, menu, actions }) {
                         <span className='ac-ln-menu-link'>{list.title}</span>
                       </li>
                     )}
-                    {i === 0 && (
-                      <li className='ac-ln-menu-item'>
-                        <a
-                          href={page.href}
-                          className='ac-ln-menu-link current'
-                          aria-disabled='true'
-                          aria-current='page'
-                          role='link'
-                          disabled
-                        >
-                          Overview
-                        </a>
-                      </li>
-                    )}
                     {list.pages.map((link, i) => (
                       <li className='ac-ln-menu-item' key={i}>
                         <Link href={link.href}>
-                          <a className='ac-ln-menu-link'>{link.title}</a>
+                          <a
+                            className={`ac-ln-menu-link ${
+                              link.active ? 'current' : ''
+                            }`}
+                          >
+                            {link.title}
+                          </a>
                         </Link>
                       </li>
                     ))}

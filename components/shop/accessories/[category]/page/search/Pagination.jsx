@@ -34,6 +34,7 @@ export default function Pagination() {
             min='1'
             step='1'
             value={page}
+            onChange={(e) => setPage(Number(e.target.value))}
             id='pagination-pageinput'
             className='pagination-pageinput'
             data-autom='paginationPageInput'

@@ -1,7 +1,11 @@
 import PaddleNav from '@/components/templates/layout/nav/PaddleNav'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export default function ProductTile() {
+  const router = useRouter()
+  const { family, category } = router.query
+  const product = 'airpods'
   return (
     <div
       className='rf-producttile medium-6 large-4'
@@ -126,7 +130,11 @@ export default function ProductTile() {
           </span>
         </div>
         <h2 className='rf-producttile-name' data-autom='productTile-0'>
-          <Link href='/shop/product/MLWK3AM/A/airpods-pro?fnode=704ef286a3f34dc631fe4b1b75b734d2613dea932d387950ad69d49daac01a846c236902aff9ba846ad15da4be15764e06bd514632b45ffbb8e5a61284574d7c54124fe3f815155e7ff971710fd9aca493e56791d8834c3dee886e04f64ecba2089abff5aa6c44b1356ea1b276a76158&amp;fs=s%3Dfeatured'>
+          <Link
+            href={{
+              pathname: `/shop/product/id/A/${product}?category=${category}`,
+            }}
+          >
             <a
               data-relatedlink='2fba0ee0-e580-11ec-a339-638642604d22'
               data-feedback='/shop/searchfeedback?feedType=SEARCHSELECTED&amp;id=uJyeG7WcT6uXiwI9vadG5A&amp;position=0&amp;section=accessories'

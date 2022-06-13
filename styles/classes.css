@@ -148,6 +148,14 @@
 }
 
 @media only screen and (min-width: 1069px) {
+  .typography-headline-elevated {
+    font-size: 64px;
+    line-height: 1.0625;
+    font-weight: 600;
+    letter-spacing: -0.009em;
+    font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+      'Arial', sans-serif;
+  }
   .typography-headline-reduced {
     font-size: 40px;
     line-height: 1.1;
@@ -158,6 +166,14 @@
   }
 }
 @media only screen and (min-width: 735px) and (max-width: 1068px) {
+  .typography-headline-elevated {
+    font-size: 48px;
+    line-height: 1.08349;
+    font-weight: 600;
+    letter-spacing: -0.003em;
+    font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+      'Arial', sans-serif;
+  }
   .typography-headline-reduced {
     font-size: 32px;
     line-height: 1.25;
@@ -167,7 +183,25 @@
       Helvetica, Arial, sans-serif;
   }
 }
+@media only screen and (min-width: 735px) {
+  .typography-intro {
+    font-size: 21px;
+    line-height: 1.381;
+    font-weight: 400;
+    letter-spacing: 0.011em;
+    font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+      'Arial', sans-serif;
+  }
+}
 @media only screen and (max-width: 734px) {
+  .typography-headline-elevated {
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: 0em;
+    font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+      'Arial', sans-serif;
+  }
   .typography-headline-reduced {
     font-size: 28px;
     line-height: 1.28583;
@@ -175,6 +209,16 @@
     letter-spacing: 0.007em;
     font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
       Helvetica, Arial, sans-serif;
+  }
+
+  /* typography-intro */
+  .typography-intro {
+    font-size: 19px;
+    line-height: 1.4211;
+    font-weight: 400;
+    letter-spacing: 0.012em;
+    font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+      'Arial', sans-serif;
   }
 }
 

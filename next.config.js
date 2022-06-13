@@ -69,6 +69,11 @@ module.exports = withPWA({
         source: '/shop/accessories/all/:category*',
         destination: '/shop/all/accessories/:category*',
       },
+
+      {
+        source: '/shop/product/id/A/:product?category=:category',
+        destination: `/shop/all/accessories/:category/:product`,
+      },
     ]
   },
   async redirects() {
@@ -93,6 +98,18 @@ module.exports = withPWA({
         destination: '/shop/accessories/all/:category*',
         permanent: true,
       },
+
+      ...['all', 'mac', 'ipad', 'watch', 'iphone'].map((family) => ({
+        source: `/shop/${family}/accessories/:category/:product`,
+        destination: '/shop/product/id/A/:product?category=:category',
+        permanent: true,
+      })),
+
+      ...['mac', 'ipad', 'watch', 'iphone'].map((family) => ({
+        source: `/shop/${family}/:product`,
+        destination: `/shop/buy-${family}/:product`,
+        permanent: true,
+      })),
     ]
   },
 })

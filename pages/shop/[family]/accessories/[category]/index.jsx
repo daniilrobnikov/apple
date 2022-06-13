@@ -2,9 +2,8 @@ import BillBoard from '@/components/shop/accessories/[category]/page/BillBoard'
 import SearchResults from '@/components/shop/accessories/[category]/page/search/SearchResults'
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
 
-export default function Category() {
-  var family = 'all'
-  const families = [
+export default function Category({ family, category }) {
+  var families = [
     {
       title: 'Mac',
       href: '/shop/mac/accessories',
@@ -35,7 +34,7 @@ export default function Category() {
       href: '/shop/accessories/all',
     },
   ]
-  const categories = [
+  var categories = [
     {
       title: 'Made by Apple',
       href: '/shop/accessories/all/made-by-apple',
@@ -144,25 +143,32 @@ export default function Category() {
     },
   ]
 
+  categories.find((page) => page.href.includes(category)).active = true
   const accessories = [
     {
       title: 'Shop by Product',
-      pages: families.filter((page) => !page.href.includes(family)),
+      pages: families,
     },
     {
       title: 'Shop by Category',
       pages: categories,
     },
   ]
+
   return (
     <>
       <LocalNav
-        page={families.find((page) => page.href.includes(family))}
+        page={{
+          title: 'Accessories',
+          href: `/shop/${family}/accessories`,
+        }}
         menu={accessories}
       />
 
       <main>
-        <BillBoard />
+        <BillBoard
+          title={categories.find((page) => page.href.includes(category)).title}
+        />
         <SearchResults />
       </main>
 
@@ -170,7 +176,118 @@ export default function Category() {
         :is(h1, h2, h3, h4, h5, h6, p, ul, ol) + * {
           margin-top: 0.8em;
         }
+
+        @media only screen and (min-width: 834px) {
+          #ac-localnav .ac-ln-menu-tray {
+            display: none;
+          }
+          #ac-localnav .ac-ln-action-menucta {
+            display: block;
+          }
+          /* :checked */
+          #ac-ln-menustate:is(:checked, :target)
+            ~ #ac-localnav
+            .ac-ln-menu-tray {
+            display: flex;
+          }
+
+          .ac-ln-menu-tray {
+            margin: 0 auto 54px;
+            padding: 26px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            width: 100%;
+          }
+
+          .ac-ln-menu-tray > ul {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            min-width: 0;
+          }
+          .ac-ln-menu-tray > ul:first-child {
+            flex-basis: 25%;
+            max-width: 25%;
+            columns: 1 auto;
+          }
+          .ac-ln-menu-tray > ul:nth-child(2) {
+            flex-basis: 75%;
+            max-width: 75%;
+            columns: 3 auto;
+            border-left: 1px solid #d2d2d7;
+            margin-left: -3.26%;
+            padding-left: 3.26%;
+          }
+
+          #ac-localnav .ac-ln-menu-item {
+            margin: 34px 0 -34px;
+            width: 100%;
+            height: 34px;
+            display: flex;
+            align-items: center;
+          }
+          #ac-localnav .as-localnav-listtitle.ac-ln-menu-item {
+            margin-top: 0;
+          }
+        }
       `}</style>
     </>
   )
+}
+
+export async function getStaticPaths() {
+  const families = ['all', 'mac', 'ipad', 'watch', 'iphone', 'smart-home']
+  const categories = [
+    'made-by-apple',
+    'whats-new',
+    'cases-protection',
+    'headphones-speakers',
+    'bands',
+    'accessibility',
+    'airtag',
+    'creativity',
+    'displays-mounts',
+    'drones',
+    'toys-games',
+    'health-fitness',
+    'homekit',
+    'magsafe',
+    'mesh-wifi-networking',
+    'mice-keyboards',
+    'only-at-apple',
+    'photography',
+    'point-of-sale',
+    'power-cables',
+    'printers-scanners',
+    'software',
+    'storage',
+    'wireless-chargers',
+  ]
+
+  let paths = []
+  families.forEach((family) => {
+    categories.forEach((category) => {
+      paths.push({
+        params: {
+          family,
+          category,
+        },
+      })
+    })
+  })
+
+  return {
+    paths,
+    fallback: false,
+  }
+}
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      family: params.family,
+      category: params.category,
+    },
+    revalidate: 1,
+  }
 }

@@ -3,9 +3,10 @@ import Gallery from '@/components/shop/accessories/page/Gallery'
 import PinWheel from '@/components/shop/accessories/page/pinwheel/PinWheel'
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
 import SearchBox from '@/components/templates/layout/SearchBox'
+import { useState } from 'react'
 
 export default function Accessories({ family }) {
-  const families = [
+  var families = [
     {
       title: 'Mac',
       href: '/shop/mac/accessories',
@@ -36,7 +37,7 @@ export default function Accessories({ family }) {
       href: '/shop/accessories/all',
     },
   ]
-  const categories = [
+  var categories = [
     {
       title: 'Made by Apple',
       href: '/shop/accessories/all/made-by-apple',
@@ -145,10 +146,11 @@ export default function Accessories({ family }) {
     },
   ]
 
+  families.find((page) => page.href.includes(family)).active = true
   const accessories = [
     {
       title: 'Shop by Product',
-      pages: families.filter((page) => !page.href.includes(family)),
+      pages: families,
     },
     {
       title: 'Shop by Category',
@@ -159,7 +161,10 @@ export default function Accessories({ family }) {
   return (
     <>
       <LocalNav
-        page={families.find((page) => page.href.includes(family))}
+        page={{
+          title: 'Accessories',
+          href: `/shop/${family}/accessories`,
+        }}
         menu={accessories}
       />
       <main>

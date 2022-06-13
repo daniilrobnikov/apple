@@ -5,8 +5,11 @@ import SidePanel from '@/components/shop/accessories/[category]/[product]/page/S
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
 import Ribbon from '@/components/templates/layout/Ribbon'
 
+import { useRouter } from 'next/router'
 export default function Product() {
-  var family = 'mac'
+  const router = useRouter()
+  const { category } = router.query
+
   const families = [
     {
       title: 'Mac',
@@ -38,7 +41,7 @@ export default function Product() {
       href: '/shop/accessories/all',
     },
   ]
-  const categories = [
+  var categories = [
     {
       title: 'Made by Apple',
       href: '/shop/accessories/all/made-by-apple',
@@ -147,10 +150,12 @@ export default function Product() {
     },
   ]
 
+  categories.find((page) => page.href.includes(category)).active = true
+
   const accessories = [
     {
       title: 'Shop by Product',
-      pages: families.filter((page) => !page.href.includes(family)),
+      pages: families,
     },
     {
       title: 'Shop by Category',
@@ -160,7 +165,7 @@ export default function Product() {
   return (
     <>
       <LocalNav
-        page={families.find((page) => page.href.includes(family))}
+        page={{ title: 'Accessories', href: '/shop/accessories/all' }}
         menu={accessories}
       />
       <main>

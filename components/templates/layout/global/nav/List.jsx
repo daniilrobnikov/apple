@@ -1,6 +1,11 @@
 import Link from 'next/link'
 
-export default function List({ setIsSearchView, isBagView, setIsBagView }) {
+export default function List({
+  setIsSearchView,
+  isBagView,
+  setIsBagView,
+  setIsMenuOpen,
+}) {
   return (
     <>
       <ul className='ac-gn-list'>
