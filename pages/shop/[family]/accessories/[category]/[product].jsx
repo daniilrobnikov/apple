@@ -150,7 +150,7 @@ export default function Product() {
     },
   ]
 
-  categories.find((page) => page.href.includes(category)).active = true
+  // categories.find((page) => page.href.includes(category)).active = true
 
   const accessories = [
     {

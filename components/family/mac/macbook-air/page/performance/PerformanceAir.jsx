@@ -1,5 +1,5 @@
 import PerformanceAirGallery from './PerformanceAirGallery'
-import PerformanceAirHero from './performanceAirHero'
+import PerformanceAirHero from './PerformanceAirHero'
 import PerformanceAirIntro from './PerformanceAirIntro'
 import PerformanceAirSub from './PerformanceAirSub'
 
