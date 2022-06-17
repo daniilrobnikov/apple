@@ -1,5 +1,4 @@
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
-import React from 'react'
 
 export default function Hero() {
   return (

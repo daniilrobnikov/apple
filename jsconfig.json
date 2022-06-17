@@ -5,11 +5,9 @@
       "@/data/*": ["data/*"],
       "@/components/*": ["components/*"],
       "@/styles/*": ["styles/*"],
+      "@/hooks/*": ["components/hooks/*"],
       "@/styled/*": ["components/templates/templates/styled/*"],
-      "@/public/*": ["public/*"],
-      "@/config/*": ["config/*"],
-      "@/context/*": ["context/*"],
-      "@/helpers/*": ["helpers/*"]
+      "@/public/*": ["public/*"]
     }
   }
 }

@@ -147,6 +147,11 @@ h6 {
     sans-serif;
 }
 
+b,
+strong {
+  font-weight: 600;
+}
+
 /* CUSTOM */
 ul {
   list-style: none;
@@ -160,6 +165,24 @@ sup {
 }
 sup {
   top: -0.5em;
+}
+.footnote-number {
+  position: relative;
+  vertical-align: initial;
+  font-feature-settings: 'numr';
+  font-size: 1em;
+}
+sup.footnote-number {
+  top: auto;
+}
+
+.footnote a {
+  vertical-align: inherit;
+  color: inherit;
+}
+.footnote a:hover {
+  color: #06c;
+  text-decoration: none;
 }
 
 button {

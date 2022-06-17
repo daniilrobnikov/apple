@@ -86,11 +86,46 @@
   max-width: 25%;
 }
 
+.large-span-12 {
+  grid-column: span 12;
+}
+.large-span-6 {
+  grid-column: span 6;
+}
+.large-span-4 {
+  grid-column: span 4;
+}
+
+@media only screen and (max-width: 1068px) {
+  .medium-span-12 {
+    grid-column: span 12;
+  }
+  .medium-span-6 {
+    grid-column: span 6;
+  }
+}
+
 /* mobile */
 @media only screen and (max-width: 1068px) {
   .medium-12 {
     flex-basis: 100%;
     max-width: 100%;
+  }
+  .medium-11 {
+    flex-basis: 91.6666666667%;
+    max-width: 91.6666666667%;
+  }
+  .medium-10 {
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
+  }
+  .medium-9 {
+    flex-basis: 75%;
+    max-width: 75%;
+  }
+  .medium-8 {
+    flex-basis: 66.66667%;
+    max-width: 66.66667%;
   }
   .medium-7 {
     flex-basis: 58.33333%;
@@ -104,6 +139,14 @@
     flex-basis: 41.66667%;
     max-width: 41.66667%;
   }
+  .medium-4 {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%;
+  }
+  .medium-3 {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
 }
 
 /* mobile */
@@ -112,6 +155,14 @@
     flex-basis: 100%;
     max-width: 100%;
   }
+  .small-10 {
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
+  }
+  .small-9 {
+    flex-basis: 75%;
+    max-width: 75%;
+  }
   .small-8 {
     flex-basis: 66.66667%;
     max-width: 66.66667%;
@@ -119,6 +170,10 @@
   .small-6 {
     flex-basis: 50%;
     max-width: 50%;
+  }
+  .small-4 {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%;
   }
   .small-3 {
     flex-basis: 25%;
@@ -129,6 +184,10 @@
 .large-centered {
   margin-left: auto;
   margin-right: auto;
+}
+.large-uncentered {
+  margin-left: 0;
+  margin-right: 0;
 }
 .fullwidth {
   width: 100%;
@@ -210,7 +269,6 @@
     font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
       Helvetica, Arial, sans-serif;
   }
-
   /* typography-intro */
   .typography-intro {
     font-size: 19px;
@@ -258,4 +316,9 @@
   display: inline-block;
   text-decoration: inherit;
   white-space: nowrap;
+}
+
+.links-inline li {
+  display: inline;
+  margin: 0 0.8em;
 }

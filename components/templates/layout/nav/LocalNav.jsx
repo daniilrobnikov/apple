@@ -47,15 +47,16 @@ export default function LocalNav({ page = {}, menu, actions }) {
           <div className='ac-ln-background'></div>
           <div className='ac-ln-content'>
             <div className='ac-ln-title'>
-              <a
-                href='/macbook-pro-14-and-16/'
-                data-analytics-title='product index'
-              >
-                {page.title}
-                {page.eyebrow && (
-                  <span className='ac-ln-title-comingsoon'>{page.eyebrow}</span>
-                )}
-              </a>
+              <Link href={page.href}>
+                <a data-analytics-title='product index'>
+                  {page.title}
+                  {page.eyebrow && (
+                    <span className='ac-ln-title-comingsoon'>
+                      {page.eyebrow}
+                    </span>
+                  )}
+                </a>
+              </Link>
             </div>
             <div className='ac-ln-menu'>
               <div className='ac-ln-menu-tray'>

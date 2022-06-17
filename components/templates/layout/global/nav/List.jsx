@@ -14,7 +14,8 @@ export default function List({
             <a
               className='ac-gn-link ac-gn-link-apple'
               data-analytics-title='apple home'
-              id='ac-gn-firstfocus'
+              id='ac-gn-firstfocu
+              </Link>s'
             >
               <span className='a11y'>Apple</span>
             </a>
@@ -31,67 +32,71 @@ export default function List({
           </Link>
         </li>
         <li className='ac-gn-item ac-gn-item-menu ac-gn-mac'>
-          <a
-            className='ac-gn-link ac-gn-link-mac'
-            href='/mac/'
-            data-analytics-title='mac'
-          >
-            <span className='ac-gn-link-text'>Mac</span>
-          </a>
+          <Link href='/mac/'>
+            <a className='ac-gn-link ac-gn-link-mac' data-analytics-title='mac'>
+              <span className='ac-gn-link-text'>Mac</span>
+            </a>
+          </Link>
         </li>
         <li className='ac-gn-item ac-gn-item-menu ac-gn-ipad'>
-          <a
-            className='ac-gn-link ac-gn-link-ipad'
-            href='/ipad/'
-            data-analytics-title='ipad'
-          >
-            <span className='ac-gn-link-text'>iPad</span>
-          </a>
+          <Link href='/ipad/'>
+            <a
+              className='ac-gn-link ac-gn-link-ipad'
+              data-analytics-title='ipad'
+            >
+              <span className='ac-gn-link-text'>iPad</span>
+            </a>
+          </Link>
         </li>
         <li className='ac-gn-item ac-gn-item-menu ac-gn-iphone'>
-          <a
-            className='ac-gn-link ac-gn-link-iphone'
-            href='/iphone/'
-            data-analytics-title='iphone'
-          >
-            <span className='ac-gn-link-text'>iPhone</span>
-          </a>
+          <Link href='/iphone/'>
+            <a
+              className='ac-gn-link ac-gn-link-iphone'
+              data-analytics-title='iphone'
+            >
+              <span className='ac-gn-link-text'>iPhone</span>
+            </a>
+          </Link>
         </li>
         <li className='ac-gn-item ac-gn-item-menu ac-gn-watch'>
-          <a
-            className='ac-gn-link ac-gn-link-watch'
-            href='/watch/'
-            data-analytics-title='watch'
-          >
-            <span className='ac-gn-link-text'>Watch</span>
-          </a>
+          <Link href='/watch/'>
+            <a
+              className='ac-gn-link ac-gn-link-watch'
+              data-analytics-title='watch'
+            >
+              <span className='ac-gn-link-text'>Watch</span>
+            </a>
+          </Link>
         </li>
         <li className='ac-gn-item ac-gn-item-menu ac-gn-airpods'>
-          <a
-            className='ac-gn-link ac-gn-link-airpods'
-            href='/airpods/'
-            data-analytics-title='airpods'
-          >
-            <span className='ac-gn-link-text'>AirPods</span>
-          </a>
+          <Link href='/airpods/'>
+            <a
+              className='ac-gn-link ac-gn-link-airpods'
+              data-analytics-title='airpods'
+            >
+              <span className='ac-gn-link-text'>AirPods</span>
+            </a>
+          </Link>
         </li>
         <li className='ac-gn-item ac-gn-item-menu ac-gn-tvhome'>
-          <a
-            className='ac-gn-link ac-gn-link-tvhome'
-            href='/tv-home/'
-            data-analytics-title='tv and home'
-          >
-            <span className='ac-gn-link-text'>TV &amp; Home</span>
-          </a>
+          <Link href='/tv-home/'>
+            <a
+              className='ac-gn-link ac-gn-link-tvhome'
+              data-analytics-title='tv and home'
+            >
+              <span className='ac-gn-link-text'>TV &amp; Home</span>
+            </a>
+          </Link>
         </li>
         <li className='ac-gn-item ac-gn-item-menu ac-gn-onlyonapple'>
-          <a
-            className='ac-gn-link ac-gn-link-onlyonapple'
-            href='/services/'
-            data-analytics-title='only on apple'
-          >
-            <span className='ac-gn-link-text'>Only on Apple</span>
-          </a>
+          <Link href='/services/'>
+            <a
+              className='ac-gn-link ac-gn-link-onlyonapple'
+              data-analytics-title='only on apple'
+            >
+              <span className='ac-gn-link-text'>Only on Apple</span>
+            </a>
+          </Link>
         </li>
         <li className='ac-gn-item ac-gn-item-menu ac-gn-accessories'>
           <Link href='/shop/accessories/all'>
@@ -105,27 +110,26 @@ export default function List({
           </Link>
         </li>
         <li className='ac-gn-item ac-gn-item-menu ac-gn-support'>
-          <a
-            className='ac-gn-link ac-gn-link-support'
-            href='https://support.apple.com'
-            data-analytics-title='support'
-          >
-            <span className='ac-gn-link-text'>Support</span>
-          </a>
+          <Link href='https://support.apple.com'>
+            <a
+              className='ac-gn-link ac-gn-link-support'
+              data-analytics-title='support'
+            >
+              <span className='ac-gn-link-text'>Support</span>
+            </a>
+          </Link>
         </li>
         <li className='ac-gn-item ac-gn-item-menu ac-gn-search' role='search'>
-          <Link href='#searchview'>
-            <a
-              id='ac-gn-link-search'
-              className='ac-gn-link ac-gn-link-search'
-              data-analytics-title='search'
-              data-analytics-intrapage-link=''
-              aria-label='Search apple.com'
-              role='button'
-              aria-haspopup='true'
-              onClick={() => setIsSearchView(true)}
-            />
-          </Link>
+          <a
+            id='ac-gn-link-search'
+            className='ac-gn-link ac-gn-link-search'
+            data-analytics-title='search'
+            data-analytics-intrapage-link=''
+            aria-label='Search apple.com'
+            role='button'
+            aria-haspopup='true'
+            onClick={() => setIsSearchView(true)}
+          />
         </li>
         <li className='ac-gn-item ac-gn-bag with-badge' id='ac-gn-bag'>
           <div

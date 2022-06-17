@@ -104,7 +104,7 @@ export default function StyledLink({ link, styles = '' }) {
           </svg>`
           )});
           transform: scale(0.7);
-          margin-top: 0.3em;
+          margin-top: 0.22em; // 0.3em
         }
 
         /* icon-external */
