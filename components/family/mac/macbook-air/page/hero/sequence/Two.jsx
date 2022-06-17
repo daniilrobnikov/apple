@@ -1,15 +1,20 @@
-import { useEffect, useRef } from 'react'
-import { useDuration, useKeyframe } from '../../../../../hooks/useScroll'
+import { useRef } from 'react'
+import {
+  useStickyKeyframe,
+  useStickyVideo,
+  useStickyAnimation,
+} from '../../../../../../hooks/useScroll'
 export default function Two({ breakpoint }) {
-  const videoEl = useRef(null)
-  const duration = useDuration(videoEl.current)
-  const keyframe = useKeyframe('.section-hero')
+  const keyframe = useStickyKeyframe('.section-hero')
 
-  useEffect(() => {
-    if (videoEl.current) {
-      videoEl.current.currentTime = keyframe * duration
-    }
-  }, [keyframe])
+  const videoEl = useRef(null)
+  useStickyVideo(videoEl, keyframe)
+
+  var step = breakpoint[1] - breakpoint[0]
+  var stitch = [0, 1]
+  stitch.forEach(function (item, index) {
+    stitch[index] = stitch[index] * step + breakpoint[0]
+  })
 
   return (
     <>
@@ -30,9 +35,8 @@ export default function Two({ breakpoint }) {
             data-video-basepath='/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/design/'
             data-anim-keyframe='{"start": "a0t", "end": "lerp(0.6, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "cssClass": "js-will-change", "toggle": true, "disabledWhen": ["no-enhance-xp"]}'
             playsInline
-            // autoPlay
-            muted
             loop
+            muted
             aria-hidden='true'
             src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/design/medium.mp4'
             className='js-will-change'
@@ -50,14 +54,22 @@ export default function Two({ breakpoint }) {
             data-ax-offset='50vh'
             tabIndex='-1'
             style={{
-              transform: `translateX(${69.2 * (keyframe - 1)}px)`,
+              transform: `translateX(${useStickyAnimation(
+                [-69.2, 0],
+                [stitch[0], stitch[1]],
+                keyframe
+              )}px)`,
             }}
           >
             <p
               className='headline-gradient'
               data-anim-keyframe='{"start": "lerp(0.2, a0t, a0b - 200vh)", "end": "lerp(0.37, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "--gradient-position":["css(--gradient-position-start)", "css(--gradient-position-end)","%"], "disabledWhen":["no-enhance-xp"]}'
               style={{
-                '--gradient-position': `${140 * (1 - keyframe)}%`,
+                '--gradient-position': `${useStickyAnimation(
+                  [140, -40],
+                  [stitch[0], stitch[1]],
+                  keyframe
+                )}%`,
               }}
             >
               All-new design.

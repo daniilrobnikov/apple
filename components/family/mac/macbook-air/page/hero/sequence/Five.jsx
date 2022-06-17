@@ -1,25 +1,23 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import {
-  useKeyframe,
-  useAnimation,
-  useDuration,
+  useStickyKeyframe,
+  useStickyAnimation,
+  useStickyVideo,
 } from '@/components/hooks/useScroll'
 
 export default function Five({ breakpoint }) {
-  const keyframe = useKeyframe('.section-hero')
-  const stitch = [0, 0.3, 0.4, 0.75, 1]
+  const keyframe = useStickyKeyframe('.section-hero')
 
+  var step = breakpoint[1] - breakpoint[0]
+  var stitch = [0, 0.3, 0.4, 0.75, 1]
+  stitch.forEach(function (item, index) {
+    stitch[index] = stitch[index] * step + breakpoint[0]
+  })
+
+  var videoFrame = (keyframe - stitch[2]) / (1 - stitch[2])
+  videoFrame = Math.max(0, Math.min(1, videoFrame))
   const videoEl = useRef(null)
-  const duration = useDuration(videoEl.current)
-  const videoFrame = useAnimation(
-    [0, duration],
-    [stitch.at(2), stitch.at(-1)],
-    keyframe
-  )
-
-  useEffect(() => {
-    videoEl.current.currentTime = videoFrame
-  }, [videoFrame])
+  useStickyVideo(videoEl, videoFrame)
 
   return (
     <>
@@ -45,7 +43,7 @@ export default function Five({ breakpoint }) {
             data-ax-attribute-end=''
             tabIndex='-1'
             style={{
-              transform: `translateY(${useAnimation(
+              transform: `translateY(${useStickyAnimation(
                 [15.2, 0],
                 [stitch.at(0), stitch.at(2)],
                 keyframe
@@ -58,7 +56,7 @@ export default function Five({ breakpoint }) {
               data-anim-keyframe='{"start": "lerp(0.81, a0t, a0b - 200vh)","end": "lerp(0.85, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "--gradient-position":["css(--gradient-position-start)", "css(--gradient-position-end)","%"], "disabledWhen":["no-enhance-xp"], "breakpointMask": "ML"}'
               data-anim-keyframe-2='{"start": "lerp(0.81, a0t, a0b - 200vh)","end": "lerp(0.86, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "--gradient-position":["css(--gradient-position-start)", "css(--gradient-position-end)","%"], "disabledWhen":["no-enhance-xp"], "breakpointMask": "S"}'
               style={{
-                '--gradient-position': `${useAnimation(
+                '--gradient-position': `${useStickyAnimation(
                   [140, -40],
                   [stitch.at(0), stitch.at(1)],
                   keyframe
@@ -75,7 +73,7 @@ export default function Five({ breakpoint }) {
             data-anim-keyframe-2='{"start":"lerp(0.845, a0t, a0b - 200vh)","end": "lerp(0.9, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "y": [300,0,"px"], "ease": 0.8, "easeFunction": "easeOutQuad", "disabledWhen": ["no-enhance-xp"], "breakpointMask": "ML"}'
             data-anim-keyframe-3='{"start":"lerp(0.8, a0t, a0b - 200vh)","end": "lerp(0.88, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "y": [600,0,"px"], "ease": 0.8, "easeFunction": "easeOutQuart", "disabledWhen": ["no-enhance-xp"], "breakpointMask": "S"}'
             style={{
-              transform: `translateY(${useAnimation(
+              transform: `translateY(${useStickyAnimation(
                 [600, 0],
                 [stitch.at(0), stitch.at(2)],
                 keyframe
@@ -106,14 +104,14 @@ export default function Five({ breakpoint }) {
             data-ax-attribute-end=''
             tabIndex='-1'
             style={{
-              transform: `translateY(${useAnimation(
+              transform: `translateY(${useStickyAnimation(
                 [22.8, 0],
-                [stitch.at(-2) - 0.1, stitch.at(-2)],
+                [stitch.at(3), stitch.at(-1)],
                 keyframe
               )}px)`,
-              opacity: useAnimation(
+              opacity: useStickyAnimation(
                 [0, 1],
-                [stitch.at(-2) - 0.1, stitch.at(-2)],
+                [stitch.at(3), stitch.at(-1)],
                 keyframe
               ),
             }}
@@ -122,7 +120,7 @@ export default function Five({ breakpoint }) {
               className='headline-gradient'
               data-anim-keyframe='{"start": "lerp(0.944, a0t, a0b - 200vh)","end": "lerp(0.99, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "--gradient-position":["css(--gradient-position-start)", "css(--gradient-position-end)","%"], "disabledWhen":["no-enhance-xp"]}'
               style={{
-                '--gradient-position': `${useAnimation(
+                '--gradient-position': `${useStickyAnimation(
                   [140, -40],
                   [stitch.at(-2), stitch.at(-1)],
                   keyframe

@@ -1,6 +1,13 @@
-import { useKeyframe } from '@/hooks/useScroll'
+import { useStickyKeyframe, useStickyAnimation } from '@/hooks/useScroll'
 export default function Three({ breakpoint }) {
-  const keyframe = useKeyframe('.section-hero')
+  const keyframe = useStickyKeyframe('.section-hero')
+
+  var step = breakpoint[1] - breakpoint[0]
+  var stitch = [0, 0.5, 1]
+  stitch.forEach(function (item, index) {
+    stitch[index] = stitch[index] * step + breakpoint[0]
+  })
+
   return (
     <>
       <div
@@ -13,7 +20,11 @@ export default function Three({ breakpoint }) {
           className='section-content'
           data-anim-keyframe='{"start": "lerp(0.54, a0t, a0b - 200vh)","end": "lerp(0.6, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "scale": ["css(--supercharged-wrapper-scale-start)", "css(--supercharged-wrapper-scale-end)"], "ease": 0.8, "easeFunction": "easeInQuart", "disabledWhen": ["no-enhance-xp"]}'
           style={{
-            transform: `scale(${1 - Math.max(0, (keyframe - 0.5) * 2) * 0.4})`,
+            transform: `scale(${useStickyAnimation(
+              [1, 0.6],
+              [stitch[1], stitch[2]],
+              keyframe
+            )})`,
           }}
         >
           <div
@@ -27,7 +38,11 @@ export default function Three({ breakpoint }) {
             data-ax-offset='-10vh'
             tabIndex='-1'
             style={{
-              transform: `scale(${1.5 - 2 * Math.min(0.5, keyframe) * 0.5})`,
+              transform: `scale(${useStickyAnimation(
+                [1, 0.6],
+                [stitch[1], stitch[2]],
+                keyframe
+              )})`,
             }}
           >
             <p
@@ -35,9 +50,11 @@ export default function Three({ breakpoint }) {
               data-anim-keyframe='{"start": "lerp(0.52, a0t, a0b - 200vh)","end": "lerp(0.56, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "--gradient-position":["css(--gradient-position-start)", "css(--gradient-position-end)","%"], "disabledWhen":["no-enhance-xp"]}'
               data-anim-keyframe-2='{"start": "lerp(0.42, a0t, a0b - 200vh)","end": "lerp(0.66, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "cssClass": "js-will-change", "toggle": true, "disabledWhen": ["no-enhance-xp"]}'
               style={{
-                '--gradient-position': `${
-                  140 - 180 * Math.max(0, (keyframe - 0.5) * 2)
-                }%`,
+                '--gradient-position': `${useStickyAnimation(
+                  [140, -40],
+                  [stitch[1], stitch[2]],
+                  keyframe
+                )}%`,
               }}
             >
               Supercharged.
@@ -48,9 +65,12 @@ export default function Three({ breakpoint }) {
               className='chip-wrapper'
               data-anim-keyframe='{"start": "lerp(0.4, a0t, a0b - 200vh)", "end": "lerp(0.55, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "scale": ["max(150vw/w,150vh/w)",1], "ease": 0.8, "disabledWhen": ["no-enhance-xp"]}'
               style={{
-                transform: `scale(${
-                  6.18333 - Math.min(0.5, keyframe) * 2 * 5.18333
-                })`,
+                transform: `scale(
+                  ${useStickyAnimation(
+                    [6.18333, 1],
+                    [stitch[0], stitch[1]],
+                    keyframe
+                  )})`,
               }}
             >
               <picture

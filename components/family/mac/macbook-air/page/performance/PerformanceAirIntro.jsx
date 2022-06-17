@@ -1,7 +1,7 @@
-import { useWhileInView, useAnimation } from '@/components/hooks/useScroll'
+import { useWhileInView, useKeyframe } from '@/components/hooks/useScroll'
 
 export default function PerformanceAirIntro() {
-  const whileInView = useWhileInView(
+  const keyframe = useKeyframe(
     '.section-performance .subsection-intro .section-headline'
   )
 
@@ -42,11 +42,7 @@ export default function PerformanceAirIntro() {
             className='headline-gradient'
             data-anim-keyframe='{"start":"t - 80vh", "end":"t - 10vh", "--gradient-position":["css(--gradient-position-start)", "css(--gradient-position-end)","%"], "disabledWhen":["no-enhance-xp"]}'
             style={{
-              '--gradient-position': `${useAnimation(
-                [140, -40],
-                [0, 1],
-                whileInView
-              )}%`,
+              '--gradient-position': `${useWhileInView([140, -40], keyframe)}%`,
             }}
           >
             Prepare for takeoff.

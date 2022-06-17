@@ -1,6 +1,12 @@
-import { useKeyframe, useAnimation } from '@/components/hooks/useScroll'
+import {
+  useStickyKeyframe,
+  useStickyAnimation,
+} from '@/components/hooks/useScroll'
 export default function MBAFinishesSub() {
-  const keyframe = useKeyframe('.section-design .subsection-design-finishes')
+  const keyframe = useStickyKeyframe(
+    '.section-design .subsection-design-finishes'
+  )
+
   const stitch = [0, 0.25, 0.5, 0.75, 1]
 
   return (
@@ -147,10 +153,11 @@ export default function MBAFinishesSub() {
                   tabIndex='-1'
                   style={{
                     transform: `
-                    translateY(${useAnimation(
-                      [12, 0],
+                    translateY(${useStickyAnimation(
+                      [20, 0],
                       [stitch[0], stitch[1]],
-                      keyframe
+                      keyframe,
+                      'easeInOutQuad'
                     )}px)`,
                   }}
                 >
@@ -195,10 +202,11 @@ export default function MBAFinishesSub() {
                   tabIndex='-1'
                   style={{
                     transform: `
-                    translateY(${useAnimation(
-                      [12, 0],
+                    translateY(${useStickyAnimation(
+                      [20, 0],
                       [stitch[1], stitch[2]],
-                      keyframe
+                      keyframe,
+                      'easeInOutQuad'
                     )}px)`,
                   }}
                 >
@@ -243,10 +251,11 @@ export default function MBAFinishesSub() {
                   tabIndex='-1'
                   style={{
                     transform: `
-                    translateY(${useAnimation(
-                      [12, 0],
+                    translateY(${useStickyAnimation(
+                      [20, 0],
                       [stitch[2], stitch[3]],
-                      keyframe
+                      keyframe,
+                      'easeInOutQuad'
                     )}px)`,
                   }}
                 >
@@ -363,10 +372,11 @@ export default function MBAFinishesSub() {
                   tabIndex='-1'
                   style={{
                     transform: `
-                    translateY(${useAnimation(
-                      [12, 0],
+                    translateY(${useStickyAnimation(
+                      [20, 0],
                       [stitch[3], stitch[4]],
-                      keyframe
+                      keyframe,
+                      'easeInOutQuad'
                     )}px)`,
                   }}
                 >

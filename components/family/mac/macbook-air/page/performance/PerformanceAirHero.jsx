@@ -1,6 +1,6 @@
-import { useAnimation, useWhileInView } from '@/components/hooks/useScroll'
+import { useWhileInView, useKeyframe } from '@/components/hooks/useScroll'
 export default function PerformanceAirHero() {
-  const whileInView = useWhileInView('.section-performance .subsection-hero')
+  const keyframe = useKeyframe('.section-performance .subsection-hero')
   return (
     <>
       <div
@@ -38,13 +38,12 @@ export default function PerformanceAirHero() {
           data-anim-keyframe-2='{"start":"t - 100vh", "end":"b", "y":["50px","-50px"], "disabledWhen":["no-enhance-xp"], "breakpointMask": "LM"}'
           data-anim-keyframe-3='{"start":"t - 100vh", "end":"b", "y":["50px","-50px"], "disabledWhen":["no-enhance-xp"],"breakpointMask": "S"}'
           style={{
-            transform: `translateY(${useAnimation(
+            transform: `translateY(${useWhileInView(
               [50, -50],
-              [0, 1],
-              whileInView
+              keyframe,
+              'easeInOutCubic'
             )}px)`,
           }}
-          // style='transform: matrix(1, 0, 0, 1, 0, 39.9495);'
           data-picture-loaded=''
         >
           <source
@@ -68,13 +67,12 @@ export default function PerformanceAirHero() {
           data-anim-keyframe-2='{"start":"t - 100vh", "end":"b", "y":["120px","-120px"], "disabledWhen":["no-enhance-xp"], "breakpointMask": "LM"}'
           data-anim-keyframe-3='{"start":"t - 100vh", "end":"b", "y":["50px","-50px"], "disabledWhen":["no-enhance-xp"],"breakpointMask": "S"}'
           style={{
-            transform: `translateY(${useAnimation(
+            transform: `translateY(${useWhileInView(
               [120, -120],
-              [0, 1],
-              whileInView
+              keyframe,
+              'easeInOutCubic'
             )}px)`,
           }}
-          // style='transform: matrix(1, 0, 0, 1, 0, 103.2);'
           data-picture-loaded=''
         >
           <source
@@ -102,13 +100,12 @@ export default function PerformanceAirHero() {
           data-anim-keyframe-2='{"start":"t - 100vh", "end":"b", "y":["50px","-50px"], "disabledWhen":["no-enhance-xp"], "breakpointMask": "LM"}'
           data-anim-keyframe-3='{"start":"t - 100vh", "end":"b", "y":["20px","-20px"], "disabledWhen":["no-enhance-xp"],"breakpointMask": "S"}'
           style={{
-            transform: `translateY(${useAnimation(
+            transform: `translateY(${useWhileInView(
               [50, -50],
-              [0, 1],
-              whileInView
+              keyframe,
+              'easeInOutCubic'
             )}px)`,
           }}
-          // style='transform: matrix(1, 0, 0, 1, 0, 50);'
           data-picture-loaded=''
         >
           <source
@@ -136,13 +133,12 @@ export default function PerformanceAirHero() {
           data-anim-keyframe-2='{"start":"t - 100vh", "end":"b", "y":["60px","-60px"], "disabledWhen":["no-enhance-xp"], "breakpointMask": "LM"}'
           data-anim-keyframe-3='{"start":"t - 100vh", "end":"b", "y":["30px","-30px"], "disabledWhen":["no-enhance-xp"],"breakpointMask": "S"}'
           style={{
-            transform: `translateY(${useAnimation(
+            transform: `translateY(${useWhileInView(
               [60, -60],
-              [0, 1],
-              whileInView
+              keyframe,
+              'easeInOutCubic'
             )}px)`,
           }}
-          // style='transform: matrix(1, 0, 0, 1, 0, 60);'
           data-picture-loaded=''
         >
           <source
@@ -169,12 +165,11 @@ export default function PerformanceAirHero() {
           data-anim-keyframe-1='{"start":"t - 150vh", "end":"b + 50vh", "cssClass":"js-will-change", "toggle": "true", "disabledWhen":["no-enhance-xp"]}'
           data-anim-keyframe-2='{"start":"t - 100vh", "end":"b", "y":["80px","-80px"], "disabledWhen":["no-enhance-xp"], "breakpointMask": "LM"}'
           data-anim-keyframe-3='{"start":"t - 100vh", "end":"b", "y":["50px","-50px"], "disabledWhen":["no-enhance-xp"],"breakpointMask": "S"}'
-          // style='transform: matrix(1, 0, 0, 1, 0, 80);'
           style={{
-            transform: `translateY(${useAnimation(
+            transform: `translateY(${useWhileInView(
               [80, -80],
-              [0, 1],
-              whileInView
+              keyframe,
+              'easeInOutCubic'
             )}px)`,
           }}
           data-picture-loaded=''
@@ -203,12 +198,11 @@ export default function PerformanceAirHero() {
           data-anim-keyframe-1='{"start":"t - 150vh", "end":"b + 50vh", "cssClass":"js-will-change", "toggle": "true", "disabledWhen":["no-enhance-xp"]}'
           data-anim-keyframe-2='{"start":"t - 100vh", "end":"b", "y":["60px","-60px"], "disabledWhen":["no-enhance-xp"], "breakpointMask": "LM"}'
           data-anim-keyframe-3='{"start":"t - 100vh", "end":"b", "y":["30px","-30px"], "disabledWhen":["no-enhance-xp"],"breakpointMask": "S"}'
-          // style='transform: matrix(1, 0, 0, 1, 0, 58.3571);'
           style={{
-            transform: `translateY(${useAnimation(
+            transform: `translateY(${useWhileInView(
               [60, -60],
-              [0, 1],
-              whileInView
+              keyframe,
+              'easeInOutCubic'
             )}px)`,
           }}
           data-picture-loaded=''
@@ -237,12 +231,11 @@ export default function PerformanceAirHero() {
           data-anim-keyframe-1='{"start":"t - 150vh", "end":"b + 50vh", "cssClass":"js-will-change", "toggle": "true", "disabledWhen":["no-enhance-xp"]}'
           data-anim-keyframe-2='{"start":"t - 100vh", "end":"b", "y":["130px","-130px"], "disabledWhen":["no-enhance-xp"], "breakpointMask": "LM"}'
           data-anim-keyframe-3='{"start":"t - 100vh", "end":"b", "y":["100px","-100px"], "disabledWhen":["no-enhance-xp"],"breakpointMask": "S"}'
-          // style='transform: matrix(1, 0, 0, 1, 0, 130);'
           style={{
-            transform: `translateY(${useAnimation(
+            transform: `translateY(${useWhileInView(
               [130, -130],
-              [0, 1],
-              whileInView
+              keyframe,
+              'easeInOutCubic'
             )}px)`,
           }}
           data-picture-loaded=''
@@ -271,12 +264,11 @@ export default function PerformanceAirHero() {
           data-anim-keyframe-1='{"start":"t - 150vh", "end":"b + 50vh", "cssClass":"js-will-change", "toggle": "true", "disabledWhen":["no-enhance-xp"]}'
           data-anim-keyframe-2='{"start":"t - 100vh", "end":"b", "y":["100px","-100px"], "disabledWhen":["no-enhance-xp"], "breakpointMask": "LM"}'
           data-anim-keyframe-3='{"start":"t - 100vh", "end":"b", "y":["70px","-70px"], "disabledWhen":["no-enhance-xp"],"breakpointMask": "S"}'
-          // style='transform: matrix(1, 0, 0, 1, 0, 82.3418);'
           style={{
-            transform: `translateY(${useAnimation(
+            transform: `translateY(${useWhileInView(
               [100, -100],
-              [0, 1],
-              whileInView
+              keyframe,
+              'easeInOutCubic'
             )}px)`,
           }}
           data-picture-loaded=''
@@ -305,12 +297,11 @@ export default function PerformanceAirHero() {
           data-anim-keyframe-1='{"start":"t - 150vh", "end":"b + 50vh", "cssClass":"js-will-change", "toggle": "true", "disabledWhen":["no-enhance-xp"]}'
           data-anim-keyframe-2='{"start":"t - 100vh", "end":"b", "y":["130px","-130px"], "disabledWhen":["no-enhance-xp"], "breakpointMask": "LM"}'
           data-anim-keyframe-3='{"start":"t - 100vh", "end":"b", "y":["100px","-100px"], "disabledWhen":["no-enhance-xp"],"breakpointMask": "S"}'
-          // style='transform: matrix(1, 0, 0, 1, 0, 130);'
           style={{
-            transform: `translateY(${useAnimation(
+            transform: `translateY(${useWhileInView(
               [130, -130],
-              [0, 1],
-              whileInView
+              keyframe,
+              'easeInOutCubic'
             )}px)`,
           }}
           data-picture-loaded=''

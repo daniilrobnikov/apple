@@ -6,7 +6,7 @@ import Three from './sequence/Three'
 import Two from './sequence/Two'
 
 export default function Hero() {
-  const stitch = [0, 0.2, 0.4, 0.6, 0.7, 0.7]
+  const stitch = [0, 0.15, 0.25, 0.45, 0.6, 0.83]
 
   return (
     <>
@@ -24,6 +24,8 @@ export default function Hero() {
           justify-content: center;
           align-items: center;
           background-color: #fff;
+
+          display: none;
         }
         .section-hero .hero-sticky-container .sequence,
         .section-hero .hero-sticky-container .sequence .content-wrapper,
@@ -32,6 +34,7 @@ export default function Hero() {
         }
         .section-hero .hero-sticky-container .sequence.show {
           opacity: 1;
+          display: flex;
         }
 
         .section-hero .hero-sticky-container .sequence .video-container {

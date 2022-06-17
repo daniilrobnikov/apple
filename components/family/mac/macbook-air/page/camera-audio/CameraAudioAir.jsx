@@ -1,7 +1,7 @@
-import { useWhileInView, useAnimation } from '@/components/hooks/useScroll'
+import { useWhileInView, useKeyframe } from '@/components/hooks/useScroll'
 
 export default function CameraAudioAir() {
-  const whileInView = useWhileInView('.section-camera-audio .section-headline')
+  const keyframe = useKeyframe('.section-camera-audio .section-headline')
 
   return (
     <>
@@ -23,10 +23,9 @@ export default function CameraAudioAir() {
                 className='headline-gradient'
                 data-anim-keyframe='{"start":"t - 80vh", "end":"t - 10vh", "--gradient-position":["css(--gradient-position-start)", "css(--gradient-position-end)","%"], "disabledWhen":["no-enhance-xp"]}'
                 style={{
-                  '--gradient-position': `${useAnimation(
+                  '--gradient-position': `${useWhileInView(
                     [140, -40],
-                    [0, 1],
-                    whileInView
+                    keyframe
                   )}%`,
                 }}
               >

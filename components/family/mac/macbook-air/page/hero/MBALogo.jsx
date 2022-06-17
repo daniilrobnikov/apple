@@ -1,4 +1,4 @@
-import { useKeyframe, useAnimation } from '@/components/hooks/useScroll'
+import { useKeyframe, useWhileInView } from '@/components/hooks/useScroll'
 
 export default function MBALogo() {
   const keyframe = useKeyframe('.hero-static')
@@ -11,11 +11,7 @@ export default function MBALogo() {
               className='product-container'
               data-anim-keyframe='{"start":"a0t-5vh","end":"a0t+50vh","anchors": [".product-sticky-wrapper"], "--mba-separation":["css(--mba-separation-start)","css(--mba-separation-end)", "%"],"easeFunction": "easeOutQuad", "ease": 0.8, "disabledWhen": ["no-enhance-xp"]}'
               style={{
-                '--mba-separation': `${useAnimation(
-                  [20, 0],
-                  [0, 1],
-                  keyframe
-                )}%`,
+                '--mba-separation': `${useWhileInView([20, 0], keyframe)}%`,
               }}
             >
               <div className='product mba1'>

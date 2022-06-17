@@ -1,8 +1,12 @@
-import { useKeyframe, useAnimation } from '@/hooks/useScroll'
+import { useStickyKeyframe, useStickyAnimation } from '@/hooks/useScroll'
 export default function Four({ breakpoint }) {
-  const keyframe = useKeyframe('.section-hero')
+  const keyframe = useStickyKeyframe('.section-hero')
 
-  const stitch = [0, 0.4, 0.75, 1]
+  var step = breakpoint[1] - breakpoint[0]
+  var stitch = [0, 0.4, 0.75, 1]
+  stitch.forEach(function (item, index) {
+    stitch[index] = stitch[index] * step + breakpoint[0]
+  })
 
   return (
     <>
@@ -22,7 +26,7 @@ export default function Four({ breakpoint }) {
             data-ax-attribute-end=''
             tabIndex='-1'
             style={{
-              transform: `translateY(${useAnimation(
+              transform: `translateY(${useStickyAnimation(
                 [212, 0],
                 [stitch.at(1), stitch.at(2)],
                 keyframe
@@ -33,7 +37,7 @@ export default function Four({ breakpoint }) {
               className='headline-gradient'
               data-anim-keyframe='{"start": "lerp(0.74, a0t, a0b - 200vh)", "end": "lerp(0.78, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "--gradient-position":["css(--gradient-position-start)", "css(--gradient-position-end)","%"], "disabledWhen":["no-enhance-xp"]}'
               style={{
-                '--gradient-position': `${useAnimation(
+                '--gradient-position': `${useStickyAnimation(
                   [140, -40],
                   [stitch.at(-2), stitch.at(-1)],
                   keyframe
@@ -50,17 +54,17 @@ export default function Four({ breakpoint }) {
             data-anim-keyframe-3='{"start": "lerp(0.598, a0t, a0b - 200vh)", "end": "lerp(0.802, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper", ".copy-sfour" ], "--copy-height": ["a1h","a1h","px"], "disabledWhen": ["no-enhance-xp"]}'
             data-anim-keyframe-4='{"start": "lerp(0.55, a0t, a0b - 200vh)", "end": "lerp(0.9, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "cssClass": "js-will-change", "toggle": true, "disabledWhen": ["no-enhance-xp"]}'
             style={{
-              '--hardware-container-scale': `${useAnimation(
+              '--hardware-container-scale': `${useStickyAnimation(
                 [4.66667, 1],
                 [stitch.at(0), stitch.at(1)],
                 keyframe
               )}`,
-              '--hardware-offset-lerp': `${useAnimation(
+              '--hardware-offset-lerp': `${useStickyAnimation(
                 [1, 0],
                 [stitch.at(0), stitch.at(1)],
                 keyframe
               )}`,
-              '--hardware-container-lerp': `${useAnimation(
+              '--hardware-container-lerp': `${useStickyAnimation(
                 [1, 0],
                 [stitch.at(1), stitch.at(2)],
                 keyframe
@@ -131,12 +135,12 @@ export default function Four({ breakpoint }) {
                   data-picture-loaded=''
                   style={{
                     transform: `
-                    translateX(${useAnimation(
+                    translateX(${useStickyAnimation(
                       [-10, 0],
                       [stitch[1], stitch[-1]],
                       keyframe
                     )}px)
-                    translateY(${useAnimation(
+                    translateY(${useStickyAnimation(
                       [10, 0],
                       [stitch[1], stitch[-1]],
                       keyframe
@@ -170,12 +174,12 @@ export default function Four({ breakpoint }) {
                   data-picture-loaded=''
                   style={{
                     transform: `
-                    translateX(${useAnimation(
+                    translateX(${useStickyAnimation(
                       [10, 0],
                       [stitch[1], stitch[-1]],
                       keyframe
                     )}px)
-                    translateY(${useAnimation(
+                    translateY(${useStickyAnimation(
                       [10, 0],
                       [stitch[1], stitch[-1]],
                       keyframe
@@ -214,12 +218,12 @@ export default function Four({ breakpoint }) {
                   data-download-area-keyframe='{"disabledWhen":"no-enhance-xp", "start": "lerp(0.68, a0t, a0b - 200vh)", "end": "lerp(0.76, a0t, a0b - 200vh) + 100vh", "anchors": [".hero-sticky-wrapper"]}'
                   style={{
                     transform: `
-                    translateX(${useAnimation(
+                    translateX(${useStickyAnimation(
                       [10, 0],
                       [stitch[1], stitch[-1]],
                       keyframe
                     )}px)
-                    translateY(${useAnimation(
+                    translateY(${useStickyAnimation(
                       [10, 0],
                       [stitch[1], stitch[-1]],
                       keyframe
@@ -278,17 +282,17 @@ export default function Four({ breakpoint }) {
                 data-anim-keyframe-2='{"start": "lerp(0.4, a0t, a0b - 200vh)", "end": "lerp(0.9, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "cssClass": "js-will-change", "toggle": true, "disabledWhen": ["no-enhance-xp"]}'
                 style={{
                   transform: `
-                    scale(${useAnimation(
+                    scale(${useStickyAnimation(
                       [1, 0.723],
                       [stitch[1], stitch[-1]],
                       keyframe
                     )})
-                    translateX(${useAnimation(
+                    translateX(${useStickyAnimation(
                       [0, 74],
                       [stitch[1], stitch[-1]],
                       keyframe
                     )}px)
-                    translateY(${useAnimation(
+                    translateY(${useStickyAnimation(
                       [0, 37],
                       [stitch[1], stitch[-1]],
                       keyframe

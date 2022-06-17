@@ -1,5 +1,5 @@
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
-import Hero from '@/components/family/mac/macbook-air/page/Hero'
+import Hero from '@/components/family/mac/macbook-air/page/hero/Hero'
 import DesignAir from '@/components/family/mac/macbook-air/page/design/DesignAir'
 import PerformanceAir from '@/components/family/mac/macbook-air/page/performance/PerformanceAir'
 import DisplayAir from '@/components/family/mac/macbook-air/page/display/DisplayAir'
@@ -10,7 +10,38 @@ import ConnectivityAir from '@/components/family/mac/macbook-air/page/connectivi
 export default function MacBookAir() {
   return (
     <>
-      {/* <LocalNav /> */}
+      <LocalNav
+        page={{
+          title: 'MacBook Air',
+          eyebrow: 'M2 chip model',
+          href: '/macbook-air/',
+        }}
+        menu={[
+          {
+            pages: [
+              {
+                title: 'Overview',
+                href: '/macbook-air/',
+              },
+              {
+                title: 'Why Mac',
+                href: '/macbook-air/why-mac/',
+              },
+              {
+                title: 'Tech Specs',
+                href: '/macbook-air/specs/',
+              },
+            ],
+          },
+        ]}
+        actions={[
+          {
+            href: '/shop/buy-mac/macbook-air/',
+            type: 'button',
+            text: 'View pricing',
+          },
+        ]}
+      />
 
       <main>
         <Hero />

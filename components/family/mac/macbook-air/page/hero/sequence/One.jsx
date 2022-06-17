@@ -1,13 +1,14 @@
-import { useEffect, useRef } from 'react'
-import { useDuration, useKeyframe } from '../../../../../hooks/useScroll'
+import { useRef } from 'react'
+import {
+  useStickyKeyframe,
+  useStickyVideo,
+} from '../../../../../../hooks/useScroll'
 export default function One({ breakpoint }) {
-  const videoEl = useRef(null)
-  const duration = useDuration(videoEl.current)
-  const keyframe = useKeyframe('.section-hero')
+  const keyframe = useStickyKeyframe('.section-hero')
 
-  useEffect(() => {
-    videoEl.current.currentTime = 5 * keyframe * duration
-  }, [keyframe])
+  const videoEl = useRef(null)
+  useStickyVideo(videoEl, keyframe * 5)
+
   return (
     <>
       <div
@@ -141,72 +142,3 @@ export default function One({ breakpoint }) {
     </>
   )
 }
-
-// function useWindowSize() {
-//   const [windowSize, setWindowSize] = useState({
-//     boxHeight: undefined,
-//     windowHeight: undefined,
-//   })
-
-//   useEffect(() => {
-//     if (typeof window !== 'undefined') {
-//       function handleResize() {
-//         setWindowSize({
-//           boxHeight: document.querySelector('.section-hero').clientHeight,
-//           windowHeight: window.innerHeight,
-//         })
-//       }
-
-//       window.addEventListener('resize', handleResize)
-//       handleResize()
-//       return () => window.removeEventListener('resize', handleResize)
-//     }
-//   }, [])
-//   return windowSize
-// }
-
-// function useScrollPercentage() {
-//   const { boxHeight, windowHeight } = useWindowSize()
-
-//   const [scrollPercentage, setScrollPercentage] = useState(0)
-
-//   useEffect(() => {
-//     if (typeof window !== 'undefined') {
-//       function handleScroll() {
-//         var scrollTop = window.pageYOffset || document.documentElement.scrollTop
-//         setScrollPercentage(Math.min(1, scrollTop / (boxHeight - windowHeight)))
-//       }
-
-//       window.addEventListener('scroll', handleScroll)
-//       handleScroll()
-//       return () => {
-//         window.removeEventListener('scroll', handleScroll)
-//       }
-//     }
-//   }, [boxHeight, windowHeight])
-
-//   return isNaN(scrollPercentage) ? 0 : scrollPercentage
-// }
-/* */
-// function useWindowSize() {
-//   const [windowSize, setWindowSize] = useState({
-//     width: undefined,
-//     height: undefined,
-//   })
-
-//   useEffect(() => {
-//     if (typeof window !== 'undefined') {
-//       function handleResize() {
-//         setWindowSize({
-//           width: window.innerWidth,
-//           height: window.innerHeight,
-//         })
-//       }
-
-//       window.addEventListener('resize', handleResize)
-//       handleResize()
-//       return () => window.removeEventListener('resize', handleResize)
-//     }
-//   }, [])
-//   return windowSize
-// }

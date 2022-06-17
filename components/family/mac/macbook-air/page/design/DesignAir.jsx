@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import {
-  useKeyframe,
-  useAnimation,
-  useDuration,
+  useStickyKeyframe,
+  useStickyAnimation,
+  useStickyVideo,
 } from '@/components/hooks/useScroll'
 import DesignAirGallery from './DesignAirGallery'
 import DesignSubSection from './DesignSubSection'
@@ -10,14 +10,19 @@ import MBAFinishesSub from './MBAFinishesSub'
 
 export default function DesignAir() {
   const videoEl = useRef(null)
-  const keyframe = useKeyframe('.design-hero-intro.sticky-container')
-  const duration = useDuration(videoEl.current)
+  const keyframe = useStickyKeyframe('.design-hero-intro.sticky-container')
+  useStickyVideo(videoEl, keyframe)
 
   const stitch = [0, 0.56, 0.7, 1]
 
-  useEffect(() => {
-    videoEl.current.currentTime = keyframe * duration
-  }, [keyframe])
+  const heartBubble = {
+    transform: `scale(${useStickyAnimation(
+      [0, 1],
+      [stitch[-2], stitch[-1]],
+      keyframe,
+      'easeInExpo'
+    )})`,
+  }
   return (
     <>
       <article
@@ -57,7 +62,6 @@ export default function DesignAir() {
                             data-anim-keyframe='{"start": "a0t - 50vh", "end": "a0b + 50vh","anchors": [".subsection-design-hero"], "cssClass": "in-perspective", "toggle": true, "disabledWhen": ["no-enhance-xp"]}'
                             aria-hidden='true'
                             src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/rotate/medium.mp4'
-                            // style=''
                           />
                           <picture
                             id='overview-design-rotate-endframe-1'
@@ -99,7 +103,7 @@ export default function DesignAir() {
                         data-ax-offset='200vh'
                         tabIndex='-1'
                         style={{
-                          opacity: useAnimation(
+                          opacity: useStickyAnimation(
                             [0, 1],
                             [stitch[1], stitch[2]],
                             keyframe
@@ -116,7 +120,7 @@ export default function DesignAir() {
                         data-ax-offset='200vh'
                         tabIndex='-1'
                         style={{
-                          opacity: useAnimation(
+                          opacity: useStickyAnimation(
                             [0, 1],
                             [stitch[1], stitch[2]],
                             keyframe
@@ -127,7 +131,7 @@ export default function DesignAir() {
                           className='headline-gradient'
                           data-anim-keyframe='{"start":"css(--headline-anchor, a0) - css(--headline-offset, a0) + css(--gradient-start, a0)", "end":"css(--headline-anchor, a0) - css(--headline-offset, a0) + css(--gradient-start, a0) + css(--gradient-duration, a0)", "--gradient-position":["css(--gradient-position-start)", "css(--gradient-position-end)","%"], "disabledWhen":["no-enhance-xp"], "anchors": [".subsection-design-hero", ".video-container", ".sticky-content", ".design-hero-overlay-outer"] }'
                           style={{
-                            '--gradient-position': `${useAnimation(
+                            '--gradient-position': `${useStickyAnimation(
                               [140, -40],
                               [stitch[1], stitch[-2]],
                               keyframe
@@ -148,13 +152,7 @@ export default function DesignAir() {
                               data-custom-primary-kf='{"start":"0.0", "end":"0.5", "scale":[0,1.15]}'
                               data-custom-secondary-kf='{"start":"0.5", "end":"0.8", "scale":[null,1], "easeFunction": "spring(1, 100, 10, 0)"}'
                               aria-hidden='true'
-                              style={{
-                                transform: `scale(${useAnimation(
-                                  [0, 1],
-                                  [stitch[-2], stitch[-1]],
-                                  keyframe
-                                )})`,
-                              }}
+                              style={heartBubble}
                             >
                               <picture
                                 id='overview-design-design-heart-1'
@@ -162,13 +160,7 @@ export default function DesignAir() {
                                 data-lazy=''
                                 data-custom-primary-kf='{"start":"0.25", "end":"0.5"}'
                                 data-picture-loaded=''
-                                style={{
-                                  transform: `scale(${useAnimation(
-                                    [0, 1],
-                                    [stitch[-2], stitch[-1]],
-                                    keyframe
-                                  )})`,
-                                }}
+                                style={heartBubble}
                               >
                                 <source
                                   srcSet='https://www.apple.com/v/macbook-air-m2/b/images/overview/design/design_heart__eqf67408fk4m_small.png, https://www.apple.com/v/macbook-air-m2/b/images/overview/design/design_heart__eqf67408fk4m_small_2x.png 2x'
@@ -193,26 +185,14 @@ export default function DesignAir() {
                               data-custom-primary-kf='{"start":"0.05", "end":"0.5", "scale":[0,1.15]}'
                               data-custom-secondary-kf='{"start":"0.5", "end":"0.8", "scale":[null,1], "easeFunction": "spring(1, 100, 10, 0)"}'
                               aria-hidden='true'
-                              style={{
-                                transform: `scale(${useAnimation(
-                                  [0, 1],
-                                  [stitch[-2], stitch[-1]],
-                                  keyframe
-                                )})`,
-                              }}
-                            ></span>
+                              style={heartBubble}
+                            />
                             <span
                               className='heart-bubble-tertiary'
                               data-custom-primary-kf='{"start":"0.0", "end":"0.5"}'
                               aria-hidden='true'
-                              style={{
-                                transform: `scale(${useAnimation(
-                                  [0, 1],
-                                  [stitch[-2], stitch[-1]],
-                                  keyframe
-                                )})`,
-                              }}
-                            ></span>
+                              style={heartBubble}
+                            />
                           </span>
                         </p>
                       </div>

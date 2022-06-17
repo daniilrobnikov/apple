@@ -1,11 +1,11 @@
-import { useWhileInView, useAnimation } from '@/components/hooks/useScroll'
+import { useWhileInView, useKeyframe } from '@/components/hooks/useScroll'
 
 import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 export default function KeyboadAir() {
-  const whileInView = useWhileInView('.section-keyboard .section-headline')
+  const keyframe = useKeyframe('.section-keyboard .section-headline')
 
   useEffect(() => {
     AOS.init()
@@ -30,10 +30,9 @@ export default function KeyboadAir() {
                   className='headline-gradient'
                   data-anim-keyframe='{"start":"t - 80vh", "end":"t - 10vh", "--gradient-position":["css(--gradient-position-start)", "css(--gradient-position-end)","%"], "disabledWhen":["no-enhance-xp"]}'
                   style={{
-                    '--gradient-position': `${useAnimation(
+                    '--gradient-position': `${useWhileInView(
                       [140, -40],
-                      [0, 1],
-                      whileInView
+                      keyframe
                     )}%`,
                   }}
                 >
