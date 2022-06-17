@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import useEasing from './Easings'
+import Easing from './Easings'
 
 function useWindowSize(query) {
   const [windowSize, setWindowSize] = useState({
@@ -63,7 +63,7 @@ function useStickyAnimation(
       function handleScroll() {
         var frame = (keyframe - startFrame) / (endFrame - startFrame)
         frame = Math.max(0, Math.min(1, frame))
-        frame = easing ? useEasing(frame, easing) : frame
+        frame = easing ? Easing(frame, easing) : frame
         setActiveState(startState + (endState - startState) * frame)
       }
 
@@ -152,7 +152,7 @@ function useWhileInView([startState = 0, endState = 1], keyframe, easing) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       function handleScroll() {
-        keyframe = easing ? useEasing(keyframe, easing) : keyframe
+        keyframe = easing ? Easing(keyframe, easing) : keyframe
         setActiveState(startState + (endState - startState) * keyframe)
       }
 

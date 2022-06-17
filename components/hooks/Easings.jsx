@@ -1,4 +1,4 @@
-export default function useEasing(x, easing) {
+export default function Easing(x, easing) {
   switch (easing) {
     case 'easeInSine':
       return easeInSine(x)
