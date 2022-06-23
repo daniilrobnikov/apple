@@ -7,6 +7,7 @@ import PinWheel from '@/components/shop/accessories/page/pinwheel/PinWheel'
 import SearchBox from '@/layout/components/SearchBox'
 
 export default function Accessories({ family, page, pinwheels }) {
+  console.log(pinwheels)
   var families = [
     {
       title: 'Mac',

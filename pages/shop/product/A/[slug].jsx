@@ -309,25 +309,48 @@ export default function Product({ product, recommended }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.API_URL}/accessories`)
-  const accessories = await res.json()
+  // const res = await fetch(`${process.env.API_URL}/accessories`)
+  // const accessories = await res.json()
 
-  const paths = await accessories.data.map((accessory) => ({
-    params: { slug: accessory.slug },
-  }))
+  // const paths = await accessories.data.map((accessory) => ({
+  //   params: { slug: accessory.slug },
+  // }))
 
-  console.log(paths)
-  return { paths: paths, fallback: false }
+  // console.log(paths)
+  const paths = [{ params: { slug: 'airpods-pro' } }]
+
+  return { paths, fallback: false }
 }
 export async function getStaticProps({ params }) {
-  const product = await fetch(
-    `${process.env.API_URL}/accessories/${params.slug}`
-  ).then((res) => res.json())
+  let product = await fetch(
+    `${process.env.API_URL}/accessories/${params.slug}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'User-Agent': '*', // 👈
+      },
+    }
+  )
+  product = await product.json()
+  product = JSON.parse(JSON.stringify(product))
 
-  const recommended = await fetch(
-    `${process.env.API_URL}/accessories?brand=Apple&limit=4`
-  ).then((res) => res.json())
+  let recommended = await fetch(
+    `${process.env.API_URL}/accessories?brand=Apple&limit=4`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'User-Agent': '*', // 👈
+      },
+    }
+  )
+  recommended = await recommended.json()
+  recommended = JSON.parse(JSON.stringify(recommended))
 
+  console.log(product)
   return {
     props: {
       product,
