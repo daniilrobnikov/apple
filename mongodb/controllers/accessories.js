@@ -10,7 +10,7 @@ import ErrorResponse from '@/mongodb/utils/errorResponse'
 export const getAccessories = asyncHandler(async (req, res, next) => {
   await dbConnect()
 
-  res.status(200).json(res.advancedResults)
+  res.status(200).json(JSON.stringify(res.advancedResults))
 })
 /**
 @desc    Get an accessory
