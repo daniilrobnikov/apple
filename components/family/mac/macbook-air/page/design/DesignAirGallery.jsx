@@ -14,6 +14,7 @@ export default function DesignAirGallery() {
           data-analytics-section-engagement='name:finishes gallery'
           data-component-support='enhance-xp'
         >
+          {/* Stopped HERE */}
           <ColorNav />
           <FinishesGallery />
         </div>
@@ -112,6 +113,16 @@ export default function DesignAirGallery() {
             margin-left: auto;
             margin-right: auto;
             width: 692px;
+          }
+        }
+
+        @media only screen and (max-width: 734px) {
+          .section-design .subsection-design-gallery .colornav-gallery {
+            display: flex;
+            flex-flow: row wrap;
+            position: unset;
+            overflow: unset;
+            margin-top: 53px;
           }
         }
       `}</style>

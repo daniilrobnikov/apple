@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import Fullfillment from '../../accessories/[category]/[product]/page/Fullfillment'
-import Prices from '../../accessories/[category]/[product]/page/Prices'
-import SaveItem from '../../accessories/[category]/[product]/page/SaveItem'
+import Fullfillment from '../../product/A/page/Fullfillment'
+import Prices from '../../product/A/page/Prices'
+import SaveItem from '../../product/A/page/SaveItem'
 
 export default function Summary() {
   const [isOpen, setIsOpen] = useState(false)

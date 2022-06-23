@@ -1,4 +1,4 @@
-import SearchBox from '@/components/templates/layout/SearchBox'
+import SearchBox from '@/components/templates/layout/components/SearchBox'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 
 export default function Custom404() {

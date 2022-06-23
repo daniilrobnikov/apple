@@ -1,7 +1,7 @@
 import DotNav from '@/components/templates/layout/nav/DotNav'
 import PaddleNav from '@/components/templates/layout/nav/PaddleNav'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
-import Prices from '../../accessories/[category]/[product]/page/Prices'
+import Prices from '../../product/A/page/Prices'
 
 export default function PortalProductModal() {
   return (

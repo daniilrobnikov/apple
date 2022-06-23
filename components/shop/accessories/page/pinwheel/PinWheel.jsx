@@ -1,16 +1,14 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 import PinWheelTile from './PinWheelTile'
 
-export default function PinWheel() {
+export default function PinWheel({ pinwheel }) {
   return (
     <div
       className='fullwidth as-pinwheel as-pinwheel15 as-pinwheel-isfooterlinkpresent section-content'
       data-template='PW15_LR1S4-flex'
     >
       <div className='as-pinwheel-header'>
-        <h2 className='as-pinwheel-title'>Featured Apple Accessories</h2>
+        <h2 className='as-pinwheel-title'>{pinwheel.title}</h2>
       </div>
 
       <div className='row as-pinwheel-row as-pinwheel-row-1'>
@@ -25,8 +23,10 @@ export default function PinWheel() {
 
       <div>
         <ul className='rf-pinwheel-tiles'>
-          <PinWheelTile />
-          <li
+          {pinwheel.data.map((product) => (
+            <PinWheelTile key={product._id} product={product} />
+          ))}
+          {/* <li
             className='rf-pinwheel-item column large-4 small-6'
             data-autom='pinwheel15-tile3'
           >
@@ -803,7 +803,7 @@ export default function PinWheel() {
                 </div>
               </div>
             </div>
-          </li>
+          </li> */}
         </ul>
       </div>
 

@@ -184,6 +184,10 @@ export default function ConnectivityAir() {
           direction: rtl;
         }
 
+        .section-connectivity .hardware-wrap .hardware .pin-headphone,
+        .section-connectivity .hardware-wrap .hardware .pin-headphone:after {
+          width: 1px;
+        }
         /* picture-wrap */
         .section-connectivity .hardware-wrap .picture-wrap {
           position: relative;
@@ -243,6 +247,11 @@ export default function ConnectivityAir() {
           height: var(--p-height);
         }
 
+        .section-connectivity .hardware-wrap .hardware .pin-magsafe,
+        .section-connectivity .hardware-wrap .hardware .pin-magsafe:after {
+          width: 1px;
+        }
+
         .section-connectivity
           .hardware-wrap
           .hardware
@@ -251,7 +260,26 @@ export default function ConnectivityAir() {
           width: 110px;
           margin-left: -55px;
         }
+        .section-connectivity
+          .hardware-wrap
+          .hardware
+          .pin-magsafe
+          .pin-caption {
+          padding: 6px 0 0;
+        }
 
+        /* thunderbolt */
+        .section-connectivity .hardware-wrap .hardware .pin-thunderbolt {
+          --height-offset: 0px;
+          --prong-height: 20px;
+          --adjusted-pin-height: calc(
+            var(--pin-length) + var(--prong-height) - var(--height-offset)
+          );
+        }
+        .section-connectivity .hardware-wrap .hardware .pin-thunderbolt,
+        .section-connectivity .hardware-wrap .hardware .pin-thunderbolt:after {
+          width: 1px;
+        }
         .section-connectivity
           .hardware-wrap
           .hardware
@@ -324,7 +352,6 @@ export default function ConnectivityAir() {
           transform: scaleY(var(--pin-prong-scroll-scale));
           transform-origin: bottom;
         }
-
         .section-connectivity
           .hardware-wrap
           .hardware
@@ -332,6 +359,7 @@ export default function ConnectivityAir() {
           .pin-caption {
           padding: 6px 0 0;
         }
+
         @media only screen and (min-width: 1068px) {
           .section-connectivity.section {
             padding-bottom: 218px;
@@ -343,6 +371,39 @@ export default function ConnectivityAir() {
 
           .section-connectivity .hardware-wrap .hardware {
             --pin-length: 2px;
+          }
+
+          .section-connectivity .hardware-wrap .hardware .pin-headphone {
+            --smart-pin-pos-x: 1185px;
+            --smart-pin-pos-y: -97px;
+            --smart-pin-length: var(--pin-length);
+            top: 0;
+            bottom: 0;
+            padding-top: 19.00048px;
+            left: var(--smart-pin-pos-x);
+            transform: translateY(var(--smart-pin-pos-y));
+            bottom: var(--smart-pin-length);
+          }
+
+          .section-connectivity
+            .hardware-wrap
+            .hardware
+            .pin-headphone
+            .pin-caption {
+            margin-left: -100px;
+            position: absolute;
+            left: 0;
+            width: 200px;
+            text-align: center;
+            z-index: 1;
+          }
+          .section-connectivity
+            .hardware-wrap
+            .hardware
+            .pin-headphone
+            .pin-caption {
+            bottom: 100%;
+            margin-bottom: -16.00048px;
           }
 
           .section-connectivity
@@ -383,6 +444,79 @@ export default function ConnectivityAir() {
             --p-width: 1332px;
             --p-height: 80px;
           }
+
+          .section-connectivity .hardware-wrap .hardware .pin-magsafe {
+            --smart-pin-pos-x: 147px;
+            --smart-pin-pos-y: 95px;
+            --smart-pin-length: var(--pin-length);
+            top: 0;
+            bottom: 0;
+            padding-bottom: 19.00048px;
+            left: var(--smart-pin-pos-x);
+            transform: translateY(var(--smart-pin-pos-y));
+            top: var(--smart-pin-length);
+          }
+          .section-connectivity
+            .hardware-wrap
+            .hardware
+            .pin-magsafe
+            .pin-caption {
+            margin-left: -100px;
+            position: absolute;
+            left: 0;
+            width: 200px;
+            text-align: center;
+            z-index: 1;
+          }
+          .section-connectivity
+            .hardware-wrap
+            .hardware
+            .pin-magsafe
+            .pin-caption {
+            top: 100%;
+            margin-top: -16.00048px;
+          }
+
+          /* thunderbolt */
+          .section-connectivity .hardware-wrap .hardware .pin-thunderbolt {
+            --smart-pin-pos-x: 307px;
+            --smart-pin-pos-y: 95px;
+            --smart-pin-length: var(--adjusted-pin-height);
+            top: 0;
+            bottom: 0;
+            padding-bottom: 19.00048px;
+            left: var(--smart-pin-pos-x);
+            transform: translateY(var(--smart-pin-pos-y));
+            top: var(--smart-pin-length);
+          }
+
+          .section-connectivity
+            .hardware-wrap
+            .hardware
+            .pin-thunderbolt
+            .pin-caption {
+            margin-left: -100px;
+            position: absolute;
+            left: 0;
+            width: 200px;
+            text-align: center;
+            z-index: 1;
+          }
+          .section-connectivity
+            .hardware-wrap
+            .hardware
+            .pin-thunderbolt
+            .pin-caption {
+            top: 100%;
+            margin-top: -16.00048px;
+          }
+
+          .section-connectivity
+            .hardware-wrap
+            .hardware
+            .pin-thunderbolt:after {
+            height: 100%;
+          }
         }
         @media only screen and (min-width: 734px) and (max-width: 1068px) {
           .section-connectivity.section {
@@ -414,11 +548,6 @@ export default function ConnectivityAir() {
             .hardware-headphone-side
             .picture-wrap {
             margin: 155px 58px 0;
-          }
-
-          .section-connectivity .hardware-wrap .hardware .pin-headphone,
-          .section-connectivity .hardware-wrap .hardware .pin-headphone:after {
-            width: 1px;
           }
 
           /* .pin-caption */
@@ -485,10 +614,6 @@ export default function ConnectivityAir() {
             transform: translateY(var(--smart-pin-pos-y));
             top: var(--smart-pin-length);
           }
-          .section-connectivity .hardware-wrap .hardware .pin-magsafe,
-          .section-connectivity .hardware-wrap .hardware .pin-magsafe:after {
-            width: 1px;
-          }
 
           .section-connectivity
             .hardware-wrap
@@ -508,25 +633,11 @@ export default function ConnectivityAir() {
             top: 100%;
             margin-top: -16.00048px;
           }
-          .section-connectivity
-            .hardware-wrap
-            .hardware
-            .pin-magsafe
-            .pin-caption {
-            padding: 6px 0 0;
-          }
           .section-connectivity .hardware-wrap .hardware .pin-magsafe:after {
             height: 100%;
           }
 
           /* pin-thunderbolt */
-          .section-connectivity .hardware-wrap .hardware .pin-thunderbolt {
-            --height-offset: 0px;
-            --prong-height: 20px;
-            --adjusted-pin-height: calc(
-              var(--pin-length) + var(--prong-height) - var(--height-offset)
-            );
-          }
           .section-connectivity .hardware-wrap .hardware .pin-thunderbolt {
             --smart-pin-pos-x: 234px;
             --smart-pin-pos-y: 93px;
@@ -536,13 +647,6 @@ export default function ConnectivityAir() {
             left: var(--smart-pin-pos-x);
             transform: translateY(var(--smart-pin-pos-y));
             top: var(--smart-pin-length);
-          }
-          .section-connectivity .hardware-wrap .hardware .pin-thunderbolt,
-          .section-connectivity
-            .hardware-wrap
-            .hardware
-            .pin-thunderbolt:after {
-            width: 1px;
           }
 
           .section-connectivity

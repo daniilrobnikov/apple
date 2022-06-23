@@ -230,7 +230,7 @@ export default function DisplayAir() {
           }
 
           .masked-lockup-figure {
-            top: 17px;
+            top: 20px;
           }
 
           .section-display .masked-lockup-media {
@@ -262,7 +262,7 @@ export default function DisplayAir() {
           }
 
           .masked-lockup-figure {
-            top: 14px;
+            top: 15px;
           }
 
           .section-display .masked-lockup-media {

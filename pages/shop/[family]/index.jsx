@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import Ribbon from '@/components/templates/layout/Ribbon'
+import Ribbon from '@/components/templates/layout/components/Ribbon'
 import Header from '@/components/shop/page/Header'
 
 import FamilyNav from '@/components/shop/page/FamilyNav'

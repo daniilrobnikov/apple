@@ -42,7 +42,6 @@ export default function DesignAir() {
             data-anchors='[".subsection-design-hero", ".video-container", ".sticky-content", ".design-hero-overlay-outer"]'
             data-video-container='.video-container'
             data-analytics-section-engagement='name:design hero'
-            style={{ '--hero-offset': '166.5px', opacity: 1 }}
           >
             <div className='design-hero-intro sticky-container'>
               <div className='sticky-content'>
@@ -61,8 +60,23 @@ export default function DesignAir() {
                             data-video-progress-kf='{"start":"a0t - css(--scroll-offset, a0)", "end":"a0t - css(--scroll-offset, a0) + css(--media-scroll-duration, a0)"}'
                             data-anim-keyframe='{"start": "a0t - 50vh", "end": "a0b + 50vh","anchors": [".subsection-design-hero"], "cssClass": "in-perspective", "toggle": true, "disabledWhen": ["no-enhance-xp"]}'
                             aria-hidden='true'
-                            src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/rotate/medium.mp4'
-                          />
+                          >
+                            <source
+                              src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/rotate/small.mp4'
+                              type='video/mp4'
+                              media='(max-width:734px)'
+                            />
+                            <source
+                              src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/rotate/medium.mp4'
+                              type='video/mp4'
+                              media='(max-width:1068px)'
+                            />
+                            <source
+                              src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/rotate/large.mp4'
+                              type='video/mp4'
+                              media='(min-width:1068px)'
+                            />
+                          </video>
                           <picture
                             id='overview-design-rotate-endframe-1'
                             className='overview-design-rotate-endframe loaded'
@@ -213,7 +227,7 @@ export default function DesignAir() {
                     anything&nbsp;—&nbsp;anywhere.
                   </p>
                 </div>
-                <div className='subsection-badges row large-justify-content-center small-justify-content-start large-4 medium-6 small-12 large-centered'>
+                <div className='subsection-badges row large-justify-content-center small-justify-content-start large-5 medium-6 small-12 large-centered'>
                   <figure className='badge'>
                     <div className='badge-content'>
                       <span className='badge-value typography-headline-elevated'>
@@ -262,6 +276,7 @@ export default function DesignAir() {
           margin-top: calc(
             var(--hero-margin-top) - var(--hero-offset) - var(--clip-offset)
           );
+          opacity: 1;
         }
 
         .section-design .subsection-design-hero .sticky-container {
@@ -525,7 +540,7 @@ export default function DesignAir() {
 
         /* badge */
         .badge {
-          margin-right: 2em;
+          margin: 0 1em;
           box-sizing: border-box;
           display: inline-block;
           font-size: 20px;
@@ -588,8 +603,18 @@ export default function DesignAir() {
             --hero-overlay-width: 410px;
             --badges-spacing: 70px;
             --badges-subsection-spacing: 6px;
+
+            --hero-offset: 258.5px;
           }
 
+          .section-design
+            .subsection-design-hero
+            .design-hero-intro
+            .picture-container {
+            left: 50%;
+            margin-left: -1091px;
+            position: relative;
+          }
           .section-design
             .subsection-design-hero
             .design-hero-intro
@@ -600,6 +625,14 @@ export default function DesignAir() {
             .picture-container {
             --p-width: 2182px;
             --p-height: 484px;
+          }
+          .section-design
+            .subsection-design-hero
+            .sticky-container
+            .video-container {
+            left: 50%;
+            margin-left: -1283px;
+            position: relative;
           }
 
           .section-design
@@ -636,6 +669,8 @@ export default function DesignAir() {
             --hero-overlay-width: 360px;
             --badges-spacing: 60px;
             --badges-subsection-spacing: 8px;
+
+            --hero-offset: 166.5px;
           }
 
           .section-design
@@ -709,6 +744,127 @@ export default function DesignAir() {
             .design-hero-badges
             .design-hero-copy {
             text-align: center;
+          }
+        }
+
+        @media only screen and (max-width: 734px) {
+          .section-design .subsection-design-hero {
+            --hero-image-width: 412px;
+            --hero-image-height: 546px;
+            --hero-video-width: 460px;
+            --hero-video-height: 546px;
+            --scroll-offset: 50vh;
+            --scroll-duration: 150;
+            --media-adjustment: -32px;
+            --media-scroll-duration: 75vh;
+            --hero-margin-top: 131px;
+            --hero-overlay-width: 250px;
+            --badges-subsection-spacing: 1px;
+            --badges-item-spacing: 5px;
+            --badges-spacing: 60px;
+            --hero-offset: 0px !important;
+            --clip-adjustment: 20px;
+            --clip-nav-height: var(--r-localnav-stacked-height);
+          }
+
+          .section-design .subsection-design-hero .sticky-container {
+            margin-bottom: 0;
+          }
+          .section-design
+            .subsection-design-hero
+            .sticky-container
+            .sticky-content {
+            height: var(--hero-video-height);
+          }
+
+          .section-design
+            .subsection-design-hero
+            .design-hero-intro
+            .hero-container-small {
+            margin-left: auto;
+            margin-right: auto;
+            width: 87.5%;
+          }
+          .section-design
+            .subsection-design-hero
+            .design-hero-intro
+            .hero-container-small {
+            max-width: 374px;
+          }
+
+          .section-design
+            .subsection-design-hero
+            .design-hero-intro
+            .design-media-container-clip {
+            margin: unset;
+            min-height: var(--hero-video-height);
+          }
+
+          .section-design
+            .subsection-design-hero
+            .design-hero-intro
+            .design-media-container-inner {
+            display: flex;
+            flex-direction: column;
+            width: 83.3333333333%;
+            padding-left: 8.3333333333%;
+          }
+
+          .section-design
+            .subsection-design-hero
+            .sticky-container
+            .video-container {
+            align-self: flex-start;
+            transform: translateX(-58px);
+          }
+
+          .section-design
+            .subsection-design-hero
+            .design-hero-intro
+            .design-hero-overlay-outer {
+            top: var(--clip-offset);
+            padding-bottom: 301px;
+          }
+
+          .section-design
+            .subsection-design-hero
+            .design-hero-intro
+            .design-hero-overlay-outer
+            .design-hero-overlay-inner {
+            padding-left: 8.3333333333%;
+          }
+
+          .section-headline {
+            margin-top: 10px;
+          }
+
+          .section-design .subsection-design-hero .heart-bubble-wrapper {
+            --heart-bubble-wrapper-bottom: 12px;
+            --heart-bubble-wrapper-right: 34px;
+            --heart-bubble-primary-size: 47px;
+
+            --heart-bubble-secondary-bottom: -1px;
+            --heart-bubble-secondary-right: 0px;
+            --heart-bubble-secondary-size: 15px;
+
+            --heart-bubble-tertiary-bottom: -6px;
+            --heart-bubble-tertiary-right: -7px;
+            --heart-bubble-tertiary-size: 7px;
+          }
+
+          .section-design
+            .subsection-design-hero
+            .heart-bubble-wrapper
+            .heart-bubble-icon {
+            --p-width: 25px;
+            --p-height: 22px;
+          }
+
+          .small-justify-content-start {
+            justify-content: flex-start;
+          }
+          .badge {
+            margin: 0 1em 0 0;
           }
         }
       `}</style>

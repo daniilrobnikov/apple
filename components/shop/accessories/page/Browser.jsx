@@ -175,7 +175,7 @@ export default function Browser({ tabs }) {
           top: -14px;
           z-index: 3;
           display: inline-block;
-          padding: 0 36px 0 14px;
+          padding: 0 14px;
           background: #fff;
         }
         .rf-browser-borderline .rf-see-all-link .icon-pluscircle::after {

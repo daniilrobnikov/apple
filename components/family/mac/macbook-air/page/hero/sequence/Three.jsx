@@ -103,15 +103,6 @@ export default function Three({ breakpoint }) {
       </div>
 
       <style global jsx>{`
-        .section-hero .hero-sticky-container .sequence.three {
-          --chip-size: 245px;
-          --chip-margin: 50px;
-          --supercharged-scale-start: 1.5;
-          --supercharged-scale-end: 1;
-          --supercharged-wrapper-scale-start: 1;
-          --supercharged-wrapper-scale-end: 0.6;
-        }
-
         .section-hero .hero-sticky-container .sequence.three .section-content {
           display: flex;
           flex-flow: column-reverse;
@@ -134,10 +125,6 @@ export default function Three({ breakpoint }) {
           .copy
           p {
           position: relative;
-          left: 50%;
-          transform: translateX(-50%);
-          padding-left: 30px;
-          padding-right: 30px;
         }
 
         .section-hero
@@ -160,9 +147,6 @@ export default function Three({ breakpoint }) {
           display: block;
           width: var(--p-width);
           height: var(--p-height);
-          --p-width: 245px;
-          --p-height: 245px;
-          transform-origin: center 106px;
         }
 
         .section-hero
@@ -188,7 +172,7 @@ export default function Three({ breakpoint }) {
           width: 100%;
         }
 
-        @media only screen and (min-width: 1069px) {
+        @media only screen and (min-width: 1068px) {
           .typography-hero-supercharged {
             font-size: 170px;
             line-height: 1.1765705882;
@@ -208,7 +192,7 @@ export default function Three({ breakpoint }) {
             transform-origin: center 106px;
           }
         }
-        @media only screen and (max-width: 1068px) {
+        @media only screen and (min-width: 734px) and (max-width: 1068px) {
           .section-hero .hero-sticky-container .sequence.three {
             --chip-size: 180px;
           }
@@ -230,6 +214,70 @@ export default function Three({ breakpoint }) {
             --p-width: 180px;
             --p-height: 180px;
             transform-origin: center 67px;
+          }
+        }
+        @media only screen and (min-width: 734px) {
+          .section-hero .hero-sticky-container .sequence.three {
+            --chip-size: 245px;
+            --chip-margin: 50px;
+            --supercharged-scale-start: 1.5;
+            --supercharged-scale-end: 1;
+            --supercharged-wrapper-scale-start: 1;
+            --supercharged-wrapper-scale-end: 0.6;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.three
+            .section-content
+            .copy
+            p {
+            left: 50%;
+            transform: translateX(-50%);
+            padding-left: 30px;
+            padding-right: 30px;
+          }
+        }
+
+        @media only screen and (max-width: 734px) {
+          .section-hero .hero-sticky-container .sequence.three {
+            --chip-size: 140px;
+            --chip-margin: 26px;
+            --supercharged-scale-start: 2;
+            --supercharged-scale-end: 1;
+            --supercharged-wrapper-scale-start: 1.2;
+            --supercharged-wrapper-scale-end: 1;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.three
+            .section-content
+            .copy
+            p {
+            left: auto;
+            transform: none;
+            padding-left: 0;
+            padding-right: 0;
+          }
+
+          .typography-hero-supercharged {
+            font-size: 40px;
+            line-height: 1.15;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica,
+              Arial, sans-serif;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.three
+            .section-content
+            .chip-wrapper {
+            transform-origin: center 64px;
+            --p-width: var(--chip-size);
+            --p-height: var(--chip-size);
           }
         }
       `}</style>

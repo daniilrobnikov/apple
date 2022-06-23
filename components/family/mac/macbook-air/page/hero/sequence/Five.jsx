@@ -48,7 +48,12 @@ export default function Five({ breakpoint }) {
                 [stitch.at(0), stitch.at(2)],
                 keyframe
               )}px)`,
-              opacity: keyframe <= stitch.at(2) ? 1 : 0,
+              opacity: useStickyAnimation(
+                [1, 0],
+                [stitch.at(1), stitch.at(2)],
+                keyframe
+              ),
+              // opacity: keyframe <= stitch.at(2) ? 1 : 0,
             }}
           >
             <p
@@ -91,8 +96,23 @@ export default function Five({ breakpoint }) {
               data-video-load-kf='{"start": "lerp(0.6, a0t, a0b - 200vh)", "end": "lerp(1.2, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"]}'
               data-video-basepath='/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/facetime/'
               data-anim-keyframe='{"start": "lerp(0.6, a0t, a0b - 200vh)", "end": "lerp(1.2, a0t, a0b - 200vh)", "anchors": [".hero-sticky-wrapper"], "cssClass": "js-will-change", "toggle": true, "disabledWhen": ["no-enhance-xp"]}'
-              src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/facetime/medium.mp4'
-            ></video>
+            >
+              <source
+                src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/facetime/small.mp4'
+                type='video/mp4'
+                media='(max-width: 734px)'
+              />
+              <source
+                src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/facetime/large.mp4'
+                type='video/mp4'
+                media='(min-width:1068px)'
+              />
+              <source
+                src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/facetime/medium.mp4'
+                type='video/mp4'
+                media='(max-width:1068px)'
+              />
+            </video>
           </div>
           <div
             className='typography-hero-key-feature copy-2 js-will-change'
@@ -261,6 +281,71 @@ export default function Five({ breakpoint }) {
             max-width: 420px;
             margin-top: -75px;
             left: 45%;
+          }
+        }
+
+        @media only screen and (max-width: 734px) {
+          .section-hero .hero-sticky-container .sequence.five .content-wrapper {
+            --video-margin-top: 0;
+          }
+          .section-hero .hero-sticky-container .sequence.five .content-wrapper {
+            display: grid;
+            grid-template-areas:
+              'copy'
+              'video';
+            justify-items: center;
+            align-items: center;
+            padding: 35px 0 0;
+          }
+          .section-hero
+            .hero-sticky-container
+            .sequence.five
+            .content-wrapper.clip {
+            --video-clip-inset: 19px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.five
+            .content-wrapper
+            .copy {
+            position: static;
+            text-align: center;
+            margin: 0;
+            max-width: 340px;
+            grid-area: copy;
+            padding: 40px 0;
+          }
+          .section-hero
+            .hero-sticky-container
+            .sequence.five
+            .content-wrapper
+            .video-container {
+            grid-area: video;
+            max-height: 300px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.five
+            .content-wrapper
+            .video-container
+            video {
+            clip-path: none;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.five
+            .content-wrapper
+            .copy-2 {
+            left: 0;
+            margin: 0;
+            position: static;
+            text-align: center;
+            max-width: 310px;
+            grid-area: copy;
+            padding: 40px 0;
           }
         }
       `}</style>

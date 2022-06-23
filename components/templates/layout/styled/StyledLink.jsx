@@ -75,17 +75,18 @@ export default function StyledLink({ link, styles = '' }) {
 
           background-color: currentColor;
           -webkit-mask-repeat: no-repeat;
-          margin-right: 0.3em;
           height: 1em;
           width: 1em;
-          top: unset;
+          top: 0.05em;
+
+          margin-right: 0.3em;
+          margin: auto;
+
+          transform-origin: bottom;
         }
         .icon-after::after,
         .icon-before:before {
           content: '';
-        }
-        .icon-after::after {
-          position: absolute;
         }
 
         .icon-after[target='_self']::after {
@@ -103,8 +104,7 @@ export default function StyledLink({ link, styles = '' }) {
             ></path>
           </svg>`
           )});
-          transform: scale(0.7);
-          margin-top: 0.22em; // 0.3em
+          transform: scale(0.6);
         }
 
         /* icon-external */
@@ -113,8 +113,7 @@ export default function StyledLink({ link, styles = '' }) {
             `<svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>`
           )});
           transform: rotate(45deg);
-          margin-top: 0.25em;
-          margin-left: 0.1em;
+          margin-left: -0.2em;
         }
 
         .icon-pluscircle::after {
@@ -137,10 +136,10 @@ export default function StyledLink({ link, styles = '' }) {
           )});
           -webkit-mask-position: center;
           margin-left: 0.3em;
-          margin-top: 0.24em;
           transform: scale(1.3);
-          transition: transform 0.56s ease;
           transform-origin: center;
+          transition: transform 0.56s ease;
+
           stroke: currentColor;
           stroke-width: 0.5;
           overflow: visible;
@@ -220,3 +219,12 @@ export default function StyledLink({ link, styles = '' }) {
     </>
   )
 }
+
+/*
+
+display: inline-block;
+    transform-origin: bottom;
+    height: 1em;
+    top: 0.05em;
+
+*/

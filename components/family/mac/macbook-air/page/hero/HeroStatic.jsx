@@ -323,6 +323,112 @@ export default function HeroStatic() {
             margin-top: 20px;
           }
         }
+        @media only screen and (max-width: 734px) {
+          .section-hero .hero-static {
+            --mba-offset-x: 62px;
+            --mba-gap: 39px;
+            --mba-chevron-height: 275px;
+            --mba-chevron-gap-start: 75;
+            --mba-chevron-gap-end: 39;
+            --mba-chevron-padding: 50px;
+          }
+
+          .section-hero .hero-static .hero-logo-wrapper {
+            --margin-bottom: 92px;
+          }
+
+          .section-hero .hero-static .product-sticky-container {
+            align-items: center;
+            min-height: unset;
+          }
+
+          .section-hero .hero-static .hero-logo-static {
+            --p-width: 260px;
+            --p-height: 118px;
+          }
+
+          .section-hero .hero-static .product {
+            --p-width: 200px;
+            --p-height: 198px;
+          }
+
+          .section-hero .hero-static .intro-text {
+            align-items: center;
+            --spacing: 99px;
+            --viewport-height: calc(
+              -50vh + var(--mba-chevron-height) / 2 * -1 + var(
+                  --mba-chevron-padding
+                ) * 2 / 2 * -1 - var(--r-localnav-stacked-height) / 2 * -1
+            );
+          }
+
+          .section-hero .hero-static .intro-text header {
+            --margin-bottom: 75px;
+          }
+
+          .typography-headline-standalone {
+            font-size: 48px;
+            line-height: 1.0834933333;
+            font-weight: 600;
+            letter-spacing: -0.003em;
+            font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica,
+              Arial, sans-serif;
+          }
+          .section-hero .hero-static .intro-text header .subhead {
+            --max-width: unset;
+            --margin-top: 11px;
+          }
+
+          .section-hero .hero-static .intro-text header .chip-wrapper {
+            --margin-top: 21px;
+          }
+
+          .section-hero .hero-static .intro-text header .chip {
+            --p-width: 50px;
+            --p-height: 50px;
+          }
+
+          .section-hero .hero-static .intro-text .links-wrapper {
+            padding-bottom: 22px;
+          }
+          .typography-hero-copy {
+            font-size: 19px;
+            line-height: 1.2105263158;
+            font-weight: 600;
+            letter-spacing: 0.012em;
+            font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica,
+              Arial, sans-;
+          }
+
+          .section-hero .hero-static .intro-text .links-wrapper .availability {
+            margin-top: 7px;
+          }
+
+          .section-hero .hero-static .intro-text .links-wrapper .cta-wrapper {
+            margin-top: 32px;
+            margin-left: 3px;
+          }
+
+          .section-hero
+            .hero-static
+            .intro-text
+            .links-wrapper
+            .cta-wrapper
+            > li {
+            margin: 0;
+            display: block;
+          }
+
+          .section-hero
+            .hero-static
+            .intro-text
+            .links-wrapper
+            .cta-wrapper
+            > li
+            + li {
+            margin-top: 17px;
+          }
+        }
       `}</style>
     </>
   )

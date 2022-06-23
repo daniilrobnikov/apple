@@ -2,12 +2,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/data/*": ["data/*"],
       "@/components/*": ["components/*"],
       "@/styles/*": ["styles/*"],
       "@/hooks/*": ["components/hooks/*"],
-      "@/styled/*": ["components/templates/templates/styled/*"],
-      "@/public/*": ["public/*"]
+      "@/layout/*": ["components/templates/layout/*"],
+      "@/public/*": ["public/*"],
+
+      "@/mongodb/*": ["mongodb/*"]
     }
   }
 }

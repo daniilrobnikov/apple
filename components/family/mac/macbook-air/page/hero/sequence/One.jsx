@@ -1,8 +1,5 @@
 import { useRef } from 'react'
-import {
-  useStickyKeyframe,
-  useStickyVideo,
-} from '../../../../../../hooks/useScroll'
+import { useStickyKeyframe, useStickyVideo } from '@/hooks/useScroll'
 export default function One({ breakpoint }) {
   const keyframe = useStickyKeyframe('.section-hero')
 
@@ -102,11 +99,6 @@ export default function One({ breakpoint }) {
           height: 306px;
           margin-top: calc(var(--vo-static-offset) * -1);
         }
-        .section-hero .hero-sticky-container .sequence.one .video-container h1 {
-          --vo-static-offset: 50px;
-          width: 412px;
-          height: 206px;
-        }
 
         /* hero-startframe */
         .section-hero
@@ -117,16 +109,6 @@ export default function One({ breakpoint }) {
           display: block;
           width: var(--p-width);
           height: var(--p-height);
-          --p-width: 1680px;
-          --p-height: 944px;
-        }
-        .section-hero
-          .hero-sticky-container
-          .sequence.one
-          .video-container
-          .hero-startframe {
-          --p-width: 1068px;
-          --p-height: 600px;
         }
 
         .section-hero
@@ -137,6 +119,68 @@ export default function One({ breakpoint }) {
           position: absolute;
           width: 100%;
           height: 100%;
+        }
+
+        @media only screen and (min-width: 1068px) {
+          .section-hero
+            .hero-sticky-container
+            .sequence.one
+            .video-container
+            h1 {
+            --vo-static-offset: 72px;
+            width: 601px;
+            height: 306px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.one
+            .video-container
+            .hero-startframe {
+            --p-width: 1680px;
+            --p-height: 944px;
+          }
+        }
+        @media only screen and (min-width: 734px) and (max-width: 1068px) {
+          .section-hero
+            .hero-sticky-container
+            .sequence.one
+            .video-container
+            h1 {
+            --vo-static-offset: 50px;
+            width: 412px;
+            height: 206px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.one
+            .video-container
+            .hero-startframe {
+            --p-width: 1068px;
+            --p-height: 600px;
+          }
+        }
+
+        @media only screen and (max-width: 734px) {
+          .section-hero
+            .hero-sticky-container
+            .sequence.one
+            .video-container
+            h1 {
+            --vo-static-offset: 33px;
+            width: 285px;
+            height: 142px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.one
+            .video-container
+            .hero-startframe {
+            --p-width: 734px;
+            --p-height: 412px;
+          }
         }
       `}</style>
     </>

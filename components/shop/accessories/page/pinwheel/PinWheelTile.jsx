@@ -1,27 +1,107 @@
 import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
-export default function PinWheelTile() {
+export default function PinWheelTile({ product }) {
+  const router = useRouter()
   return (
-    <li
-      className='rf-pinwheel-item column large-8 small-12'
-      data-autom='pinwheel15-tile2'
-    >
-      <div className='column pinwheel-tile'>
-        <div className='tile1 row'>
-          <Image
-            src='/images/shop/accessories/page/pinwheel/MN6L3_FV402.png'
-            className='ir as-pinwheel-tileheroimage'
-            alt=''
-            layout='fill'
-            objectFit='contain'
-            quality={80}
-            data-scale-params-1='wid=710&amp;hei=465&amp;fmt=png-alpha&amp;.v=1651856288917'
-            data-scale-initial='2'
-          />
-        </div>
-        <div className='tile2 row'></div>
-      </div>
+    <>
+      <li
+        className='rf-pinwheel-item column large-4 small-6'
+        data-autom='pinwheel15-tile3'
+      >
+        <div
+          className='as-pinwheel15-section as-pinwheel15-smalltile  as-pinwheel15-tile3 cover-link'
+          data-position='2'
+          data-relatedlink='pl_main6_MN6N3'
+        >
+          <div className='as-pinwheel-tile'>
+            <div
+              data-relatedlink='pl_main6_MN6N3'
+              className='cover-link'
+              onClick={() => router.push(`/shop/product/A/${product.slug}`)}
+            >
+              <div className='as-pinwheel-tilehero'>
+                <Image
+                  src='/images/shop/accessories/page/pinwheel/MN6N3_FV532.png'
+                  className='ir as-pinwheel-tileheroimage'
+                  alt=''
+                  layout='fill'
+                  objectFit='contain'
+                  data-scale-params-1='wid=266&amp;hei=291&amp;fmt=png-alpha&amp;.v=1651860910311'
+                  data-scale-initial='2'
+                />
+              </div>
+              <div className='as-pinwheel-infosection'>
+                <div className='as-pinwheel-tileheader '>
+                  <div className='violator-wrapper'>
+                    <span className='violator-frameless as-violator-alt new'>
+                      {product.eyebrow}
+                    </span>
+                  </div>
+                </div>
+                <h3 className='as-pinwheel-tiletitle'>
+                  <Link href={`/shop/product/A/${product.slug}`}>
+                    <a
+                      data-slot-name='main6'
+                      data-feature-name='PW15_LR1S4-react'
+                      data-display-name='45mm Pride Edition 2022 Nike Sport Loop'
+                      data-part-number='MN6N3'
+                      className='as-pinwheel-tilelink'
+                      data-relatedlink='pl_main6_MN6N3'
+                      data-trigger-stoppropagation=''
+                      data-evar11='MN6N3|pinwheel'
+                    >
+                      {product.name}
+                    </a>
+                  </Link>
+                </h3>
 
+                <div className='as-pinwheel-info'>
+                  <div className='as-pinwheel-price'>
+                    <span className='as-pinwheel-pricecurrent'>
+                      ${product.price}
+                    </span>
+                    <div className='as-price-savings'>
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='as-pinwheel-colorsection'>
+                <div className='as-pinwheel-colorgallery'>
+                  <div className='a11y'>Available colors:</div>
+                  <ul className='color-gallery' role='list'>
+                    {product.colors?.map((color, i) => (
+                      <li
+                        className='as-pinwheel-colorimage'
+                        role='listitem'
+                        key={i}
+                      >
+                        <img
+                          src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MN6M3_SW_COLOR?wid=32&amp;hei=32&amp;fmt=png-alpha&amp;.v=1651774758181'
+                          className='ir '
+                          alt='Pride Edition'
+                          width='16'
+                          height='16'
+                          data-scale-params-1='wid=16&amp;hei=16&amp;fmt=png-alpha&amp;.v=1651774758181'
+                          data-scale-initial='2'
+                        />
+                      </li>
+                    ))}
+                    {product.colors?.length >= 6 && (
+                      <li className='as-producttile-moretext' role='listitem'>
+                        +
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
       <style jsx>{`
         .pinwheel-tile {
           display: flex;
@@ -301,7 +381,7 @@ export default function PinWheelTile() {
           }
         }
       `}</style>
-    </li>
+    </>
   )
 }
 

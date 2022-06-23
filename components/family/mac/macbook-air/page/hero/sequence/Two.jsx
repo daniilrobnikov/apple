@@ -3,7 +3,7 @@ import {
   useStickyKeyframe,
   useStickyVideo,
   useStickyAnimation,
-} from '../../../../../../hooks/useScroll'
+} from '@/hooks/useScroll'
 export default function Two({ breakpoint }) {
   const keyframe = useStickyKeyframe('.section-hero')
 
@@ -38,10 +38,25 @@ export default function Two({ breakpoint }) {
             loop
             muted
             aria-hidden='true'
-            src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/design/medium.mp4'
             className='js-will-change'
             ref={videoEl}
-          />
+          >
+            <source
+              src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/design/medium.mp4'
+              type='video/mp4'
+              media='(max-width:1068px)'
+            />
+            <source
+              src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/design/large.mp4'
+              type='video/mp4'
+              media='(min-width:1068px)'
+            />
+            <source
+              src='https://www.apple.com/105/media/us/macbook-air-m2/2022/58a79d66-620c-4d70-8679-8db4c76ff675/anim/design/small.mp4'
+              type='video/mp4'
+              media='(max-width:734px)'
+            />
+          </video>
         </div>
         <div className='section-content'>
           <div

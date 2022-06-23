@@ -1,6 +1,11 @@
 import Link from 'next/link'
 
-export default function Header({ setIsMenuOpen, isBagView, setIsBagView }) {
+export default function Header({
+  setIsMenuOpen,
+  isBagView,
+  setIsBagView,
+  bagItemsCount,
+}) {
   return (
     <>
       <ul className='ac-gn-header'>
@@ -82,8 +87,11 @@ export default function Header({ setIsMenuOpen, isBagView, setIsBagView }) {
               data-analytics-click='bag'
             >
               <span className='ac-gn-bag-badge-separator'></span>
-              <span className='ac-gn-bag-badge-number'>3</span>
-              <span className='ac-gn-bag-badge-unit'>+</span>
+              {bagItemsCount > 0 ? (
+                <span className='ac-gn-bag-badge-number'>{bagItemsCount}</span>
+              ) : (
+                <span className='ac-gn-bag-badge-unit'>+</span>
+              )}
             </span>
           </div>
           <span className='ac-gn-bagview-caret ac-gn-bagview-caret-large'></span>
@@ -138,15 +146,11 @@ export default function Header({ setIsMenuOpen, isBagView, setIsBagView }) {
             height: var(--globalnav-height);
             z-index: 10;
           }
-          #ac-gn-menustate:is(:checked, :target)
-            ~ #ac-globalnav
-            .ac-gn-menuanchor-open,
+          #ac-gn-menustate:checked ~ #ac-globalnav .ac-gn-menuanchor-open,
           #ac-globalnav .ac-gn-menuanchor-close {
             display: none;
           }
-          #ac-gn-menustate:is(:checked, :target)
-            ~ #ac-globalnav
-            .ac-gn-menuanchor-close {
+          #ac-gn-menustate:checked ~ #ac-globalnav .ac-gn-menuanchor-close {
             display: block;
           }
 
@@ -182,9 +186,7 @@ export default function Header({ setIsMenuOpen, isBagView, setIsBagView }) {
             transform: none;
             z-index: 4;
           }
-          #ac-gn-menustate:is(:checked, :target)
-            ~ #ac-globalnav
-            .ac-gn-menuicon-bread-top {
+          #ac-gn-menustate:checked ~ #ac-globalnav .ac-gn-menuicon-bread-top {
             transition: transform 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96)
               0.1008s;
             transform: rotate(45deg);
@@ -193,7 +195,7 @@ export default function Header({ setIsMenuOpen, isBagView, setIsBagView }) {
             transition: transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
             transform: none;
           }
-          #ac-gn-menustate:is(:checked, :target)
+          #ac-gn-menustate:checked
             ~ #ac-globalnav
             .ac-gn-menuicon-bread-bottom {
             transition: transform 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96)
@@ -218,7 +220,7 @@ export default function Header({ setIsMenuOpen, isBagView, setIsBagView }) {
             transition: transform 0.1596s cubic-bezier(0.52, 0.16, 0.52, 0.84)
               0.1008s;
           }
-          #ac-gn-menustate:is(:checked, :target)
+          #ac-gn-menustate:checked
             ~ #ac-globalnav
             .ac-gn-menuicon-bread-crust-top {
             transition: transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
@@ -231,7 +233,7 @@ export default function Header({ setIsMenuOpen, isBagView, setIsBagView }) {
             transition: transform 0.1596s cubic-bezier(0.52, 0.16, 0.52, 0.84)
               0.1008s;
           }
-          #ac-gn-menustate:is(:checked, :target)
+          #ac-gn-menustate:checked
             ~ #ac-globalnav
             .ac-gn-menuicon-bread-crust-bottom {
             transition: transform 0.1806s cubic-bezier(0.04, 0.04, 0.12, 0.96);
@@ -255,7 +257,7 @@ export default function Header({ setIsMenuOpen, isBagView, setIsBagView }) {
                 cubic-bezier(0.04, 0.04, 0.12, 0.96),
               opacity 0.28s 0.36s cubic-bezier(0.52, 0.16, 0.24, 1);
           }
-          #ac-gn-menustate:is(:checked, :target)
+          #ac-gn-menustate:checked
             ~ #ac-globalnav
             .ac-gn-header
             .ac-gn-bag-small {

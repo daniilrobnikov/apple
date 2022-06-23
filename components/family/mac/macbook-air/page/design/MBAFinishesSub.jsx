@@ -549,6 +549,75 @@ export default function MBAFinishesSub() {
             text-align: center;
           }
         }
+
+        @media only screen and (max-width: 734px) {
+          .section-design .subsection-design-finishes {
+            height: 400vh;
+            margin-top: 78px;
+          }
+
+          .section-design .subsection-design-finishes .sticky-content-copy {
+            position: relative;
+            overflow: visible;
+            top: unset;
+            height: 100%;
+          }
+
+          .section-design .subsection-design-finishes .subsection-copy {
+            margin-top: 38px;
+            margin-bottom: 51px;
+          }
+
+          .section-design .subsection-design-finishes .sticky-content-figures {
+            top: 63px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 63px);
+            margin-top: calc(var(--figures-margin-top-bottom) * -1);
+            margin-bottom: calc(var(--figures-margin-top-bottom) * -1);
+          }
+
+          .section-design .subsection-design-finishes .figures-container {
+            height: 262px;
+            margin-bottom: 42px;
+          }
+          .section-design
+            .subsection-design-finishes
+            .design-finishes-figure
+            .screen-mask {
+            --p-width: 262px;
+            --p-height: 82px;
+          }
+
+          .section-design
+            .subsection-design-finishes
+            .design-finishes-figure
+            .screen-mask {
+            top: 7px;
+          }
+
+          .section-design .subsection-design-finishes .start-frame {
+            margin-left: -131px;
+          }
+
+          .section-design .subsection-design-finishes .design-finishes-img {
+            --p-width: 274px;
+            --p-height: 262px;
+            margin-left: -137px;
+          }
+
+          .section-design
+            .subsection-design-finishes
+            .design-finishes-figcaption {
+            right: unset;
+            position: relative;
+            top: unset;
+            margin-top: 21px;
+            width: 100%;
+            text-align: center;
+          }
+        }
       `}</style>
       <style global jsx>{`
         .section-design
@@ -606,7 +675,7 @@ export default function MBAFinishesSub() {
             .subsection-design-finishes
             .design-finishes-figure
             .screen-mask {
-            -webkit-mask-image: url(https://www.apple.com/v/macbook-air-m2/b/images/overview/design/finish_mask__ew2v0s6p4qeu_large_2x.png);
+            -webkit-mask-image: url(/images/family/mac/mac-book-air/finish_mask__ew2v0s6p4qeu_large_2x.png);
           }
         }
         @media only screen and (max-width: 1068px) {
@@ -626,6 +695,17 @@ export default function MBAFinishesSub() {
             .design-finishes-figure
             .screen-mask {
             -webkit-mask-image: url(/images/family/mac/mac-book-air/finish_mask__ew2v0s6p4qeu_medium_2x.png);
+          }
+        }
+
+        @media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+          only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+          only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+          .section-design
+            .subsection-design-finishes
+            .design-finishes-figure
+            .screen-mask {
+            -webkit-mask-image: url(/images/family/mac/mac-book-air/finish_mask__ew2v0s6p4qeu_small_2x.png);
           }
         }
       `}</style>

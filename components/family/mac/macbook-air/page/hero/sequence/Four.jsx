@@ -69,7 +69,6 @@ export default function Four({ breakpoint }) {
                 [stitch.at(1), stitch.at(2)],
                 keyframe
               )}`,
-              '--copy-height': '212px',
             }}
           >
             <div className='screen'></div>
@@ -480,10 +479,6 @@ export default function Four({ breakpoint }) {
       </div>
 
       <style global jsx>{`
-        .section-hero .hero-sticky-container .sequence.four {
-          align-items: start;
-        }
-
         .section-hero .hero-sticky-container .sequence.four .content-wrapper {
           position: relative;
           display: flex;
@@ -500,6 +495,14 @@ export default function Four({ breakpoint }) {
           .hero-sticky-container
           .sequence.four
           .content-wrapper
+          .copy {
+          text-align: center;
+        }
+
+        .section-hero
+          .hero-sticky-container
+          .sequence.four
+          .content-wrapper
           .hardware-container {
           display: flex;
           align-items: center;
@@ -509,9 +512,7 @@ export default function Four({ breakpoint }) {
           --hardware-container-lerp: 1;
           --hardware-container-scale: 1;
           --half-copy-height: calc(var(--copy-height) / 2);
-          --hardware-container-pos-y: calc(var(--half-copy-height) * -1);
           --hardware-offset-lerp: 1;
-          --hardware-transform-origin-y: 188px;
           transform: translateY(
               calc(
                 var(--hardware-container-pos-y) * var(--hardware-container-lerp)
@@ -881,6 +882,15 @@ export default function Four({ breakpoint }) {
             .hero-sticky-container
             .sequence.four
             .content-wrapper
+            .hardware-container {
+            --hardware-container-pos-y: calc(var(--half-copy-height) * -1);
+            --hardware-transform-origin-y: 188px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
             .hardware-container
             .screen {
             top: 19px;
@@ -1012,6 +1022,7 @@ export default function Four({ breakpoint }) {
             .hardware-container {
             --hardware-container-pos-y: calc(var(--copy-height) * -1 + 20px);
             --hardware-transform-origin-y: 134px;
+            --copy-height: 212px;
           }
 
           .section-hero
@@ -1129,7 +1140,22 @@ export default function Four({ breakpoint }) {
             --media-button-position-bottom: 75px;
           }
         }
+        @media only screen and (min-width: 734px) {
+          .section-hero .hero-sticky-container .sequence.four {
+            align-items: start;
+          }
+        }
         @media only screen and (max-width: 734px) {
+          .section-hero .hero-sticky-container .sequence.four {
+            align-items: center;
+          }
+
+          .section-hero .hero-sticky-container .sequence.four .content-wrapper {
+            --p-width: 302px;
+            --p-height: 186px;
+            margin-top: calc(var(--small-breakpoint-offsetY) * -1);
+          }
+
           .section-hero
             .hero-sticky-container
             .sequence.four
@@ -1137,6 +1163,138 @@ export default function Four({ breakpoint }) {
             .hardware-container {
             --hardware-container-pos-y: calc(var(--copy-height) * -1);
             --hardware-transform-origin-y: 164px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
+            .copy {
+            padding: 0 9px 41px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
+            .hardware-container {
+            --hardware-container-pos-y: calc(var(--copy-height) * -1 + 20px);
+            --hardware-transform-origin-y: 57px;
+            --copy-height: 129px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
+            .hardware-container
+            .screen {
+            top: 8px;
+            left: 31px;
+            width: 240px;
+            height: 156px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
+            .hardware-container
+            .overview-hero-battery-hw-starlight {
+            --p-width: 302px;
+            --p-height: 186px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
+            .hardware-container
+            .screens-container {
+            --picture-powerpoint-top: 14px;
+            --picture-powerpoint-left: 35px;
+            --picture-music-top: 12px;
+            --picture-music-left: 200px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
+            .hardware-container
+            .overview-hero-battery-hw-midnight {
+            --p-width: 302px;
+            --p-height: 186px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
+            .hardware-container
+            .screens-container
+            .overview-hero-battery-screen-light-music {
+            --p-width: 64px;
+            --p-height: 80px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
+            .hardware-container
+            .screens-container
+            .overview-hero-battery-screen-dark-powerpoint,
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
+            .hardware-container
+            .screens-container
+            .overview-hero-battery-screen-light-powerpoint {
+            --p-width: 158px;
+            --p-height: 110px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
+            .hardware-container
+            .overview-hero-battery-screen-shadow {
+            top: 41px;
+            left: 89px;
+            --p-width: 188px;
+            --p-height: 130px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
+            .hardware-container
+            .animation-frame {
+            top: 21px;
+            left: 44px;
+            width: 215px;
+            height: 125px;
+          }
+
+          .section-hero
+            .hero-sticky-container
+            .sequence.four
+            .content-wrapper
+            .hardware-container
+            .animation-frame
+            .inline-container {
+            --inline-x-end: 32px;
+            --inline-y-end: 14px;
+            --inline-y-start: 14px;
+            border-radius: 0.19ch;
+          }
+
+          .inline-media {
+            --media-button-size: 26px;
           }
         }
       `}</style>

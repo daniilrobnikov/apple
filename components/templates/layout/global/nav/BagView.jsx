@@ -1,4 +1,39 @@
-export default function BagView() {
+import { useEffect, useState } from 'react'
+
+import useSWR from 'swr'
+
+function arrayFetcher(...urlArr) {
+  const f = (u) => fetch(u).then((r) => r.json())
+  return Promise.all(urlArr.map(f))
+}
+
+export default function BagView({ bagItems }) {
+  const [loading, setLoading] = useState(true)
+
+  const urlArray = []
+  for (let i = 0; i < bagItems.length; i++) {
+    urlArray.push(`/api/accessories/${bagItems[i]}`)
+  }
+
+  const { data } = useSWR(urlArray, arrayFetcher, {
+    revalidate: true,
+    refreshInterval: 1000,
+  })
+
+  useEffect(() => {
+    for (let i = 0; i < data?.length; i++) {
+      if (data[i].success === false) {
+        localStorage.setItem(
+          'BAG_ITEMS',
+          JSON.stringify(bagItems.filter((item) => item !== bagItems[i]))
+        )
+      }
+    }
+    setLoading(false)
+  }, [data])
+
+  if (loading) return
+
   return (
     <aside className='ac-gn-bagview' data-analytics-region='bag'>
       <div className='ac-gn-bagview-scrim'>
@@ -6,72 +41,33 @@ export default function BagView() {
       </div>
       <div className='ac-gn-bagview-content' id='ac-gn-bagview-content'>
         <ul className='ac-gn-bagview-bag ac-gn-bagview-bag-multiple'>
-          <li className='ac-gn-bagview-bagitem ac-gn-bagview-bagitem-first'>
-            <a
-              className='ac-gn-bagview-bagitem-link'
-              href='https://www.apple.com/shop/product/Z15H/14-inch-space-gray-10-core-cpu-16-core-gpu-1tb'
+          {data?.map((product, index) => (
+            <li
+              className='ac-gn-bagview-bagitem'
+              key={product.data._id || index}
             >
-              <span className='ac-gn-bagview-bagitem-column1'>
-                <img
-                  src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202110?wid=220&amp;hei=156&amp;fmt=jpeg&amp;qlt=90&amp;.v=1632788573000'
-                  width='110'
-                  height='78'
-                  alt=''
-                  className='ac-gn-bagview-bagitem-picture'
-                />
-              </span>
-              <span
-                className='ac-gn-bagview-bagitem-column2'
-                data-ac-autom='gn-bagview-itemname-'
+              <a
+                className='ac-gn-bagview-bagitem-link'
+                href={`/shop/accessory/${product.data.slug}`}
               >
-                14-inch MacBook Pro - Space Gray
-              </span>
-            </a>
-          </li>
-          <li className='ac-gn-bagview-bagitem'>
-            <a
-              className='ac-gn-bagview-bagitem-link'
-              href='https://www.apple.com/shop/product/Z14X/16-inch-space-gray-10-core-cpu-32-core-gpu-1tb'
-            >
-              <span className='ac-gn-bagview-bagitem-column1'>
-                <img
-                  src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spacegray-select-202110?wid=220&amp;hei=156&amp;fmt=jpeg&amp;qlt=90&amp;.v=1632788574000'
-                  width='110'
-                  height='78'
-                  alt=''
-                  className='ac-gn-bagview-bagitem-picture'
-                />
-              </span>
-              <span
-                className='ac-gn-bagview-bagitem-column2'
-                data-ac-autom='gn-bagview-itemname-'
-              >
-                16-inch MacBook Pro - Space Gray
-              </span>
-            </a>
-          </li>
-          <li className='ac-gn-bagview-bagitem ac-gn-bagview-bagitem-last'>
-            <a
-              className='ac-gn-bagview-bagitem-link'
-              href='https://www.apple.com/shop/product/MGYN3AM/A/green'
-            >
-              <span className='ac-gn-bagview-bagitem-column1'>
-                <img
-                  src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/airpods-max-select-green-202011_FMT_WHH?wid=220&amp;hei=156&amp;fmt=jpeg&amp;qlt=90&amp;.v=1604615274000'
-                  width='110'
-                  height='78'
-                  alt=''
-                  className='ac-gn-bagview-bagitem-picture'
-                />
-              </span>
-              <span
-                className='ac-gn-bagview-bagitem-column2'
-                data-ac-autom='gn-bagview-itemname-'
-              >
-                AirPods Max - Green
-              </span>
-            </a>
-          </li>
+                <span className='ac-gn-bagview-bagitem-column1'>
+                  <img
+                    src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202110?wid=220&amp;hei=156&amp;fmt=jpeg&amp;qlt=90&amp;.v=1632788573000'
+                    width='110'
+                    height='78'
+                    alt=''
+                    className='ac-gn-bagview-bagitem-picture'
+                  />
+                </span>
+                <span
+                  className='ac-gn-bagview-bagitem-column2'
+                  data-ac-autom='gn-bagview-itemname-'
+                >
+                  {product.data.name} - Space Gray
+                </span>
+              </a>
+            </li>
+          ))}
         </ul>
 
         <a
@@ -218,9 +214,6 @@ export default function BagView() {
           border-bottom: 1px solid #d2d2d7;
           padding: 16px 0;
         }
-        #ac-globalnav .ac-gn-bagview-bagitem-first {
-          margin-top: 4px;
-        }
 
         #ac-globalnav .ac-gn-bagview-bagitem-link {
           margin: 0;
@@ -257,13 +250,16 @@ export default function BagView() {
           width: 75%;
         }
 
-        #ac-globalnav .ac-gn-bagview-bagitem-last {
+        #ac-globalnav .ac-gn-bagview-bag > li:first-child {
+          margin-top: 4px;
+        }
+        #ac-globalnav .ac-gn-bagview-bag > li:last-child {
           border-bottom-style: none;
         }
 
         #ac-globalnav .ac-gn-bagview-button {
           cursor: pointer;
-          display: inline-block;
+          display: block;
           text-align: center;
           white-space: nowrap;
           font-size: 17px;
@@ -273,13 +269,13 @@ export default function BagView() {
           font-family: 'SF Pro Text', 'Myriad Set Pro', 'SF Pro Icons',
             'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
           min-width: 28px;
-          padding-left: 16px;
-          padding-right: 16px;
-          padding-top: 8px;
-          padding-bottom: 8px;
-          border-radius: 980px;
+          padding: 8px 16px;
           background-color: #0071e3;
           color: #fff;
+
+          box-sizing: border-box;
+          width: 100%;
+          border-radius: 8px;
         }
 
         #ac-globalnav .ac-gn-bagview-nav {
@@ -383,3 +379,39 @@ export default function BagView() {
     </aside>
   )
 }
+
+// import { useEffect, useState } from 'react'
+
+// import useSWR from 'swr'
+
+// const fetcher = (...args) => fetch(...args).then((res) => res.json())
+// export default function BagView() {
+//   const [bag, setBag] = useState([])
+//   const [total, setTotal] = useState(0)
+//   const [loading, setLoading] = useState(false)
+
+//   const { data, error } = useSWR('/api/accessories', fetcher, {
+//     revalidate: true,
+//     onSuccess: (data) => {
+//       setBag(data.bag)
+//       setTotal(data.total)
+//     },
+//   })
+
+//   useEffect(() => {
+//     if (error) {
+//       setLoading(false)
+//     }
+//   }, [error])
+
+//   useEffect(() => {
+//     if (data) {
+//       setLoading(false)
+//     }
+//   }, [data])
+
+//   if (loading) {
+//     return <div>Loading...</div>
+//   }
+
+//   console.log(data)

@@ -58,9 +58,6 @@ export default function SearchPlaceholder() {
           }
           #ac-gn-menustate:checked
             ~ #ac-globalnav
-            .search-placeholder-container,
-          #ac-gn-menustate:target
-            ~ #ac-globalnav
             .search-placeholder-container {
             background-color: #000;
             visibility: visible;
@@ -142,9 +139,6 @@ export default function SearchPlaceholder() {
           }
           #ac-gn-menustate:checked
             ~ #ac-globalnav
-            .search-placeholder-input-text,
-          #ac-gn-menustate:target
-            ~ #ac-globalnav
             .search-placeholder-input-text {
             transform: none;
             opacity: 1;
@@ -220,9 +214,6 @@ export default function SearchPlaceholder() {
           }
           #ac-gn-menustate:checked
             ~ #ac-globalnav
-            .search-placeholder-bar:after,
-          #ac-gn-menustate:target
-            ~ #ac-globalnav
             .search-placeholder-bar:after {
             transform: none;
             opacity: 1;
@@ -246,9 +237,6 @@ export default function SearchPlaceholder() {
               transform 0.38s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.15s;
           }
           #ac-gn-menustate:checked
-            ~ #ac-globalnav
-            .search-placeholder-container:after,
-          #ac-gn-menustate:target
             ~ #ac-globalnav
             .search-placeholder-container:after {
             opacity: 1;

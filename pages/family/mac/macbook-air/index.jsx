@@ -87,6 +87,15 @@ export default function MacBookAir() {
             padding-bottom: 100px;
           }
         }
+        @media only screen and (max-width: 734px) {
+          .section-content {
+            width: 374px;
+            min-width: 374px;
+          }
+          article.section {
+            padding-bottom: 60px;
+          }
+        }
       `}</style>
     </>
   )

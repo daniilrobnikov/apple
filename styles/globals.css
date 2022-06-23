@@ -33,6 +33,22 @@ html {
 :root {
   --r-localnav-height: 52px;
   --r-localnav-stacked-height: 66px;
+
+  --router-gutter: 20px;
+  --router-grid-max-viewport: 1420px;
+  --router-grid-max-width: calc(
+    var(--router-grid-max-viewport) - var(--router-gutter) * 2
+  );
+  --router-wrapper-bg-color: white;
+  --router-item-bg-color: #fafafa;
+  --router-item-border-radius: 0px;
+  --router-item-column-padding: 8%;
+  --router-columns: 2;
+}
+@media only screen and (max-width: 734px) {
+  :root {
+    --router-grid-max-width: 374px;
+  }
 }
 @media only screen and (max-width: 833px) {
   :root {

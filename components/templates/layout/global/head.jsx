@@ -1,17 +1,10 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
-export default function PageHead({
-  title,
-  description = 'Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, entertainment, and expert device support.',
-  keywords = 'apple, iphone, mac, ipad, apple watch, apple tv, accessories, entertainment, expert device support',
-}) {
-  const router = useRouter()
-  const { asPath } = router
+export default function Metadata({ page }) {
+  const { title, description, keywords, url } = page
 
-  const domain = 'https://apple-ashen.vercel.app'
-  const url = router && asPath ? asPath : undefined
-  const canonical = url && url === '/' ? domain : domain + url
+  const domain = process.env.DOMAIN
+  const canonical = domain + url
 
   // function addProductJsonLd() {
   //   return {
@@ -63,7 +56,7 @@ export default function PageHead({
   // }
   return (
     <Head>
-      <title>{title ? `${title} - Apple` : 'Apple'}</title>
+      <title>{title !== 'Apple' ? `${title} - Apple` : 'Apple'}</title>
       <meta name='description' content={description} key='desc' />
       <meta name='keywords' content={keywords} />
 

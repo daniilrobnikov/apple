@@ -1,11 +1,12 @@
+import Metadata from '@/layout/global/head'
+import LocalNav from '@/layout/nav/LocalNav'
+
 import Browser from '@/components/shop/accessories/page/Browser'
 import Gallery from '@/components/shop/accessories/page/Gallery'
 import PinWheel from '@/components/shop/accessories/page/pinwheel/PinWheel'
-import LocalNav from '@/components/templates/layout/nav/LocalNav'
-import SearchBox from '@/components/templates/layout/SearchBox'
-import { useState } from 'react'
+import SearchBox from '@/layout/components/SearchBox'
 
-export default function Accessories({ family }) {
+export default function Accessories({ family, page, pinwheels }) {
   var families = [
     {
       title: 'Mac',
@@ -160,9 +161,11 @@ export default function Accessories({ family }) {
 
   return (
     <>
+      <Metadata page={page} />
+
       <LocalNav
         page={{
-          title: 'Accessories',
+          title: family === 'all' ? 'Accessories' : page.title,
           href: `/shop/${family}/accessories`,
         }}
         menu={accessories}
@@ -174,8 +177,9 @@ export default function Accessories({ family }) {
           placeholder='Search accessories'
         />
         <Browser tabs={accessories} />
-
-        <PinWheel />
+        {pinwheels?.map((pinwheel, index) => (
+          <PinWheel pinwheel={pinwheel} key={index} />
+        ))}
       </main>
 
       <style global jsx>{`
@@ -256,10 +260,30 @@ export async function getStaticPaths() {
   }
 }
 export async function getStaticProps({ params }) {
+  const page = await fetch(
+    `${process.env.API_URL}/pages?url=/shop/${params.family}/accessories`
+  )
+    .then((res) => res.json())
+    .then((res) => res.data[0])
+
+  var pinwheels = []
+
+  if (page.content) {
+    for (let i = 0; i < page.content.length; i++) {
+      const sectionRes = await fetch(
+        `${process.env.API_URL}/accessories${page.content[i].query}`
+      )
+      const section = await sectionRes.json()
+      pinwheels.push({ ...section, title: page.content[i].title })
+    }
+  }
+
   return {
     props: {
       family: params.family,
+      page,
+      pinwheels,
     },
-    revalidate: 1,
+    revalidate: 60,
   }
 }

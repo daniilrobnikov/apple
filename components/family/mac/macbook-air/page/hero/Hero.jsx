@@ -163,6 +163,16 @@ export default function Hero() {
               Arial, sans-serif;
           }
         }
+        @media only screen and (max-width: 734px) {
+          .typography-hero-key-feature {
+            font-size: 40px;
+            line-height: 1.1;
+            font-weight: 600;
+            letter-spacing: 0em;
+            font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica,
+              Arial, sans-serif;
+          }
+        }
       `}</style>
     </>
   )

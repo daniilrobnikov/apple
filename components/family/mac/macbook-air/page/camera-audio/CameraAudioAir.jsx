@@ -261,7 +261,7 @@ export default function CameraAudioAir() {
           only screen and (-webkit-min-device-pixel-ratio: 1.5),
           only screen and (min-resolution: 1.5dppx) {
           .masked-lockup-figure .masked-lockup-media {
-            -webkit-mask-image: url(https://www.apple.com/v/macbook-air-m2/b/images/overview/shared/display_camera_mask__lvz11hwkvney_large_2x.png);
+            -webkit-mask-image: url(/images/family/mac/mac-book-air/display_camera_mask__lvz11hwkvney_large_2x.png);
           }
         }
 

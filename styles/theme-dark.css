@@ -1,0 +1,4 @@
+:root .theme-dark {
+  --router-item-bg-color: black;
+  --router-item-text-color: white;
+}

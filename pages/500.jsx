@@ -1,13 +1,13 @@
-import SearchBox from '@/components/templates/layout/SearchBox'
+import SearchBox from '@/components/templates/layout/components/SearchBox'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 
 export default function Custom500() {
   return (
     <>
-      <SearchBox title='500 - Server-side error occurred' />
+      {/* <SearchBox title='500 - Server-side error occurred' />
       <div className='cta-sitemap'>
         <StyledLink link={{ href: '/sitemap', text: 'Or see our site map' }} />
-      </div>
+      </div> */}
 
       <style jsx>{`
         .cta-sitemap {

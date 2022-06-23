@@ -1,4 +1,4 @@
-import SaveItem from '../../accessories/[category]/[product]/page/SaveItem'
+import SaveItem from '../../product/A/page/SaveItem'
 import Hardware from './Hardware'
 import Software from './Software'
 

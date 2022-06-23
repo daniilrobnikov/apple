@@ -3,14 +3,21 @@ import List from './List'
 
 import SearchPlaceholder from './SearchPlaceholder'
 import SearchView from './SearchView'
-import BagView from './BagView'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
+
+import dynamic from 'next/dynamic'
+
+// import BagView from './BagView'
+const BagView = dynamic(() => import('./BagView'), { suspense: true })
 
 export default function GlobalNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchView, setIsSearchView] = useState(false)
+
   const [isBagView, setIsBagView] = useState(false)
+  const [bagItemsCount, setBagItemsCount] = useState(0)
+  const [bagItems, setBagItems] = useState([])
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -67,6 +74,14 @@ export default function GlobalNav() {
     return () => {
       window.removeEventListener('resize', updateSize)
     }
+  }, [])
+
+  useEffect(() => {
+    var bagItems = localStorage.getItem('BAG_ITEMS')
+      ? JSON.parse(localStorage.getItem('BAG_ITEMS'))
+      : []
+    setBagItems(bagItems)
+    setBagItemsCount(bagItems.length)
   }, [])
 
   return (
@@ -179,7 +194,7 @@ export default function GlobalNav() {
                 cubic-bezier(0.52, 0.16, 0.24, 1),
               height 0.56s cubic-bezier(0.52, 0.16, 0.24, 1);
           }
-          #ac-gn-menustate:is(:checked, :target) ~ #ac-globalnav {
+          #ac-gn-menustate:checked ~ #ac-globalnav {
             height: 100%;
             background-color: #000;
             transition: background-color 0.36s cubic-bezier(0.32, 0.08, 0.24, 1),
@@ -397,11 +412,12 @@ export default function GlobalNav() {
         }
 
         #ac-globalnav .ac-gn-bag-badge-unit {
-          right: 1.5px;
-          opacity: 0;
+          opacity: 1;
+          right: 0;
+          left: 0;
+          opacity: 1;
           display: inline-block;
           position: absolute;
-          top: 0;
           z-index: 2;
           font-family: 'SF Pro Text', 'Myriad Set Pro', 'SF Pro Icons',
             'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -520,8 +536,7 @@ export default function GlobalNav() {
             pointer-events: none;
           }
 
-          #ac-gn-menustate:checked ~ #ac-globalnav .ac-gn-item-menu,
-          #ac-gn-menustate:target ~ #ac-globalnav .ac-gn-item-menu {
+          #ac-gn-menustate:checked ~ #ac-globalnav .ac-gn-item-menu {
             opacity: 1;
             pointer-events: auto;
             transform: none;
@@ -534,9 +549,6 @@ export default function GlobalNav() {
             padding-top: 1px;
           }
           #ac-gn-menustate:checked
-            ~ #ac-globalnav
-            .ac-gn-item-menu:nth-child(2),
-          #ac-gn-menustate:target
             ~ #ac-globalnav
             .ac-gn-item-menu:nth-child(2) {
             transition: opacity 0.3091s cubic-bezier(0.32, 0.08, 0.24, 1) 0.03s,
@@ -582,7 +594,13 @@ export default function GlobalNav() {
         }
       `}</style>
 
-      <input type='checkbox' id='ac-gn-menustate' className='ac-gn-menustate' />
+      <input
+        type='checkbox'
+        id='ac-gn-menustate'
+        className='ac-gn-menustate'
+        checked={isMenuOpen}
+        readOnly
+      />
       <nav
         id='ac-globalnav'
         className={`js touch no-windows no-firefox with-bag-count-onload with-bag-count${
@@ -605,18 +623,23 @@ export default function GlobalNav() {
         <div className='ac-gn-content'>
           <Header
             setIsMenuOpen={setIsMenuOpen}
-            isBagView={isBagView}
             setIsBagView={setIsBagView}
+            isBagView={isBagView}
+            bagItemsCount={bagItemsCount}
           />
           <SearchPlaceholder />
           <List
             setIsSearchView={setIsSearchView}
+            setIsMenuOpen={setIsMenuOpen}
             isBagView={isBagView}
             setIsBagView={setIsBagView}
-            setIsMenuOpen={setIsMenuOpen}
+            bagItemsCount={bagItemsCount}
           />
           <SearchView setIsSearchView={setIsSearchView} />
-          <BagView />
+
+          <Suspense fallback={`Loading...`}>
+            <BagView bagItems={bagItems} />
+          </Suspense>
         </div>
       </nav>
       <div className='ac-gn-blur' />

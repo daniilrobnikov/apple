@@ -52,8 +52,31 @@ module.exports = withPWA({
     disable: process.env.NODE_ENV === 'development',
   },
 
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
+
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
+
   reactStrictMode: true,
   concurrentFeatures: true,
+
+  env: {
+    DOMAIN:
+      process.env.NODE_ENV === 'production'
+        ? 'https://apple-ashen.vercel.app'
+        : 'http://localhost:3000',
+    API_URL:
+      process.env.NODE_ENV === 'production'
+        ? 'https://apple-ashen.vercel.app/api'
+        : 'http://localhost:3000/api',
+  },
 
   async rewrites() {
     return [
@@ -66,13 +89,8 @@ module.exports = withPWA({
         destination: '/shop/all/accessories',
       },
       {
-        source: '/shop/accessories/all/:category*',
-        destination: '/shop/all/accessories/:category*',
-      },
-
-      {
-        source: '/shop/product/id/A/:product?category=:category',
-        destination: `/shop/all/accessories/:category/:product`,
+        source: '/shop/accessories/all/:category',
+        destination: '/shop/all/accessories/:category',
       },
     ]
   },
@@ -93,23 +111,16 @@ module.exports = withPWA({
         destination: '/shop/accessories/all',
         permanent: true,
       },
+      ...['mac', 'ipad', 'watch', 'iphone'].map((family) => ({
+        source: `/shop/buy-${family}/accessories`,
+        destination: `/shop/${family}/accessories`,
+        permanent: true,
+      })),
       {
-        source: '/shop/all/accessories/:category*',
-        destination: '/shop/accessories/all/:category*',
+        source: '/shop/all/accessories/:category',
+        destination: '/shop/accessories/all/:category',
         permanent: true,
       },
-
-      ...['all', 'mac', 'ipad', 'watch', 'iphone'].map((family) => ({
-        source: `/shop/${family}/accessories/:category/:product`,
-        destination: '/shop/product/id/A/:product?category=:category',
-        permanent: true,
-      })),
-
-      ...['mac', 'ipad', 'watch', 'iphone'].map((family) => ({
-        source: `/shop/${family}/:product`,
-        destination: `/shop/buy-${family}/:product`,
-        permanent: true,
-      })),
     ]
   },
 })

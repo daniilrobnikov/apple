@@ -2,9 +2,9 @@ import MainPanel from '@/components/shop/[product]/page/MainPanel'
 import SidePanel from '@/components/shop/[product]/page/SidePanel'
 import Summary from '@/components/shop/[product]/page/Summary'
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
-import Ribbon from '@/components/templates/layout/Ribbon'
+import Ribbon from '@/components/templates/layout/components/Ribbon'
 
-export default function Product() {
+export default function Product({ family, product }) {
   return (
     <>
       <LocalNav
@@ -80,4 +80,60 @@ export default function Product() {
       `}</style>
     </>
   )
+}
+
+export async function getStaticPaths() {
+  const families = ['all', 'mac', 'ipad', 'watch', 'iphone', 'smart-home']
+  const products = [
+    'made-by-apple',
+    'whats-new',
+    'cases-protection',
+    'headphones-speakers',
+    'bands',
+    'accessibility',
+    'airtag',
+    'creativity',
+    'displays-mounts',
+    'drones',
+    'toys-games',
+    'health-fitness',
+    'homekit',
+    'magsafe',
+    'mesh-wifi-networking',
+    'mice-keyboards',
+    'only-at-apple',
+    'photography',
+    'point-of-sale',
+    'power-cables',
+    'printers-scanners',
+    'software',
+    'storage',
+    'wireless-chargers',
+  ]
+
+  let paths = []
+  families.forEach((family) => {
+    products.forEach((product) => {
+      paths.push({
+        params: {
+          family,
+          product,
+        },
+      })
+    })
+  })
+
+  return {
+    paths,
+    fallback: false,
+  }
+}
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      family: params.family,
+      product: params.product,
+    },
+    revalidate: 1,
+  }
 }
