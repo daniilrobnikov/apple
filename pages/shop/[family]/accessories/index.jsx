@@ -6,8 +6,84 @@ import Gallery from '@/components/shop/accessories/page/Gallery'
 import PinWheel from '@/components/shop/accessories/page/pinwheel/PinWheel'
 import SearchBox from '@/layout/components/SearchBox'
 
-export default function Accessories({ family, page, pinwheels }) {
-  console.log(pinwheels)
+export default function Accessories({ family }) {
+  const pinwheels = [
+    {
+      success: true,
+      count: 2,
+      pagination: {},
+      data: [
+        {
+          _id: '62b09428330e790433e42d80',
+          name: 'AirPods Pro',
+          price: 200,
+          colors: [],
+          type: 'Headphones',
+          brand: 'Apple',
+          createdAt: '2022-06-20T15:37:12.961Z',
+          updatedAt: '2022-06-20T15:37:12.961Z',
+          slug: 'airpods-pro',
+          __v: 0,
+        },
+        {
+          _id: '62b094f7330e790433e42d87',
+          name: 'AirPodsro',
+          price: 200,
+          colors: [],
+          type: 'Headphones',
+          brand: 'Apple',
+          createdAt: '2022-06-20T15:40:39.678Z',
+          updatedAt: '2022-06-20T15:40:39.678Z',
+          slug: 'airpodsro',
+          __v: 0,
+        },
+      ],
+      title: 'Featured Apple Accessories',
+    },
+    {
+      success: true,
+      count: 2,
+      pagination: {},
+      data: [
+        {
+          _id: '62b09428330e790433e42d80',
+          name: 'AirPods Pro',
+          price: 200,
+          colors: [],
+          type: 'Headphones',
+          brand: 'Apple',
+          createdAt: '2022-06-20T15:37:12.961Z',
+          updatedAt: '2022-06-20T15:37:12.961Z',
+          slug: 'airpods-pro',
+          __v: 0,
+        },
+        {
+          _id: '62b094f7330e790433e42d87',
+          name: 'AirPodsro',
+          price: 200,
+          colors: [],
+          type: 'Headphones',
+          brand: 'Apple',
+          createdAt: '2022-06-20T15:40:39.678Z',
+          updatedAt: '2022-06-20T15:40:39.678Z',
+          slug: 'airpodsro',
+          __v: 0,
+        },
+      ],
+      title: 'Wireless Headphones',
+    },
+  ]
+  const page = {
+    _id: '62b09bee330e790433e42d9e',
+    title: 'Apple',
+    description:
+      'Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, entertainment, and expert device support.',
+    keywords:
+      'apple, iphone, mac, ipad, apple watch, apple tv, accessories, entertainment, expert device support',
+    url: '/',
+    createdAt: '2022-06-20T16:10:22.821Z',
+    updatedAt: '2022-06-20T16:10:22.821Z',
+  }
   var families = [
     {
       title: 'Mac',
@@ -261,29 +337,29 @@ export async function getStaticPaths() {
   }
 }
 export async function getStaticProps({ params }) {
-  const page = await fetch(
-    `${process.env.API_URL}/pages?url=/shop/${params.family}/accessories`
-  )
-    .then((res) => res.json())
-    .then((res) => res.data[0])
+  // const page = await fetch(
+  //   `${process.env.API_URL}/pages?url=/shop/${params.family}/accessories`
+  // )
+  //   .then((res) => res.json())
+  //   .then((res) => res.data[0])
 
-  var pinwheels = []
+  // var pinwheels = []
 
-  if (page.content) {
-    for (let i = 0; i < page.content.length; i++) {
-      const sectionRes = await fetch(
-        `${process.env.API_URL}/accessories${page.content[i].query}`
-      )
-      const section = await sectionRes.json()
-      pinwheels.push({ ...section, title: page.content[i].title })
-    }
-  }
+  // if (page.content) {
+  //   for (let i = 0; i < page.content.length; i++) {
+  //     const sectionRes = await fetch(
+  //       `${process.env.API_URL}/accessories${page.content[i].query}`
+  //     )
+  //     const section = await sectionRes.json()
+  //     pinwheels.push({ ...section, title: page.content[i].title })
+  //   }
+  // }
 
   return {
     props: {
       family: params.family,
-      page,
-      pinwheels,
+      // page,
+      // pinwheels,
     },
     revalidate: 60,
   }

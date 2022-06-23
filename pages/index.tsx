@@ -1,10 +1,20 @@
 import type { GetStaticProps } from 'next'
-/// <reference types="styled-jsx" />
 import Image from 'next/image'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 import Metadata from '@/components/templates/layout/global/head'
 
-export default function Home({ page }) {
+export default function Home() {
+  const page = {
+    _id: '62b09bee330e790433e42d9e',
+    title: 'Apple',
+    description:
+      'Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, entertainment, and expert device support.',
+    keywords:
+      'apple, iphone, mac, ipad, apple watch, apple tv, accessories, entertainment, expert device support',
+    url: '/',
+    createdAt: '2022-06-20T16:10:22.821Z',
+    updatedAt: '2022-06-20T16:10:22.821Z',
+  }
   return (
     <>
       <Metadata page={page} />
@@ -136,12 +146,12 @@ export default function Home({ page }) {
 }
 
 export async function getStaticProps<GetStaticProps>() {
-  const pageRes = await fetch(`${process.env.API_URL}/pages?url=/`)
-  const page = await pageRes.json()
+  // const pageRes = await fetch(`${process.env.API_URL}/pages?url=/`)
+  // const page = await pageRes.json()
 
   return {
     props: {
-      page: page.data[0],
+      // page: page.data[0],
     },
   }
 }

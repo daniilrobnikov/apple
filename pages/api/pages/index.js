@@ -5,18 +5,20 @@ import Page from '@/mongodb/models/Page'
 import dbConnect from '@/mongodb/dbConnect'
 
 export default async function handler(req, res) {
-  const { method } = req
-
   await dbConnect()
 
-  switch (method) {
-    case 'GET':
-      asyncHandler(advancedResults(Page))(req, res)
-      break
-    default:
-      res.status(400).json({ success: false })
-      break
-  }
+  return new Promise((resolve) => {
+    switch (req.method) {
+      case 'GET':
+        asyncHandler(advancedResults(Page))(req, res)
+        resolve()
+        break
+      default:
+        res.status(400).json({ success: false })
+        resolve()
+        break
+    }
+  })
 }
 
 const asyncHandler = (fn) => (req, res) => {
