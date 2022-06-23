@@ -8,6 +8,8 @@ import ErrorResponse from '@/mongodb/utils/errorResponse'
 // @route   GET /api/pages
 // @access  Public
 export const getPages = asyncHandler(async (req, res, next) => {
+  await dbConnect()
+
   res.status(200).json(res.advancedResults)
 })
 

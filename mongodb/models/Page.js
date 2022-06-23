@@ -1,10 +1,5 @@
 import mongoose from 'mongoose'
 
-const ContentSchema = new mongoose.Schema({
-  title: String,
-  query: String,
-})
-
 const PageSchema = new mongoose.Schema(
   {
     title: {

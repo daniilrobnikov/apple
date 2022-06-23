@@ -256,7 +256,7 @@ export async function getStaticPaths() {
       { params: { family: 'iphone' } },
       { params: { family: 'smart-home' } },
     ],
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 export async function getStaticProps({ params }) {

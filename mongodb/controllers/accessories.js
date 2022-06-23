@@ -8,6 +8,8 @@ import ErrorResponse from '@/mongodb/utils/errorResponse'
 @route   GET /api/accessories
 @access  Public */
 export const getAccessories = asyncHandler(async (req, res, next) => {
+  await dbConnect()
+
   res.status(200).json(res.advancedResults)
 })
 /**

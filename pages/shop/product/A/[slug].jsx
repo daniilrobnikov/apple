@@ -309,26 +309,20 @@ export default function Product({ product, recommended }) {
 }
 
 export async function getStaticPaths() {
-  const accessories = await fetch(`${process.env.API_URL}/accessories`).then(
-    (res) => res.json()
-  )
+  const res = await fetch(`${process.env.API_URL}/accessories`)
+  const accessories = await res.json()
 
-  const paths = accessories.data.map((accessory) => ({
-    params: {
-      slug: accessory.slug,
-    },
+  const paths = await accessories.data.map((accessory) => ({
+    params: { slug: accessory.slug },
   }))
-  return {
-    paths,
-    fallback: false,
-  }
+
+  console.log(paths)
+  return { paths: paths, fallback: false }
 }
 export async function getStaticProps({ params }) {
   const product = await fetch(
-    `${process.env.API_URL}/accessories?slug=${params.slug}`
-  )
-    .then((res) => res.json())
-    .then((res) => res.data[0])
+    `${process.env.API_URL}/accessories/${params.slug}`
+  ).then((res) => res.json())
 
   const recommended = await fetch(
     `${process.env.API_URL}/accessories?brand=Apple&limit=4`
