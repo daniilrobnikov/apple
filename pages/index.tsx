@@ -1,4 +1,3 @@
-import type { GetStaticProps } from 'next'
 import Image from 'next/image'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 import Metadata from '@/components/templates/layout/global/head'
@@ -145,7 +144,7 @@ export default function Home() {
   )
 }
 
-export async function getStaticProps<GetStaticProps>() {
+export async function getStaticProps() {
   // const pageRes = await fetch(`${process.env.API_URL}/pages?url=/`)
   // const page = await pageRes.json()
 
