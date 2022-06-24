@@ -1,142 +1,151 @@
-import ErrorResponse from '@/mongodb/utils/errorResponse'
-
 import Page from '@/mongodb/models/Page'
+import advancedResults from '@/mongodb/middleware/advancedResults'
 
-import dbConnect from '@/mongodb/dbConnect'
+import { getPages, createPage } from '@/mongodb/controllers/pages'
 
-export default async function handler(req, res) {
-  await dbConnect()
+import handler from '@/mongodb/nextConnect'
 
-  return new Promise((resolve) => {
-    switch (req.method) {
-      case 'GET':
-        asyncHandler(advancedResults(Page))(req, res)
-        resolve()
-        break
-      default:
-        res.status(400).json({ success: false })
-        resolve()
-        break
-    }
-  })
-}
+export default handler.get(advancedResults(Page), getPages).post(createPage)
 
-const asyncHandler = (fn) => (req, res) => {
-  Promise.resolve(fn(req, res)).catch((err) => errorHandler(err, req, res))
-}
+// import ErrorResponse from '@/mongodb/utils/errorResponse'
 
-const advancedResults = (model, populate) => async (req, res) => {
-  let query
+// import Page from '@/mongodb/models/Page'
 
-  // Copy req.query
-  const reqQuery = { ...req.query }
+// import dbConnect from '@/mongodb/dbConnect'
 
-  // Fields to exclude
-  const removeFields = ['select', 'sort', 'page', 'limit']
+// export default async function handler(req, res) {
+//   await dbConnect()
 
-  // Loop over removeFields and delete them from reqQuery
-  removeFields.forEach((param) => delete reqQuery[param])
+//   return new Promise((resolve) => {
+//     switch (req.method) {
+//       case 'GET':
+//         asyncHandler(advancedResults(Page))(req, res)
+//         resolve()
+//         break
+//       default:
+//         res.status(400).json({ success: false })
+//         resolve()
+//         break
+//     }
+//   })
+// }
 
-  // Create query string
-  let queryStr = JSON.stringify(reqQuery)
+// const asyncHandler = (fn) => (req, res) => {
+//   Promise.resolve(fn(req, res)).catch((err) => errorHandler(err, req, res))
+// }
 
-  // Add $ sign to query string
-  queryStr = queryStr.replace(/\b(gte|gt|lte|lt|in)\b/g, (match) => `$${match}`)
+// const advancedResults = (model, populate) => async (req, res) => {
+//   let query
 
-  // Finding resource
-  query = model.find(JSON.parse(queryStr))
+//   // Copy req.query
+//   const reqQuery = { ...req.query }
 
-  // Select Fields
-  if (req.query.select) {
-    const fields = req.query.select.split(',').join(' ')
-    query = query.select(fields)
-  }
+//   // Fields to exclude
+//   const removeFields = ['select', 'sort', 'page', 'limit']
 
-  // Sort
-  if (req.query.sort) {
-    const sortBy = req.query.sort.split(',').join(' ')
-    query = query.sort(sortBy)
-  } else {
-    query = query.sort({ name: 1, createdAt: 1 })
-  }
+//   // Loop over removeFields and delete them from reqQuery
+//   removeFields.forEach((param) => delete reqQuery[param])
 
-  // Pagination
-  const page = parseInt(req.query.page, 10) || 1
-  const limit = parseInt(req.query.limit, 10) || 25
-  const startIndex = (page - 1) * limit
-  const endIndex = page * limit
-  const total = await model.countDocuments()
+//   // Create query string
+//   let queryStr = JSON.stringify(reqQuery)
 
-  query = query.skip(startIndex).limit(limit)
+//   // Add $ sign to query string
+//   queryStr = queryStr.replace(/\b(gte|gt|lte|lt|in)\b/g, (match) => `$${match}`)
 
-  if (populate) {
-    query = query.populate(populate)
-  }
+//   // Finding resource
+//   query = model.find(JSON.parse(queryStr))
 
-  // Executing query
-  const results = await query
+//   // Select Fields
+//   if (req.query.select) {
+//     const fields = req.query.select.split(',').join(' ')
+//     query = query.select(fields)
+//   }
 
-  // Pagination result
-  const pagination = {}
+//   // Sort
+//   if (req.query.sort) {
+//     const sortBy = req.query.sort.split(',').join(' ')
+//     query = query.sort(sortBy)
+//   } else {
+//     query = query.sort({ name: 1, createdAt: 1 })
+//   }
 
-  if (endIndex < total) {
-    pagination.next = {
-      page: page + 1,
-      limit,
-    }
-  }
+//   // Pagination
+//   const page = parseInt(req.query.page, 10) || 1
+//   const limit = parseInt(req.query.limit, 10) || 25
+//   const startIndex = (page - 1) * limit
+//   const endIndex = page * limit
+//   const total = await model.countDocuments()
 
-  if (startIndex > 0) {
-    pagination.prev = {
-      page: page - 1,
-      limit,
-    }
-  }
+//   query = query.skip(startIndex).limit(limit)
 
-  var response = {
-    success: true,
-    count: results.length,
-    pagination,
-    data: results,
-  }
+//   if (populate) {
+//     query = query.populate(populate)
+//   }
 
-  return res.status(200).json(response)
-}
+//   // Executing query
+//   const results = await query
 
-const errorHandler = (err, req, res) => {
-  let error = { ...err }
-  error.message = err.message
+//   // Pagination result
+//   const pagination = {}
 
-  // Log to console for dev
-  console.log(err)
+//   if (endIndex < total) {
+//     pagination.next = {
+//       page: page + 1,
+//       limit,
+//     }
+//   }
 
-  // Mongoose bad ObjectId
-  if (err.name === 'CastError') {
-    const message = `Resource not found`
-    error = new ErrorResponse(message, 404)
-  }
+//   if (startIndex > 0) {
+//     pagination.prev = {
+//       page: page - 1,
+//       limit,
+//     }
+//   }
 
-  // Mongoose duplicate key
-  if (err.code === 11000) {
-    const message = 'Duplicate field value entered'
-    error = new ErrorResponse(message, 400)
-  }
+//   var response = {
+//     success: true,
+//     count: results.length,
+//     pagination,
+//     data: results,
+//   }
 
-  // Mongoose validation error
-  if (err.name === 'ValidationError') {
-    const message = Object.values(err.errors).map((val) => val.message)
-    console.log(message)
-    error = new ErrorResponse(message, 400)
-  }
+//   return res.status(200).json(response)
+// }
 
-  res.status(error.statusCode || 500).json({
-    success: false,
-    error: error.message || 'Server Error',
-  })
-}
+// const errorHandler = (err, req, res) => {
+//   let error = { ...err }
+//   error.message = err.message
 
-export const config = {
-  api: {
-    externalResolver: true,
-  },
-}
+//   // Log to console for dev
+//   console.log(err)
+
+//   // Mongoose bad ObjectId
+//   if (err.name === 'CastError') {
+//     const message = `Resource not found`
+//     error = new ErrorResponse(message, 404)
+//   }
+
+//   // Mongoose duplicate key
+//   if (err.code === 11000) {
+//     const message = 'Duplicate field value entered'
+//     error = new ErrorResponse(message, 400)
+//   }
+
+//   // Mongoose validation error
+//   if (err.name === 'ValidationError') {
+//     const message = Object.values(err.errors).map((val) => val.message)
+//     console.log(message)
+//     error = new ErrorResponse(message, 400)
+//   }
+
+//   res.status(error.statusCode || 500).json({
+//     success: false,
+//     error: error.message || 'Server Error',
+//   })
+// }
+
+// export const config = {
+//   api: {
+//     externalResolver: true,
+//   },
+// }

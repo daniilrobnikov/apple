@@ -1,5 +1,3 @@
-import Accessory from '@/mongodb/models/Accessory'
-
 import {
   getAccessory,
   updateAccessory,
