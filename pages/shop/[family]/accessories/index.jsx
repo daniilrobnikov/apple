@@ -340,7 +340,7 @@ export async function getStaticProps({ params }) {
   const pageRes = await fetch(
     `${process.env.API_URL}/pages?url=/shop/${params.family}/accessories`
   )
-  const page = await pageRes.json()
+  const page = await pageRes.json().then((page) => page.data[0])
 
   var pinwheels = []
   if (page.content) {
@@ -355,9 +355,9 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      page: page.data[0],
-      family: params.family,
+      page,
       pinwheels,
+      family: params.family,
     },
     revalidate: 60,
   }
