@@ -145,12 +145,12 @@ export default function Home() {
 }
 
 export async function getStaticProps() {
-  // const pageRes = await fetch(`${process.env.API_URL}/pages?url=/`)
-  // const page = await pageRes.json()
+  const pageRes = await fetch(`${process.env.API_URL}/pages?url=/`)
+  const page = await pageRes.json()
 
   return {
     props: {
-      // page: page.data[0],
+      page: page.data[0],
     },
   }
 }
