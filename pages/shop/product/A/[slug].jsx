@@ -310,7 +310,7 @@ export default function Product({ product, recommended }) {
 
 export async function getStaticPaths() {
   const accessoriesRes = await fetch(`${process.env.API_URL}/accessories`)
-  const accessories = await res.json()
+  const accessories = await accessoriesRes.json()
 
   const paths = await accessories.data.map((accessory) => ({
     params: { slug: accessory.slug },
