@@ -5,7 +5,7 @@ import SidePanel from '@/components/shop/product/A/page/SidePanel'
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
 import Ribbon from '@/components/templates/layout/components/Ribbon'
 
-export default function Product() {
+export default function Product({ product, recommended }) {
   const families = [
     {
       title: 'Mac',
