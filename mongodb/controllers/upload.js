@@ -49,28 +49,6 @@ export const uploadFile = asyncHandler(async (req, res, next) => {
     upload_preset: 'apple_small',
   })
 
-  const large_test = await cloudinary.uploader.upload(
-    data.files.large.filepath,
-    {
-      folder: filepath,
-      public_id: 'large_test',
-    }
-  )
-  const medium_test = await cloudinary.uploader.upload(
-    data.files.medium.filepath,
-    {
-      folder: filepath,
-      public_id: 'medium_test',
-    }
-  )
-  const small_test = await cloudinary.uploader.upload(
-    data.files.small.filepath,
-    {
-      folder: filepath,
-      public_id: 'small_test',
-    }
-  )
-
   res.status(200).json({
     success: true,
     data: [large, large_test, medium, medium_test, small, small_test],

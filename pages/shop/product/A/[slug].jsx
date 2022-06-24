@@ -313,17 +313,18 @@ export async function getStaticPaths() {
   const accessories = await accessoriesRes.json()
 
   const paths = await accessories.data.map((accessory) => ({
-    params: { slug: accessory.slug },
+    params: { slug: accessory.slug.toString() },
   }))
   // const paths = [{ params: { slug: 'airpods-pro' } }]
 
   return { paths, fallback: false }
 }
+
 export async function getStaticProps({ params }) {
   const productRes = await fetch(
     `${process.env.API_URL}/accessories/${params.slug}`
   )
-  const product = await productRes.json()
+  const product = await productRes.json().then((product) => product.data)
 
   const recommendedRes = await fetch(
     `${process.env.API_URL}/accessories?brand=Apple&limit=4`

@@ -1,6 +1,6 @@
 import ErrorResponse from '@/mongodb/utils/errorResponse'
 
-const errorHandler = (err, req, res, next) => {
+const errorHandler = (err, req, res) => {
   let error = { ...err }
   error.message = err.message
 
@@ -26,7 +26,7 @@ const errorHandler = (err, req, res, next) => {
     error = new ErrorResponse(message, 400)
   }
 
-  res.status(error.statusCode || 500).json({
+  return res.status(error.statusCode || 500).json({
     success: false,
     error: error.message || 'Server Error',
   })

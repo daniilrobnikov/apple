@@ -48,9 +48,10 @@ const AccessorySchema = mongoose.Schema(
   }
 )
 
-AccessorySchema.pre('save', function (next) {
+AccessorySchema.pre('save', function () {
+  //next
   this.slug = slugify(this.name, { lower: true })
-  next()
+  // next()
 })
 
 export default mongoose.models.Accessory ||

@@ -1,7 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import errorHandler from './error'
 
-const asyncHandler =
-  (fn) => (req: NextApiRequest, res: NextApiResponse, next) =>
-    Promise.resolve(fn(req, res, next)).catch(next)
+const asyncHandler = (fn) => (req: NextApiRequest, res: NextApiResponse) => {
+  return Promise.resolve(fn(req, res)).catch((err) =>
+    errorHandler(err, req, res)
+  )
+}
 
 export default asyncHandler

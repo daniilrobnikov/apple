@@ -1,4 +1,3 @@
-import dbConnect from '@/mongodb/dbConnect'
 import Accessory from '@/mongodb/models/Accessory'
 
 import asyncHandler from '@/mongodb/middleware/async'
@@ -8,8 +7,6 @@ import ErrorResponse from '@/mongodb/utils/errorResponse'
 @route   GET /api/accessories
 @access  Public */
 export const getAccessories = asyncHandler(async (req, res, next) => {
-  await dbConnect()
-
   res.status(200).json(res.advancedResults)
 })
 /**
@@ -17,8 +14,6 @@ export const getAccessories = asyncHandler(async (req, res, next) => {
 @route   GET /api/accessories/:slug
 @access  Public */
 export const getAccessory = asyncHandler(async (req, res, next) => {
-  await dbConnect()
-
   const accessory = await Accessory.findOne({ slug: req.query.slug })
 
   if (!accessory) {
@@ -37,8 +32,6 @@ export const getAccessory = asyncHandler(async (req, res, next) => {
 @route   POST /api/accessories
 @access  Private */
 export const createAccessory = asyncHandler(async (req, res, next) => {
-  await dbConnect()
-
   // // Add user to req.body
   // req.body.user = req.user.id
 
