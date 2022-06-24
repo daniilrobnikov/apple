@@ -6,18 +6,6 @@ import LocalNav from '@/components/templates/layout/nav/LocalNav'
 import Ribbon from '@/components/templates/layout/components/Ribbon'
 
 export default function Product() {
-  const product = {
-    _id: '62b09428330e790433e42d80',
-    name: 'AirPods Pro',
-    price: 200,
-    colors: [],
-    type: 'Headphones',
-    brand: 'Apple',
-    createdAt: '2022-06-20T15:37:12.961Z',
-    updatedAt: '2022-06-20T15:37:12.961Z',
-    slug: 'airpods-pro',
-    __v: 0,
-  }
   const families = [
     {
       title: 'Mac',
@@ -321,50 +309,30 @@ export default function Product() {
 }
 
 export async function getStaticPaths() {
-  // const res = await fetch(`${process.env.API_URL}/accessories`)
-  // const accessories = await res.json()
+  const accessoriesRes = await fetch(`${process.env.API_URL}/accessories`)
+  const accessories = await res.json()
 
-  // const paths = await accessories.data.map((accessory) => ({
-  //   params: { slug: accessory.slug },
-  // }))
-
-  // console.log(paths)
-  const paths = [{ params: { slug: 'airpods-pro' } }]
+  const paths = await accessories.data.map((accessory) => ({
+    params: { slug: accessory.slug },
+  }))
+  // const paths = [{ params: { slug: 'airpods-pro' } }]
 
   return { paths, fallback: false }
 }
 export async function getStaticProps({ params }) {
-  // let product = await fetch(
-  //   `${process.env.API_URL}/accessories/${params.slug}`,
-  //   {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json',
-  //       'User-Agent': '*', // 👈
-  //     },
-  //   }
-  // )
-  // product = await product.json()
-  // product = JSON.parse(JSON.stringify(product))
+  const productRes = await fetch(
+    `${process.env.API_URL}/accessories/${params.slug}`
+  )
+  const product = await productRes.json()
 
-  // let recommended = await fetch(
-  //   `${process.env.API_URL}/accessories?brand=Apple&limit=4`,
-  //   {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json',
-  //       'User-Agent': '*', // 👈
-  //     },
-  //   }
-  // )
-  // recommended = await recommended.json()
-  // recommended = JSON.parse(JSON.stringify(recommended))
+  const recommendedRes = await fetch(
+    `${process.env.API_URL}/accessories?brand=Apple&limit=4`
+  )
+  const recommended = await recommendedRes.json()
   return {
     props: {
-      // product,
-      // recommended,
+      product,
+      recommended,
     },
     revalidate: 20,
   }
