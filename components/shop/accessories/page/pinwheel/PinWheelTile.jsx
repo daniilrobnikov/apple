@@ -248,6 +248,12 @@ export default function PinWheelTile({ product }) {
           white-space: normal;
           text-overflow: clip;
         }
+        .as-pinwheel-tile:active .as-pinwheel-tilelink,
+        .as-pinwheel-tile:focus .as-pinwheel-tilelink,
+        .as-pinwheel-tile:hover .as-pinwheel-tilelink {
+          color: #06c;
+          text-decoration: none;
+        }
 
         .as-pinwheel-info {
           text-align: center;
