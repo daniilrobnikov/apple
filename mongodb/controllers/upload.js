@@ -1,5 +1,3 @@
-import dbConnect from '@/mongodb/dbConnect'
-
 import asyncHandler from '@/mongodb/middleware/async'
 import ErrorResponse from '@/mongodb/utils/errorResponse'
 
@@ -18,9 +16,7 @@ cloudinary.config({
 @desc    Upload file
 @route   GET /api/upload
 @access  Public */
-export const uploadFile = asyncHandler(async (req, res, next) => {
-  await dbConnect()
-
+export const uploadFiles = asyncHandler(async (req, res) => {
   const data = await new Promise((resolve, reject) => {
     const form = new IncomingForm()
 
@@ -51,6 +47,42 @@ export const uploadFile = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    data: [large, large_test, medium, medium_test, small, small_test],
+    data: [large, medium, small],
   })
+})
+
+export const uploadAccessoryImages = asyncHandler(async (req, res) => {
+  const data = await new Promise((resolve, reject) => {
+    const form = new IncomingForm()
+
+    form.parse(req, (err, fields, files) => {
+      if (err) return reject(err)
+      resolve({ fields, files })
+    })
+  })
+
+  if (!data.files) {
+    throw new ErrorResponse('No files were uploaded', 400)
+  }
+  const slug = req.query.slug
+  const filepath = `apple/accessories/headphones/${slug}`
+
+  Object.keys(data.files).forEach(async (key, index) => {
+    const file = data.files[key]
+    if (key !== 'transparent') {
+      const fileRes = await cloudinary.uploader.upload(file.filepath, {
+        folder: filepath,
+        public_id: `${slug}-${index + 1}`,
+        upload_preset: 'apple_product',
+      })
+    } else {
+      const fileRes = await cloudinary.uploader.upload(file.filepath, {
+        folder: filepath,
+        public_id: `${slug}-transparent`,
+        upload_preset: 'apple_product_transparent',
+      })
+    }
+  })
+
+  res.status(200).json({ success: true })
 })

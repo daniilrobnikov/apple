@@ -1,9 +1,12 @@
+import Metadata from '@/components/templates/layout/global/head'
+
 import SearchBox from '@/components/templates/layout/components/SearchBox'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 
-export default function Custom404() {
+export default function Custom404({ page }) {
   return (
     <>
+      <Metadata page={page} />
       <SearchBox />
       <div className='cta-sitemap'>
         <StyledLink link={{ href: '/sitemap', text: 'Or see our site map' }} />
@@ -22,4 +25,14 @@ export default function Custom404() {
       `}</style>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const pageRes = await fetch(`${process.env.API_URL}/pages?url=/404`)
+  const page = await pageRes.json().then((page) => page.data[0])
+  return {
+    props: {
+      page,
+    },
+  }
 }

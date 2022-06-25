@@ -6,48 +6,54 @@ export default function Prices({ prices }) {
           <div className='rc-price'>
             <div className='rc-prices-currentprice'>
               <span className='rc-prices-fullprice' data-autom='full-price'>
-                {prices}
+                {prices.fullPrice}
               </span>
             </div>
           </div>
-          <div className='rc-prices-acinstallments rc-prices-installmentsseparator'>
-            or
-          </div>
-          <div className='rc-monthly-price' data-autom='monthly-price'>
-            <div className='rc-prices-currentprice'>
-              <span>
-                <span>
-                  $41.50<span aria-hidden='true'>/mo.</span>
-                  <span className='visuallyhidden'>per month</span>
-                  <span className='acinstallment-term-length'>
-                    {' '}
-                    for 6&nbsp;<span aria-hidden='true'>mo.</span>
-                    <span className='visuallyhidden'>months</span>
-                  </span>
-                </span>
-                <span>
-                  <span className='visuallyhidden'>Footnote </span>*
-                </span>
-              </span>
-            </div>
-          </div>
-          <div className='rc-financing-message'>
-            <div id='buyflow-message-container' className='rf-ac-messages'>
-              <div>
-                <div>
-                  <button
-                    data-buyflow-messages-overlay='button'
-                    className='as-buttonlink'
-                    data-buyflow-messages-metrics-info='learn more - acmi'
-                  >
-                    Learn how to pay monthly at 0% APR when you choose
-                    Apple&nbsp;Card Monthly Installments
-                  </button>
-                </div>
-                <div></div>
+          {prices.monthlyPrice && (
+            <>
+              <div className='rc-prices-acinstallments rc-prices-installmentsseparator'>
+                or
               </div>
-            </div>
-          </div>
+              <div className='rc-monthly-price' data-autom='monthly-price'>
+                <div className='rc-prices-currentprice'>
+                  <span>
+                    <span>
+                      {prices.monthlyPrice}
+                      <span aria-hidden='true'>/mo.</span>
+                      <span className='visuallyhidden'>per month</span>
+                      <span className='acinstallment-term-length'>
+                        {' '}
+                        for {prices.termLength}&nbsp;
+                        <span aria-hidden='true'>mo.</span>
+                        <span className='visuallyhidden'>months</span>
+                      </span>
+                    </span>
+                    <span>
+                      <span className='visuallyhidden'>Footnote </span>*
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div className='rc-financing-message'>
+                <div id='buyflow-message-container' className='rf-ac-messages'>
+                  <div>
+                    <div>
+                      <button
+                        data-buyflow-messages-overlay='button'
+                        className='as-buttonlink'
+                        data-buyflow-messages-metrics-info='learn more - acmi'
+                      >
+                        Learn how to pay monthly at 0% APR when you choose
+                        Apple&nbsp;Card Monthly Installments
+                      </button>
+                    </div>
+                    <div></div>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
           <div className='rc-prices-footer'></div>
         </div>
       </div>

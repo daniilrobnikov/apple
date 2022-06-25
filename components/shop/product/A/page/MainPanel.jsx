@@ -22,7 +22,7 @@ export default function MainPanel({ product }) {
         <h1 className='rf-pdp-title' data-autom='productTitle'>
           {product.name}
         </h1>
-        <Prices prices={product.price} />
+        <Prices prices={product.prices} />
         <div className='rf-third-party-below-price' data-below-price=''></div>
         {product.eyebrow === 'Free Engraving' && <Engraving />}
         <div className='rf-pdp-acmidisclaimer'>

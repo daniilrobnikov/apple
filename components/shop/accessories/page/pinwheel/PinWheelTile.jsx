@@ -23,9 +23,11 @@ export default function PinWheelTile({ product }) {
             >
               <div className='as-pinwheel-tilehero'>
                 <Image
-                  src='/images/shop/accessories/page/pinwheel/MN6N3_FV532.png'
+                  src={`https://res.cloudinary.com/daniilrobnikov/image/upload/v1656102373/apple/accessories/${product.type.toLowerCase()}/${
+                    product.slug
+                  }/${product.slug}-transparent.webp`}
                   className='ir as-pinwheel-tileheroimage'
-                  alt=''
+                  alt={product.name}
                   layout='fill'
                   objectFit='contain'
                   data-scale-params-1='wid=266&amp;hei=291&amp;fmt=png-alpha&amp;.v=1651860910311'
@@ -60,7 +62,7 @@ export default function PinWheelTile({ product }) {
                 <div className='as-pinwheel-info'>
                   <div className='as-pinwheel-price'>
                     <span className='as-pinwheel-pricecurrent'>
-                      ${product.price}
+                      {product.prices.fullPrice}
                     </span>
                     <div className='as-price-savings'>
                       <span></span>

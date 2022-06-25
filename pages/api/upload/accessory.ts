@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import dbConnect from '@/mongodb/dbConnect'
 
-import { uploadFiles } from '@/mongodb/controllers/upload'
+import { uploadAccessoryImages } from '@/mongodb/controllers/upload'
 
 export default async function handler(
   req: NextApiRequest,
@@ -12,7 +12,7 @@ export default async function handler(
   switch (req.method) {
     case 'POST':
     case 'PUT':
-      return uploadFiles(req, res)
+      return uploadAccessoryImages(req, res)
     default:
       return res
         .status(405)

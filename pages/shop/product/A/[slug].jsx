@@ -315,8 +315,6 @@ export async function getStaticPaths() {
   const paths = await accessories.data.map((accessory) => ({
     params: { slug: accessory.slug.toString() },
   }))
-  // const paths = [{ params: { slug: 'airpods-pro' } }]
-
   return { paths, fallback: false }
 }
 

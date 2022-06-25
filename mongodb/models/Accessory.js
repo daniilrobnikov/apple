@@ -5,33 +5,45 @@ import slugify from 'slugify'
 const AccessorySchema = mongoose.Schema(
   {
     slug: { type: String, unique: true },
-    eyebrow: String,
+    eyebrow: {
+      type: String,
+      enum: ['New', 'Free Engraving'],
+    },
     name: {
       type: String,
       required: true,
     },
-    price: {
-      type: Number,
-      required: [true, 'Please add a price'],
-    },
     prices: {
-      fullPrice: { type: Number, required: true },
-      monthlyPrice: Number,
+      fullPrice: {
+        type: Number,
+        required: [true, 'Please add full price'],
+        get: (v) => `$${(v / 100).toFixed(2)}`,
+        set: (v) => `$${v * 100}`,
+      },
+      monthlyPrice: {
+        type: Number,
+        get: (v) => `$${(v / 100).toFixed(2)}`,
+        set: (v) => `$${v * 100}`,
+      },
       termLength: Number,
     },
     colors: {
-      type: [String],
-      required: true,
+      type: [
+        {
+          label: {
+            type: String,
+            required: true,
+          },
+          query: {
+            type: String,
+            required: true,
+            match: [/^#([0-9a-f]{3}){1,2}$/i],
+          },
+        },
+      ],
       default: undefined,
-      match: [/^#([0-9a-f]{3}){1,2}$/i],
       minlength: 1,
     },
-    // images: {
-    //   type: [String],
-    //   required: true,
-    //   maxlength: 6,
-    // },
-
     type: {
       type: String,
       required: true,
@@ -45,13 +57,25 @@ const AccessorySchema = mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: { getters: true, setters: true },
   }
 )
 
 AccessorySchema.pre('save', function () {
-  //next
   this.slug = slugify(this.name, { lower: true })
-  // next()
+  this.prices.fullPrice = parseFloat(this.prices.fullPrice)
+  this.prices.monthlyPrice = parseFloat(this.prices.monthlyPrice)
+})
+
+AccessorySchema.pre('findOneAndUpdate', function () {
+  let data = this.getUpdate()
+  if (data.name) {
+    data.slug = slugify(data.name, {
+      lower: true,
+      remove: /[()]/g,
+    })
+  }
+  this.set({ slug: data.slug })
 })
 
 export default mongoose.models.Accessory ||

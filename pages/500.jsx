@@ -1,13 +1,15 @@
+import Metadata from '@/components/templates/layout/global/head'
+
 import SearchBox from '@/components/templates/layout/components/SearchBox'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
-
-export default function Custom500() {
+export default function Custom500({ page }) {
   return (
     <>
-      {/* <SearchBox title='500 - Server-side error occurred' />
+      <Metadata page={page} />
+      <SearchBox title='500 - Server-side error occurred' />
       <div className='cta-sitemap'>
         <StyledLink link={{ href: '/sitemap', text: 'Or see our site map' }} />
-      </div> */}
+      </div>
 
       <style jsx>{`
         .cta-sitemap {
@@ -22,4 +24,14 @@ export default function Custom500() {
       `}</style>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const pageRes = await fetch(`${process.env.API_URL}/pages?url=/500`)
+  const page = await pageRes.json().then((page) => page.data[0])
+  return {
+    props: {
+      page,
+    },
+  }
 }
