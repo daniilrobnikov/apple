@@ -84,32 +84,7 @@ export default function Product({ family, product }) {
 
 export async function getStaticPaths() {
   const families = ['all', 'mac', 'ipad', 'watch', 'iphone', 'smart-home']
-  const products = [
-    'made-by-apple',
-    'whats-new',
-    'cases-protection',
-    'headphones-speakers',
-    'bands',
-    'accessibility',
-    'airtag',
-    'creativity',
-    'displays-mounts',
-    'drones',
-    'toys-games',
-    'health-fitness',
-    'homekit',
-    'magsafe',
-    'mesh-wifi-networking',
-    'mice-keyboards',
-    'only-at-apple',
-    'photography',
-    'point-of-sale',
-    'power-cables',
-    'printers-scanners',
-    'software',
-    'storage',
-    'wireless-chargers',
-  ]
+  const products = ['imac']
 
   let paths = []
   families.forEach((family) => {
