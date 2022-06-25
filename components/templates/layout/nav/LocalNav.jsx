@@ -47,7 +47,7 @@ export default function LocalNav({ page = {}, menu, actions }) {
           <div className='ac-ln-background'></div>
           <div className='ac-ln-content'>
             <div className='ac-ln-title'>
-              <Link href={page.href}>
+              <Link href={page.href || page.url}>
                 <a data-analytics-title='product index'>
                   {page.title}
                   {page.eyebrow && (
