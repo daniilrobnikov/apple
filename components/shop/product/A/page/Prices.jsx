@@ -1,4 +1,6 @@
 export default function Prices({ prices }) {
+  /** @todo: REMOVE */
+  prices = prices ? prices : { fullPrice: '$0' }
   return (
     <>
       <div className='rf-pdp-prices'>
