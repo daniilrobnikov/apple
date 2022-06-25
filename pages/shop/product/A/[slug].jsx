@@ -315,7 +315,7 @@ export async function getStaticPaths() {
   const paths = await accessories.data.map((accessory) => ({
     params: { slug: accessory.slug.toString() },
   }))
-  return { paths, fallback: false }
+  return { paths, fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params }) {

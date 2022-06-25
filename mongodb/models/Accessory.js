@@ -18,12 +18,12 @@ const AccessorySchema = mongoose.Schema(
         type: Number,
         required: [true, 'Please add full price'],
         get: (v) => `$${(v / 100).toFixed(2)}`,
-        set: (v) => `$${v * 100}`,
+        set: (v) => v * 100,
       },
       monthlyPrice: {
         type: Number,
         get: (v) => `$${(v / 100).toFixed(2)}`,
-        set: (v) => `$${v * 100}`,
+        set: (v) => v * 100,
       },
       termLength: Number,
     },
@@ -62,7 +62,10 @@ const AccessorySchema = mongoose.Schema(
 )
 
 AccessorySchema.pre('save', function () {
-  this.slug = slugify(this.name, { lower: true })
+  this.slug = slugify(this.name, {
+    lower: true,
+    remove: /[()]/g,
+  })
   this.prices.fullPrice = parseFloat(this.prices.fullPrice)
   this.prices.monthlyPrice = parseFloat(this.prices.monthlyPrice)
 })
