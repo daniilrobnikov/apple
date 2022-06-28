@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const advancedResults =
-  (model, populate: string) =>
+  (model, populate) =>
   async (req: NextApiRequest, res: NextApiResponse, next) => {
     let query
 

@@ -8,7 +8,7 @@ export default function StyledLink({ link, styles = '' }) {
   } else {
     link.text = link.text || 'Learn more'
     styles += ' icon-after'
-    if (!link.href.startsWith('/')) {
+    if (!(link.href.startsWith('/') || link.href.startsWith('#'))) {
       styles += ' icon-external'
     }
   }
@@ -157,6 +157,15 @@ export default function StyledLink({ link, styles = '' }) {
           margin-bottom: 0.1em;
           transform-origin: center right;
         }
+
+        .icon-chevrondown::after {
+          -webkit-mask-image: url(data:image/svg+xml;base64,${btoa(
+            `
+            <svg stroke="currentColor" fill="currentColor" stroke-width="1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>
+            `
+          )});
+          transform: scale(0.6);
+        }
       `}</style>
       <style global jsx>{`
         .button {
@@ -181,6 +190,19 @@ export default function StyledLink({ link, styles = '' }) {
           display: block;
           width: 100%;
           border-radius: 8px;
+        }
+        .button-super {
+          font-size: 17px;
+          line-height: 1.17648;
+          font-weight: 400;
+          letter-spacing: -0.022em;
+          font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica,
+            Arial, sans-serif;
+          min-width: 28px;
+          padding: 18px 31px;
+        }
+        .button-super.button-block {
+          border-radius: 12px;
         }
         .button-neutral {
           background: #1d1d1f;
@@ -219,12 +241,3 @@ export default function StyledLink({ link, styles = '' }) {
     </>
   )
 }
-
-/*
-
-display: inline-block;
-    transform-origin: bottom;
-    height: 1em;
-    top: 0.05em;
-
-*/

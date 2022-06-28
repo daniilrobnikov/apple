@@ -16,3 +16,10 @@
   width: 100%;
   overflow: hidden;
 }
+
+[data-core-height-transition-wrapper] {
+  transition-property: height;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.4s;
+  overflow: hidden;
+}

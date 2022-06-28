@@ -42,4 +42,17 @@ const PageSchema = new mongoose.Schema(
   }
 )
 
+// Cascade delete routes when a page is deleted
+PageSchema.pre('remove', async function () {
+  await this.model('Router').deleteMany({ page: this._id })
+})
+
+// Reverse populate with virtuals
+PageSchema.virtual('routes', {
+  ref: 'Router',
+  localField: '_id',
+  foreignField: 'page',
+  justOne: false,
+})
+
 export default mongoose.models.Page || mongoose.model('Page', PageSchema)

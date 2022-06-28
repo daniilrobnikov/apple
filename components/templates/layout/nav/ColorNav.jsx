@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function ColorNav() {
   return (
     <>
@@ -10,6 +8,7 @@ export default function ColorNav() {
           data-analytics-gallery-id='finishes gallery'
         >
           <legend>
+            Color - Pride Edition
             <span className='visuallyhidden'>color picker</span>
           </legend>
           <ul role='tablist' className='colornav-items'>

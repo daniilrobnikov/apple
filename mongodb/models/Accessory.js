@@ -11,18 +11,19 @@ const AccessorySchema = mongoose.Schema(
     },
     name: {
       type: String,
-      required: true,
+      required: [true, 'Accessory name is required'],
     },
     prices: {
       fullPrice: {
         type: Number,
         required: [true, 'Please add full price'],
-        get: (v) => `$${(v / 100).toFixed(2)}`,
+        get: (v) => (v ? `$${(v / 100).toFixed(2)}` : undefined),
         set: (v) => v * 100,
       },
       monthlyPrice: {
         type: Number,
-        get: (v) => `$${(v / 100).toFixed(2)}`,
+        default: undefined,
+        get: (v) => (v ? `$${(v / 100).toFixed(2)}` : undefined),
         set: (v) => v * 100,
       },
       termLength: Number,
@@ -30,28 +31,42 @@ const AccessorySchema = mongoose.Schema(
     colors: {
       type: [
         {
-          label: {
+          name: {
             type: String,
-            required: true,
+            required: [true, 'Please add color name'],
           },
-          query: {
+          hex: {
             type: String,
-            required: true,
+            required: [true, 'Please add color hex'],
             match: [/^#([0-9a-f]{3}){1,2}$/i],
+          },
+          slug: {
+            type: String,
+            unique: true,
           },
         },
       ],
       default: undefined,
       minlength: 1,
     },
+    images: {
+      path: String,
+      count: Number,
+    },
     type: {
-      type: String,
-      required: true,
-      enum: ['Headphones'],
+      name: {
+        type: String,
+        required: [true, 'Please add type name'],
+        enum: ['Headphones', 'AirTag', 'AirTag Accessories'],
+      },
+      slug: {
+        type: String,
+        unique: true,
+      },
     },
     brand: {
       type: String,
-      required: true,
+      required: [true, 'Please add a brand'],
       default: 'Apple',
     },
   },
@@ -66,19 +81,45 @@ AccessorySchema.pre('save', function () {
     lower: true,
     remove: /[()]/g,
   })
-  this.prices.fullPrice = parseFloat(this.prices.fullPrice)
-  this.prices.monthlyPrice = parseFloat(this.prices.monthlyPrice)
+  if (this.colors) {
+    this.colors.forEach((color) => {
+      color.slug = slugify(color.name, {
+        lower: true,
+        remove: /[()]/g,
+      })
+    })
+  }
+  this.type.slug = slugify(this.type.name, {
+    lower: true,
+    remove: /[()]/g,
+  })
 })
 
 AccessorySchema.pre('findOneAndUpdate', function () {
   let data = this.getUpdate()
+
   if (data.name) {
-    data.slug = slugify(data.name, {
+    this.slug = slugify(data.name, {
       lower: true,
       remove: /[()]/g,
     })
   }
-  this.set({ slug: data.slug })
+
+  if (data.colors) {
+    this.colors.forEach((color) => {
+      color.slug = slugify(color.name, {
+        lower: true,
+        remove: /[()]/g,
+      })
+    })
+  }
+
+  if (data.type) {
+    this.type.slug = slugify(this.type.name, {
+      lower: true,
+      remove: /[()]/g,
+    })
+  }
 })
 
 export default mongoose.models.Accessory ||

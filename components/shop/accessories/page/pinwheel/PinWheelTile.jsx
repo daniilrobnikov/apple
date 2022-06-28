@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 
 export default function PinWheelTile({ product }) {
   const router = useRouter()
+
   return (
     <>
       <li
@@ -23,9 +24,9 @@ export default function PinWheelTile({ product }) {
             >
               <div className='as-pinwheel-tilehero'>
                 <Image
-                  src={`https://res.cloudinary.com/daniilrobnikov/image/upload/v1656102373/apple/accessories/${product.type.toLowerCase()}/${
-                    product.slug
-                  }/${product.slug}-transparent.webp`}
+                  src={`${product.images.path}-${
+                    product.colors ? `${product.colors[0].slug}-` : ''
+                  }transparent.webp`}
                   className='ir as-pinwheel-tileheroimage'
                   alt={product.name}
                   layout='fill'
@@ -55,6 +56,7 @@ export default function PinWheelTile({ product }) {
                       data-evar11='MN6N3|pinwheel'
                     >
                       {product.name}
+                      {product.colors ? ` - ${product.colors[0].name}` : ''}
                     </a>
                   </Link>
                 </h3>
@@ -81,15 +83,7 @@ export default function PinWheelTile({ product }) {
                         role='listitem'
                         key={i}
                       >
-                        <img
-                          src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MN6M3_SW_COLOR?wid=32&amp;hei=32&amp;fmt=png-alpha&amp;.v=1651774758181'
-                          className='ir '
-                          alt='Pride Edition'
-                          width='16'
-                          height='16'
-                          data-scale-params-1='wid=16&amp;hei=16&amp;fmt=png-alpha&amp;.v=1651774758181'
-                          data-scale-initial='2'
-                        />
+                        <p>{color.name}</p>
                       </li>
                     ))}
                     {product.colors?.length >= 6 && (

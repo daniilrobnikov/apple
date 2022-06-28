@@ -41,7 +41,7 @@ export default function BagView({ bagItems }) {
       </div>
       <div className='ac-gn-bagview-content' id='ac-gn-bagview-content'>
         <ul className='ac-gn-bagview-bag ac-gn-bagview-bag-multiple'>
-          {data?.map((product, index) => (
+          {data?.slice(0, 3).map((product, index) => (
             <li
               className='ac-gn-bagview-bagitem'
               key={product.data._id || index}
@@ -52,10 +52,16 @@ export default function BagView({ bagItems }) {
               >
                 <span className='ac-gn-bagview-bagitem-column1'>
                   <img
-                    src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202110?wid=220&amp;hei=156&amp;fmt=jpeg&amp;qlt=90&amp;.v=1632788573000'
+                    src={`${product.data.images.path}-${
+                      product.data.colors
+                        ? `${product.data.colors[0].slug}-`
+                        : ''
+                    }transparent.webp`}
                     width='110'
                     height='78'
-                    alt=''
+                    alt={`${product.data.name}${
+                      product.data.colors && ` - ${product.data.colors[0].name}`
+                    }`}
                     className='ac-gn-bagview-bagitem-picture'
                   />
                 </span>
@@ -63,12 +69,20 @@ export default function BagView({ bagItems }) {
                   className='ac-gn-bagview-bagitem-column2'
                   data-ac-autom='gn-bagview-itemname-'
                 >
-                  {product.data.name} - Space Gray
+                  {product.data.name}
+                  {product.data.colors && ` - ${product.data.colors[0].name}`}
                 </span>
               </a>
             </li>
           ))}
         </ul>
+        {data?.length > 3 && (
+          <div className='ac-gn-bagview-linemessage'>
+            <span className='ac-gn-bagview-linemessage-text'>
+              2 more items in your Bag
+            </span>
+          </div>
+        )}
 
         <a
           href='https://www.apple.com/shop/bag'
@@ -84,19 +98,19 @@ export default function BagView({ bagItems }) {
           <ul className='ac-gn-bagview-nav-list '>
             <li className='ac-gn-bagview-nav-item ac-gn-bagview-nav-item-bag'>
               <a
-                href='https://www.apple.com/shop/bag'
+                href='/shop/bag'
                 data-evar1='[pageName] |  | bag overlay |  | bag'
                 data-analytics-activitymap-link-id='bag'
                 data-analytics-title='bag'
                 className='ac-gn-bagview-nav-link ac-gn-bagview-nav-link-bag'
                 data-ac-autom='gn-bagview-link-bag'
               >
-                Bag (3)
+                Bag {data && ` (${data.length})`}
               </a>
             </li>
             <li className='ac-gn-bagview-nav-item ac-gn-bagview-nav-item-savedbyyou'>
               <a
-                href='https://www.apple.com/shop/saveditems'
+                href='/shop/saveditems'
                 data-evar1='[pageName] |  | bag overlay |  | savedbyyou'
                 data-analytics-activitymap-link-id='savedbyyou'
                 data-analytics-title='savedbyyou'
@@ -257,6 +271,33 @@ export default function BagView({ bagItems }) {
           border-bottom-style: none;
         }
 
+        /* ac-gn-bagview-linemessage */
+        #ac-globalnav .ac-gn-bagview-linemessage {
+          margin: -17px 0 21px 0;
+          color: #6e6e73;
+          font-size: 12px;
+          line-height: 1.33337;
+          font-weight: 400;
+          letter-spacing: 0.018em;
+          font-family: 'SF Pro Text', 'Myriad Set Pro', 'SF Pro Icons',
+            'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+          text-align: center;
+        }
+        #ac-globalnav .ac-gn-bagview-linemessage:before {
+          display: block;
+          position: relative;
+          top: 9px;
+          margin-top: -1px;
+          z-index: -10;
+          border-bottom: 1px solid #d2d2d7;
+          content: '';
+        }
+
+        #ac-globalnav .ac-gn-bagview-linemessage-text {
+          padding: 0 6px 0 6px;
+          background: #fff;
+        }
+
         #ac-globalnav .ac-gn-bagview-button {
           cursor: pointer;
           display: block;
@@ -276,6 +317,10 @@ export default function BagView({ bagItems }) {
           box-sizing: border-box;
           width: 100%;
           border-radius: 8px;
+        }
+        #ac-globalnav .ac-gn-bagview-button:hover {
+          background: #0077ed;
+          text-decoration: none;
         }
 
         #ac-globalnav .ac-gn-bagview-nav {

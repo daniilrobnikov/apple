@@ -61,7 +61,7 @@ export default function MainPanel({ product }) {
             <div className='rf-pdp-buyflow-form'>
               <form
                 method='post'
-                action='/shop/pdpAddToBag/MLWK3AM/A'
+                action='/shop/bag'
                 data-feature-name='PDP'
                 data-display-name='AOS: Product Details'
                 data-part-number='MLWK3AM/A'
@@ -74,7 +74,7 @@ export default function MainPanel({ product }) {
                 />
                 <div className='rf-pdp-addtocart'>
                   <button
-                    // type='submit'
+                    type='submit'
                     className='button button-block'
                     id='add-to-cart'
                     name='add-to-cart'

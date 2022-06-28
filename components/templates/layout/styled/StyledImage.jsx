@@ -1,7 +1,11 @@
-export default function StyledImage() {
+import Image from 'next/image'
+
+export default function StyledImage({ image }) {
+  const imagePath = image.imagePath
+  const imagePosition = image.imagePosition || 'center'
   return (
     <>
-      <style jsx>{`
+      <style global jsx>{`
         @media only screen and (min-width: 1068px) {
           .desktop-image {
             display: block !important;
@@ -30,28 +34,34 @@ export default function StyledImage() {
           }
         }
       `}</style>
-      <picture>
-        {/* <Image
+      <picture
+        id='overview-routers-accessories-1'
+        className='overview-routers-accessories loaded'
+      >
+        <Image
           className='desktop-image'
-          src={sourceToDesktopImage}
-          alt={image.alt}
+          src={`${imagePath}large.webp`}
+          alt=''
           layout='fill'
           objectFit='contain'
+          objectPosition={imagePosition}
         />
         <Image
           className='tablet-image'
-          src={sourceToTabletImage}
-          alt={image.alt}
+          src={`${imagePath}medium.webp`}
+          alt=''
           layout='fill'
           objectFit='contain'
+          objectPosition={imagePosition}
         />
         <Image
           className='mobile-image'
-          src={sourceToMobileImage}
-          alt={image.alt}
+          src={`${imagePath}small.webp`}
+          alt=''
           layout='fill'
           objectFit='contain'
-        /> */}
+          objectPosition={imagePosition}
+        />
       </picture>
     </>
   )
