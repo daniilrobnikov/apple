@@ -1,44 +1,51 @@
 import StyledSwatches from '@/layout/styled/StyledSwatches'
+import Image from 'next/image'
+import Link from 'next/link'
 
-export default function RecomCard() {
-  const product = {}
+export default function RecomCard({ product }) {
   return (
     <div className='cards-scroller-item'>
       <div className='recomcard recomcard-33'>
         <div className='recomcard-content tile cover-link'>
           <div className='recomcard-content-img'>
-            <img
-              width='200'
-              height='200'
-              alt=''
-              src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MK0U3?wid=400&amp;hei=400&amp;fmt=jpeg&amp;qlt=90&amp;.v=1646446502337'
-              srcSet='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MK0U3?wid=200&amp;hei=200&amp;fmt=jpeg&amp;qlt=95&amp;.v=1646446502337, https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MK0U3?wid=400&amp;hei=400&amp;fmt=jpeg&amp;qlt=90&amp;.v=1646446502337 2x'
+            <Image
+              layout='fill'
+              objectFit='contain'
+              alt={product.name}
+              src={`${product.images.path}-${
+                product.colors ? `${product.colors[0].slug}-` : ''
+              }transparent.webp`}
             />
           </div>
           <div className='recomcard-content-info'>
-            {product.colors && <StyledSwatches />}
+            {product.colors && <StyledSwatches colors={product.colors} />}
             <div className='recomcard-content-violator'>
-              <span className='recomcard-content-violatortext'>New</span>
+              <span className='recomcard-content-violatortext'>
+                {product.eyebrow}
+              </span>
             </div>
             <h3 className='recomcard-content-title'>
-              <a
-                href='https://www.apple.com/shop/product/MK0U3LL/A/standard-glass-tilt-adjustable-stand'
-                data-display-name='Studio Display - Standard glass - Tilt-adjustable stand'
-                data-part-number='MK0U3'
-                data-slot-name='Shelf-4'
-                data-index='2'
-                data-evar11='MK0U3|mac: Shelf-4'
-                data-rule-id='KdDSFPg6T2GTw65Mn3Wf-A:INLINE'
-                data-algorithm-type='KdDSFPg6T2GTw65Mn3Wf-A:INLINE'
-                data-trigger-stoppropagation='true'
-              >
-                <span data-index='2'>
-                  Studio Display - Standard glass - Tilt-adjustable stand
-                </span>
-              </a>
+              <Link href={`/shop/product/A/${product.slug}`}>
+                <a
+                  data-display-name={`${product.name}
+                  ${product.colors ? ` - ${product.colors[0].name}` : ''}`}
+                  data-part-number='MK0U3'
+                  data-slot-name='Shelf-4'
+                  data-index='2'
+                  data-evar11='MK0U3|mac: Shelf-4'
+                  data-rule-id='KdDSFPg6T2GTw65Mn3Wf-A:INLINE'
+                  data-algorithm-type='KdDSFPg6T2GTw65Mn3Wf-A:INLINE'
+                  data-trigger-stoppropagation='true'
+                >
+                  <span data-index='2'>
+                    {product.name}
+                    {product.colors ? ` - ${product.colors[0].name}` : ''}
+                  </span>
+                </a>
+              </Link>
             </h3>
             <div className='recomcard-content-price'>
-              <span>$1,599.00</span>
+              <span>{product.prices.fullPrice}</span>
             </div>
           </div>
         </div>
@@ -61,13 +68,10 @@ export default function RecomCard() {
         }
 
         .recomcard-content-img {
-          width: 100%;
+          position: relative;
           padding-bottom: 0;
-          margin: 0 auto;
-        }
-        .recomcard-content-img img {
           display: block;
-          width: auto;
+          width: 100%;
           margin: 0 auto;
         }
 
@@ -140,11 +144,8 @@ export default function RecomCard() {
         /* Desktop & Tablet */
         @media only screen and (min-width: 734px) {
           .recomcard-content-img {
-            min-height: 230px;
-            padding-top: 41px;
-          }
-          .recomcard-content-img img {
             height: 230px;
+            padding-top: 41px;
           }
 
           .recomcard .swatchescontainer {
@@ -158,11 +159,8 @@ export default function RecomCard() {
             height: 450px;
           }
           .recomcard-content-img {
-            min-height: 198px;
-            padding-top: 34px;
-          }
-          .recomcard-content-img img {
             height: 198px;
+            padding-top: 34px;
           }
 
           .recomcard .swatchescontainer {
@@ -186,11 +184,8 @@ export default function RecomCard() {
         /* Mobile S */
         @media only screen and (max-width: 320px) {
           .recomcard-content-img {
-            min-height: 160px;
-            padding-top: 53px;
-          }
-          .recomcard-content-img img {
             height: 160px;
+            padding-top: 53px;
           }
           .recomcard-content-info {
             height: 158px;

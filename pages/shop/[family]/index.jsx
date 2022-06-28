@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router'
-
 import Ribbon from '@/components/templates/layout/components/Ribbon'
 import Header from '@/components/shop/page/Header'
 
@@ -15,10 +13,7 @@ import Portal from '@/components/shop/page/portals/Portal'
 import ProductPortal from '@/components/shop/page/portals/ProductPortal'
 import RecomCard from '@/components/shop/page/cards/RecomCard'
 
-export default function Store({ family }) {
-  const router = useRouter()
-  const { pathname } = router
-
+export default function Store({ family, accessories }) {
   const cards = [0, 0, 0, 0, 0, 0, 0]
   const firstStack = Math.floor(cards.length / 2)
 
@@ -27,21 +22,17 @@ export default function Store({ family }) {
       <Ribbon />
       <Header />
 
-      {/* {pathname === '/shop' ? ( */}
-      <CardShelf type='family-cardshelf'>
-        {cards.map((_, i) => (
-          <FamilyNav key={i} />
-        ))}
-      </CardShelf>
-      {/* ) : ( */}
-      <>
-        <NavBar />
-        <CardShelf>
-          <ProductCard />
-          {/* TODO: family accessories page */}
-        </CardShelf>
-      </>
-      {/* )} */}
+      {family === 'all' ? (
+        <FamilyNav />
+      ) : (
+        <>
+          <NavBar />
+          <CardShelf>
+            <ProductCard />
+            {/* TODO: family accessories page */}
+          </CardShelf>
+        </>
+      )}
 
       {cards.slice(0, firstStack).map((card, i) => (
         <CardShelf key={i}>
@@ -49,7 +40,7 @@ export default function Store({ family }) {
         </CardShelf>
       ))}
 
-      {pathname === '/shop' && (
+      {family === 'all' && (
         <CardShelf type='halfsize-cardshelf'>
           {cards.map((_, i) => (
             <SmallCard key={i} />
@@ -59,7 +50,9 @@ export default function Store({ family }) {
 
       <CardShelf type='cards-recommendation'>
         {/* TODO: accessories children page */}
-        <RecomCard />
+        {accessories.map((product) => (
+          <RecomCard product={product} key={product._id} />
+        ))}
         {/* TODO: accessories page */}
       </CardShelf>
 
@@ -99,9 +92,14 @@ export async function getStaticPaths() {
   }
 }
 export async function getStaticProps({ params }) {
+  const accessoriesRes = await fetch(
+    `${process.env.API_URL}/accessories?brand=Apple&limit=30`
+  )
+  const accessories = await accessoriesRes.json().then((res) => res.data)
   return {
     props: {
       family: params.family.replace('buy-', ''),
+      accessories,
     },
     revalidate: 60,
   }

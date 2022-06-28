@@ -16,7 +16,7 @@ export default function Header() {
             <div aria-describedby='chat with specialist container'>
               <div className='chaticon-container'>
                 <Image
-                  src='/images/shop/overview/header/store-chat-specialist-icon_AV1.jpeg'
+                  src='/images/shop/page/header/store-chat-specialist-icon_AV1.jpeg'
                   layout='fill'
                   objectFit='contain'
                   alt='Chat Specialist Icon'

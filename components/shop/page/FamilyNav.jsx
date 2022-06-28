@@ -1,39 +1,45 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import CardShelf from './CardShelf'
 
 export default function FamilyNav() {
   return (
-    <div className='cards-scroller-item'>
-      <Link href='/shop/buy-mac'>
-        <div className='family-card cover-link'>
-          <div className='family-card-content'>
-            <div className='family-card-image'>
-              <img
-                width='200'
-                height='130'
-                alt=''
-                src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-13-mac-nav-202203?wid=400&amp;hei=260&amp;fmt=png-alpha&amp;.v=1645051958490'
-                srcSet='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-13-mac-nav-202203?wid=200&amp;hei=130&amp;fmt=png-alpha&amp;.v=1645051958490, https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-13-mac-nav-202203?wid=400&amp;hei=260&amp;fmt=png-alpha&amp;.v=1645051958490 2x'
-              />
-            </div>
-            <div className='family-card-info'>
-              <div>
-                <Link href='/shop/buy-mac'>
-                  <a
-                    className='family-card-title'
-                    data-slot-name='Shelf-0'
-                    data-display-name='AOS: home/shop_mac'
-                    data-index='1'
-                    data-trigger-stoppropagation='true'
-                  >
-                    Mac
-                  </a>
-                </Link>
+    <>
+      <CardShelf type='family-cardshelf'>
+        {familyCards.map((card, i) => (
+          <div className='cards-scroller-item'>
+            <Link href={card.url}>
+              <div className='family-card cover-link'>
+                <div className='family-card-content'>
+                  <div className='family-card-image'>
+                    <Image
+                      src={card.image}
+                      width={200}
+                      height={130}
+                      alt={card.title}
+                    />
+                  </div>
+                  <div className='family-card-info'>
+                    <div>
+                      <Link href={card.url}>
+                        <a
+                          className='family-card-title'
+                          data-slot-name='Shelf-0'
+                          data-display-name='AOS: home/shop_mac'
+                          data-index='1'
+                          data-trigger-stoppropagation='true'
+                        >
+                          {card.title}
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
-        </div>
-      </Link>
+        ))}
+      </CardShelf>
 
       <style global jsx>{`
         .family-cardshelf .cards-scroller-item {
@@ -138,6 +144,62 @@ export default function FamilyNav() {
           }
         }
       `}</style>
-    </div>
+    </>
   )
 }
+
+const familyCards = [
+  {
+    title: 'Mac',
+    image: '/images/shop/page/family-nav/store-card-13-mac-nav-202203.png',
+    url: '/shop/buy-mac',
+  },
+  {
+    title: 'iPhone',
+    image:
+      '/images/shop/page/family-nav/store-card-13-iphone-nav-202109_GEO_US.png',
+    url: '/shop/buy-iphone',
+  },
+  {
+    title: 'iPad',
+    image: '/images/shop/page/family-nav/store-card-13-ipad-nav-202108.png',
+    url: '/shop/buy-ipad',
+  },
+  {
+    title: 'Apple Watch',
+    image: '/images/shop/page/family-nav/store-card-13-watch-nav-202203.png',
+    url: '/shop/buy-watch',
+  },
+  {
+    title: 'AirPods',
+    image: '/images/shop/page/family-nav/store-card-13-airpods-nav-202110.png',
+    url: '/airpods',
+  },
+  {
+    title: 'AirTag',
+    image: '/images/shop/page/family-nav/store-card-13-airtags-nav-202108.png',
+    url: '/airtag',
+  },
+  {
+    title: 'Apple TV',
+    image: '/images/shop/page/family-nav/store-card-13-appletv-nav-202108.png',
+    url: '/apple-tv-4k',
+  },
+  {
+    title: 'HomePod mini',
+    image: '/images/shop/page/family-nav/store-card-13-homepod-nav-202110.png',
+    url: '/homepod-mini',
+  },
+  {
+    title: 'Accessories',
+    image:
+      '/images/shop/page/family-nav/store-card-13-accessories-nav-202203.png',
+    url: '/shop/accessories/all',
+  },
+  {
+    title: 'Apple Gift Card',
+    image:
+      '/images/shop/page/family-nav/store-card-13-holiday-giftcards-asit-agc-nav-202111.png',
+    url: '/gift-cards',
+  },
+]
