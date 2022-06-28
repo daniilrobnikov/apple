@@ -57,7 +57,7 @@ export default function Summary({ total }) {
                     >
                       <span className='form-icons form-icons-info19'></span>
                       <span className='visuallyhidden'>
-                        What does "estimated tax" mean
+                        What does &quot;estimated tax&quot; mean
                       </span>
                     </button>
                     <div

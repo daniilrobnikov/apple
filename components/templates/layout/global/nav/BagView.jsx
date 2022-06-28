@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import useSWR from 'swr'
@@ -97,64 +98,69 @@ export default function BagView({ bagItems }) {
         <nav className='ac-gn-bagview-nav'>
           <ul className='ac-gn-bagview-nav-list '>
             <li className='ac-gn-bagview-nav-item ac-gn-bagview-nav-item-bag'>
-              <a
-                href='/shop/bag'
-                data-evar1='[pageName] |  | bag overlay |  | bag'
-                data-analytics-activitymap-link-id='bag'
-                data-analytics-title='bag'
-                className='ac-gn-bagview-nav-link ac-gn-bagview-nav-link-bag'
-                data-ac-autom='gn-bagview-link-bag'
-              >
-                Bag {data && ` (${data.length})`}
-              </a>
+              <Link href='/shop/bag'>
+                <a
+                  data-evar1='[pageName] |  | bag overlay |  | bag'
+                  data-analytics-activitymap-link-id='bag'
+                  data-analytics-title='bag'
+                  className='ac-gn-bagview-nav-link ac-gn-bagview-nav-link-bag'
+                  data-ac-autom='gn-bagview-link-bag'
+                >
+                  Bag{data && ` (${data.length})`}
+                </a>
+              </Link>
             </li>
             <li className='ac-gn-bagview-nav-item ac-gn-bagview-nav-item-savedbyyou'>
-              <a
-                href='/shop/saveditems'
-                data-evar1='[pageName] |  | bag overlay |  | savedbyyou'
-                data-analytics-activitymap-link-id='savedbyyou'
-                data-analytics-title='savedbyyou'
-                className='ac-gn-bagview-nav-link ac-gn-bagview-nav-link-savedbyyou'
-                data-ac-autom='gn-bagview-link-savedbyyou'
-              >
-                Saved Items
-              </a>
+              <Link href='/shop/saveditems'>
+                <a
+                  data-evar1='[pageName] |  | bag overlay |  | savedbyyou'
+                  data-analytics-activitymap-link-id='savedbyyou'
+                  data-analytics-title='savedbyyou'
+                  className='ac-gn-bagview-nav-link ac-gn-bagview-nav-link-savedbyyou'
+                  data-ac-autom='gn-bagview-link-savedbyyou'
+                >
+                  Saved Items
+                </a>
+              </Link>
             </li>
             <li className='ac-gn-bagview-nav-item ac-gn-bagview-nav-item-orders'>
-              <a
-                href='https://secure5.store.apple.com/shop/order/list'
-                data-evar1='[pageName] |  | bag overlay |  | orders'
-                data-analytics-activitymap-link-id='orders'
-                data-analytics-title='orders'
-                className='ac-gn-bagview-nav-link ac-gn-bagview-nav-link-orders'
-                data-ac-autom='gn-bagview-link-orders'
-              >
-                Orders
-              </a>
+              <Link href='https://secure5.store.apple.com/shop/order/list'>
+                <a
+                  data-evar1='[pageName] |  | bag overlay |  | orders'
+                  data-analytics-activitymap-link-id='orders'
+                  data-analytics-title='orders'
+                  className='ac-gn-bagview-nav-link ac-gn-bagview-nav-link-orders'
+                  data-ac-autom='gn-bagview-link-orders'
+                >
+                  Orders
+                </a>
+              </Link>
             </li>
             <li className='ac-gn-bagview-nav-item ac-gn-bagview-nav-item-account'>
-              <a
-                href='https://secure5.store.apple.com/shop/account/home'
-                data-evar1='[pageName] |  | bag overlay |  | account'
-                data-analytics-activitymap-link-id='account'
-                data-analytics-title='account'
-                className='ac-gn-bagview-nav-link ac-gn-bagview-nav-link-account'
-                data-ac-autom='gn-bagview-link-account'
-              >
-                Account
-              </a>
+              <Link href='https://secure5.store.apple.com/shop/account/home'>
+                <a
+                  data-evar1='[pageName] |  | bag overlay |  | account'
+                  data-analytics-activitymap-link-id='account'
+                  data-analytics-title='account'
+                  className='ac-gn-bagview-nav-link ac-gn-bagview-nav-link-account'
+                  data-ac-autom='gn-bagview-link-account'
+                >
+                  Account
+                </a>
+              </Link>
             </li>
             <li className='ac-gn-bagview-nav-item ac-gn-bagview-nav-item-signIn'>
-              <a
-                href='https://secure5.store.apple.com/shop/signIn?ssi=1AAABgT89ccsgUl6E7am1p-P8IsFtInxzOELEELFTqVF6R6RMXtB7L7EAAAA2aHR0cHM6Ly93d3cuYXBwbGUuY29tL21hYy98aHR0cHM6Ly93d3cuYXBwbGUuY29tL21hYy98AAIBTeDD9Z_H3CUqdc4O-9UUy0-hctnGDuq0sWDukbYg_uU'
-                data-evar1='[pageName] |  | bag overlay |  | signIn'
-                data-analytics-activitymap-link-id='signIn'
-                data-analytics-title='signIn'
-                className='ac-gn-bagview-nav-link ac-gn-bagview-nav-link-signIn'
-                data-ac-autom='gn-bagview-link-signIn'
-              >
-                Sign in
-              </a>
+              <Link href='https://secure5.store.apple.com/shop/signIn'>
+                <a
+                  data-evar1='[pageName] |  | bag overlay |  | signIn'
+                  data-analytics-activitymap-link-id='signIn'
+                  data-analytics-title='signIn'
+                  className='ac-gn-bagview-nav-link ac-gn-bagview-nav-link-signIn'
+                  data-ac-autom='gn-bagview-link-signIn'
+                >
+                  Sign in
+                </a>
+              </Link>
             </li>
           </ul>
         </nav>
