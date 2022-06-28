@@ -430,39 +430,3 @@ export default function BagView({ bagItems }) {
     </aside>
   )
 }
-
-// import { useEffect, useState } from 'react'
-
-// import useSWR from 'swr'
-
-// const fetcher = (...args) => fetch(...args).then((res) => res.json())
-// export default function BagView() {
-//   const [bag, setBag] = useState([])
-//   const [total, setTotal] = useState(0)
-//   const [loading, setLoading] = useState(false)
-
-//   const { data, error } = useSWR('/api/accessories', fetcher, {
-//     revalidate: true,
-//     onSuccess: (data) => {
-//       setBag(data.bag)
-//       setTotal(data.total)
-//     },
-//   })
-
-//   useEffect(() => {
-//     if (error) {
-//       setLoading(false)
-//     }
-//   }, [error])
-
-//   useEffect(() => {
-//     if (data) {
-//       setLoading(false)
-//     }
-//   }, [data])
-
-//   if (loading) {
-//     return <div>Loading...</div>
-//   }
-
-//   console.log(data)
