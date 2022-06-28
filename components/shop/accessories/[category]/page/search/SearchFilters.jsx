@@ -3,7 +3,7 @@ export default function SearchFilters() {
     <>
       <div data-core-sticky='' data-core-sticky-css=''>
         <div className='rf-slide-transition-wrapper rf-slide-transition-enter-done'>
-          <div
+          {/* <div
             className='rf-searchfilters'
             data-analytics-region='filters'
             id='rf-searchfilters'
@@ -1539,7 +1539,7 @@ export default function SearchFilters() {
                 </div>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
 

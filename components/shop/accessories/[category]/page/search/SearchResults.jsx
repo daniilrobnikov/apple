@@ -1,10 +1,9 @@
-import StyledLink from '@/components/templates/layout/styled/StyledLink'
 import Pagination from './Pagination'
 import ProductTile from './ProductTile'
 import SearchControls from './SearchControls'
 import SearchFilters from './SearchFilters'
 
-export default function SearchResults() {
+export default function SearchResults({ products }) {
   return (
     <>
       <div className='rf-accessories-container rf-accessories-section'>
@@ -17,15 +16,17 @@ export default function SearchResults() {
               data-analytics-region='results'
               role='list'
             >
-              {[...Array(30).fill(0)]?.map((_, i) => (
-                <ProductTile key={i} />
+              {products.data?.map((product) => (
+                <ProductTile key={product._id} product={product} />
               ))}
             </section>
           </div>
         </div>
-        <Pagination />
+        {products.pagination.prev ||
+          (products.pagination.next && (
+            <Pagination pagination={products.pagination} />
+          ))}
       </div>
-      <StyledLink link={{}} />
 
       <style global jsx>{`
         .rf-accessories-container {

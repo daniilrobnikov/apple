@@ -1,11 +1,13 @@
 import PaddleNav from '@/components/templates/layout/nav/PaddleNav'
+import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useState } from 'react'
 
-export default function ProductTile() {
-  const router = useRouter()
-  const { family, category } = router.query
-  const product = 'airpods'
+export default function ProductTile({ product }) {
+  const [scroll, setScroll] = useState(0)
+  function handleArrowClick(direction) {
+    setScroll(scroll + 100 * direction)
+  }
   return (
     <div
       className='rf-producttile medium-6 large-4'
@@ -22,131 +24,63 @@ export default function ProductTile() {
             <div
               data-core-gallery-scroller='true'
               style={{
-                transform: 'translateX(0px)',
-                width: '600%',
-                left: '0%',
-                transition: 'none 0s ease 0s',
+                transform: `translateX(0px)`,
+                width: `${product.images.count}00%`,
+                left: `-${scroll}%`,
+                transition: 'left 0.4s ease 0s',
               }}
             >
-              <div
-                id='3022e2d0-e580-11ec-a339-638642604d22-gallery-item-0'
-                data-core-gallery-item='true'
-                aria-hidden='false'
-                className='rc-inline-gallery-item'
-              >
-                <img
-                  width='445'
-                  height='445'
-                  alt=''
-                  src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22?wid=890&amp;hei=890&amp;fmt=jpeg&amp;qlt=90&amp;.v=1591634795000'
-                  srcSet='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22?wid=445&amp;hei=445&amp;fmt=jpeg&amp;qlt=95&amp;.v=1591634795000, https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22?wid=890&amp;hei=890&amp;fmt=jpeg&amp;qlt=90&amp;.v=1591634795000 2x'
-                  className='producttile-image'
-                />
-              </div>
-              <div
-                id='3022e2d0-e580-11ec-a339-638642604d22-gallery-item-1'
-                data-core-gallery-item='true'
-                aria-hidden='true'
-                className='rc-inline-gallery-item'
-              >
-                <img
-                  width='445'
-                  height='445'
-                  alt=''
-                  src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV1?wid=890&amp;hei=890&amp;fmt=jpeg&amp;qlt=90&amp;.v=1591634652000'
-                  srcSet='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV1?wid=445&amp;hei=445&amp;fmt=jpeg&amp;qlt=95&amp;.v=1591634652000, https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV1?wid=890&amp;hei=890&amp;fmt=jpeg&amp;qlt=90&amp;.v=1591634652000 2x'
-                  className='producttile-image'
-                />
-              </div>
-              <div
-                id='3022e2d0-e580-11ec-a339-638642604d22-gallery-item-2'
-                data-core-gallery-item='true'
-                aria-hidden='true'
-                className='rc-inline-gallery-item'
-              >
-                <img
-                  width='445'
-                  height='445'
-                  alt=''
-                  src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV2?wid=890&amp;hei=890&amp;fmt=jpeg&amp;qlt=90&amp;.v=1591634643000'
-                  srcSet='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV2?wid=445&amp;hei=445&amp;fmt=jpeg&amp;qlt=95&amp;.v=1591634643000, https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV2?wid=890&amp;hei=890&amp;fmt=jpeg&amp;qlt=90&amp;.v=1591634643000 2x'
-                  className='producttile-image'
-                />
-              </div>
-              <div
-                id='3022e2d0-e580-11ec-a339-638642604d22-gallery-item-3'
-                data-core-gallery-item='true'
-                aria-hidden='true'
-                className='rc-inline-gallery-item'
-              >
-                <img
-                  width='445'
-                  height='445'
-                  alt=''
-                  src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV3?wid=890&amp;hei=890&amp;fmt=jpeg&amp;qlt=90&amp;.v=1591634662000'
-                  srcSet='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV3?wid=445&amp;hei=445&amp;fmt=jpeg&amp;qlt=95&amp;.v=1591634662000, https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV3?wid=890&amp;hei=890&amp;fmt=jpeg&amp;qlt=90&amp;.v=1591634662000 2x'
-                  className='producttile-image'
-                />
-              </div>
-              <div
-                id='3022e2d0-e580-11ec-a339-638642604d22-gallery-item-4'
-                data-core-gallery-item='true'
-                aria-hidden='true'
-                className='rc-inline-gallery-item'
-              >
-                <img
-                  width='445'
-                  height='445'
-                  alt=''
-                  src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV4_GEO_US?wid=890&amp;hei=890&amp;fmt=jpeg&amp;qlt=90&amp;.v=1604112691000'
-                  srcSet='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV4_GEO_US?wid=445&amp;hei=445&amp;fmt=jpeg&amp;qlt=95&amp;.v=1604112691000, https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV4_GEO_US?wid=890&amp;hei=890&amp;fmt=jpeg&amp;qlt=90&amp;.v=1604112691000 2x'
-                  className='producttile-image'
-                />
-              </div>
-              <div
-                id='3022e2d0-e580-11ec-a339-638642604d22-gallery-item-5'
-                data-core-gallery-item='true'
-                aria-hidden='true'
-                className='rc-inline-gallery-item'
-              >
-                <img
-                  width='445'
-                  height='445'
-                  alt=''
-                  src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV5_GEO_US?wid=890&amp;hei=890&amp;fmt=jpeg&amp;qlt=90&amp;.v=1591634793000'
-                  srcSet='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV5_GEO_US?wid=445&amp;hei=445&amp;fmt=jpeg&amp;qlt=95&amp;.v=1591634793000, https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22_AV5_GEO_US?wid=890&amp;hei=890&amp;fmt=jpeg&amp;qlt=90&amp;.v=1591634793000 2x'
-                  className='producttile-image'
-                />
-              </div>
+              {[...Array(product.images.count)].map((image, i) => (
+                <div
+                  id='3022e2d0-e580-11ec-a339-638642604d22-gallery-item-0'
+                  data-core-gallery-item='true'
+                  aria-hidden='false'
+                  className='rc-inline-gallery-item'
+                  key={i}
+                >
+                  <Image
+                    width='445'
+                    height='445'
+                    alt={product.name}
+                    src={`${product.images.path}${
+                      product.colors ? `-${product.colors[0].slug}` : ''
+                    }-${i + 1}.webp`}
+                    className='producttile-image'
+                  />
+                </div>
+              ))}
             </div>
           </div>
-          <PaddleNav parentClass='rf-producttile' />
+          <PaddleNav
+            parentClass='rf-producttile'
+            handleArrowClick={handleArrowClick}
+            disablePrevious={scroll === 0}
+            disableNext={scroll === (product.images.count - 1) * 100}
+          />
         </div>
       </div>
       <div className='rf-producttile-info' data-autom='productTileInfo-0'>
         <div className='rf-producttile-violator'>
           <span className='violator-reduced violator-frameless'>
-            Free Engraving
+            {product.eyebrow}
           </span>
         </div>
         <h2 className='rf-producttile-name' data-autom='productTile-0'>
-          <Link
-            href={{
-              pathname: `/shop/product/id/A/${product}?category=${category}`,
-            }}
-          >
+          <Link href={`/shop/product/A/${product.slug}`}>
             <a
               data-relatedlink='2fba0ee0-e580-11ec-a339-638642604d22'
               data-feedback='/shop/searchfeedback?feedType=SEARCHSELECTED&amp;id=uJyeG7WcT6uXiwI9vadG5A&amp;position=0&amp;section=accessories'
               data-evar11='MLWK3|search'
               data-var-name='s.prop27|s.prop29'
             >
-              AirPods Pro
+              {product.name}
             </a>
           </Link>
         </h2>
         <div className='rf-producttile-priceinfo' data-autom='productPrice-0'>
-          <span className='rf-producttile-pricecurrent'>$249.00</span>
+          <span className='rf-producttile-pricecurrent'>
+            {product.prices.fullPrice}
+          </span>
         </div>
       </div>
 

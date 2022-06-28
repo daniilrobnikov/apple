@@ -323,6 +323,8 @@ export default function BagView({ bagItems }) {
           box-sizing: border-box;
           width: 100%;
           border-radius: 8px;
+
+          text-decoration: none;
         }
         #ac-globalnav .ac-gn-bagview-button:hover {
           background: #0077ed;

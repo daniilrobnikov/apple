@@ -1,6 +1,7 @@
-import StyledSwatches from '@/components/templates/layout/styled/StyledSwatches'
+import StyledSwatches from '@/layout/styled/StyledSwatches'
 
 export default function RecomCard() {
+  const product = {}
   return (
     <div className='cards-scroller-item'>
       <div className='recomcard recomcard-33'>
@@ -15,7 +16,7 @@ export default function RecomCard() {
             />
           </div>
           <div className='recomcard-content-info'>
-            <StyledSwatches />
+            {product.colors && <StyledSwatches />}
             <div className='recomcard-content-violator'>
               <span className='recomcard-content-violatortext'>New</span>
             </div>
@@ -68,6 +69,10 @@ export default function RecomCard() {
           display: block;
           width: auto;
           margin: 0 auto;
+        }
+
+        .recomcard .swatchescontainer {
+          padding-bottom: 14px;
         }
 
         .recomcard-content-info {
@@ -133,7 +138,7 @@ export default function RecomCard() {
         }
 
         /* Desktop & Tablet */
-        @media only screen and (min-width: 735px) {
+        @media only screen and (min-width: 734px) {
           .recomcard-content-img {
             min-height: 230px;
             padding-top: 41px;
@@ -141,16 +146,27 @@ export default function RecomCard() {
           .recomcard-content-img img {
             height: 230px;
           }
+
+          .recomcard .swatchescontainer {
+            padding-top: 19px;
+          }
         }
 
         /* Mobile */
         @media only screen and (max-width: 734px) {
+          .recomcard-content {
+            height: 450px;
+          }
           .recomcard-content-img {
             min-height: 198px;
             padding-top: 34px;
           }
           .recomcard-content-img img {
             height: 198px;
+          }
+
+          .recomcard .swatchescontainer {
+            padding-top: 15px;
           }
 
           .recomcard-content-info {

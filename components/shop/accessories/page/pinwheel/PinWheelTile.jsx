@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import StyledSwatches from '../../../../templates/layout/styled/StyledSwatches'
 
 export default function PinWheelTile({ product }) {
   const router = useRouter()
@@ -73,27 +74,14 @@ export default function PinWheelTile({ product }) {
                 </div>
               </div>
 
-              <div className='as-pinwheel-colorsection'>
-                <div className='as-pinwheel-colorgallery'>
-                  <div className='a11y'>Available colors:</div>
-                  <ul className='color-gallery' role='list'>
-                    {product.colors?.map((color, i) => (
-                      <li
-                        className='as-pinwheel-colorimage'
-                        role='listitem'
-                        key={i}
-                      >
-                        <p>{color.name}</p>
-                      </li>
-                    ))}
-                    {product.colors?.length >= 6 && (
-                      <li className='as-producttile-moretext' role='listitem'>
-                        +
-                      </li>
-                    )}
-                  </ul>
+              {product.colors && (
+                <div className='as-pinwheel-colorsection'>
+                  <div className='as-pinwheel-colorgallery'>
+                    <div className='a11y'>Available colors:</div>
+                    <StyledSwatches colors={product.colors} />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -281,6 +269,7 @@ export default function PinWheelTile({ product }) {
 
         .as-pinwheel .as-pinwheel-colorsection {
           min-height: 28px;
+          position: relative;
         }
 
         .as-pinwheel15-section .as-pinwheel-colorgallery {
@@ -289,18 +278,11 @@ export default function PinWheelTile({ product }) {
           max-height: 1rem;
         }
 
-        .as-pinwheel-colorsection ul {
-          margin-left: 0;
-        }
-
-        .as-pinwheel15-section .as-pinwheel-colorimage {
+        .as-pinwheel15-section .colorimage {
           margin-right: 3px;
           display: inline-block;
-        }
-        .as-pinwheel15-section .as-pinwheel-colorimage > img {
-          vertical-align: bottom;
-          height: 14px;
-          width: 14px;
+
+          --swatch-size: 14px;
         }
 
         .as-pinwheel-colorgallery .as-producttile-moretext {

@@ -2,7 +2,7 @@ import BillBoard from '@/components/shop/accessories/[category]/page/BillBoard'
 import SearchResults from '@/components/shop/accessories/[category]/page/search/SearchResults'
 import LocalNav from '@/components/templates/layout/nav/LocalNav'
 
-export default function Category({ family, category }) {
+export default function Category({ family, category, products }) {
   var families = [
     {
       title: 'Mac',
@@ -169,7 +169,7 @@ export default function Category({ family, category }) {
         <BillBoard
           title={categories.find((page) => page.href.includes(category)).title}
         />
-        <SearchResults />
+        <SearchResults products={products} />
       </main>
 
       <style global jsx>{`
@@ -283,10 +283,15 @@ export async function getStaticPaths() {
   }
 }
 export async function getStaticProps({ params }) {
+  const productsRes = await fetch(
+    `${process.env.API_URL}/accessories?brand=Apple&limit=30`
+  )
+  const products = await productsRes.json()
   return {
     props: {
       family: params.family,
       category: params.category,
+      products,
     },
     revalidate: 1,
   }

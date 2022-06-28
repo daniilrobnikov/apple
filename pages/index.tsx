@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import StyledLink from '@/components/templates/layout/styled/StyledLink'
 import Metadata from '@/components/templates/layout/global/head'
-
+import RouterGrid from '@/components/templates/family/layout/grid/RouterGrid'
 export default function Home({ page }) {
   return (
     <>
@@ -37,6 +37,8 @@ export default function Home({ page }) {
             </div>
           </div>
         </section>
+
+        <RouterGrid />
 
         <style global jsx>{`
           /* icon */

@@ -1,6 +1,9 @@
 import Link from 'next/link'
+import StyledSwatches from '@/layout/styled/StyledSwatches'
 
 export default function ProductCard() {
+  const product = {}
+
   return (
     <div className='cards-scroller-item'>
       <div className='card card-40 card-centered-image'>
@@ -28,31 +31,8 @@ export default function ProductCard() {
             Take a closer look{' '}
             <span className='visuallyhidden'> - MacBook Pro 14”</span>
           </button>
-          <ul
-            className='card-content-swatchescontainer'
-            aria-label='MacBook Pro 14” Available colors:'
-            role='list'
-          >
-            <li className='card-content-colorimage'>
-              <img
-                width='16'
-                height='16'
-                alt='Space Gray'
-                src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202110_SW_COLOR?wid=32&amp;hei=32&amp;fmt=png-alpha&amp;.v=1632788569000'
-                srcSet='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202110_SW_COLOR?wid=16&amp;hei=16&amp;fmt=png-alpha&amp;.v=1632788569000, https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202110_SW_COLOR?wid=32&amp;hei=32&amp;fmt=png-alpha&amp;.v=1632788569000 2x'
-              />
-            </li>
-            <li className='card-content-colorimage'>
-              <img
-                width='16'
-                height='16'
-                alt='Silver'
-                src='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-silver-select-202110_SW_COLOR?wid=32&amp;hei=32&amp;fmt=png-alpha&amp;.v=1632788569000'
-                srcSet='https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-silver-select-202110_SW_COLOR?wid=16&amp;hei=16&amp;fmt=png-alpha&amp;.v=1632788569000, https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-silver-select-202110_SW_COLOR?wid=32&amp;hei=32&amp;fmt=png-alpha&amp;.v=1632788569000 2x'
-              />
-            </li>
-          </ul>
           <div className='card-content-info'>
+            {product.colors && <StyledSwatches />}
             <div className='card-scrim'>
               <div className='card-scrim-price' data-autom='tile3_price'>
                 <div className='prices-inline prices-inline-lead-with-full-price'>
@@ -118,7 +98,7 @@ export default function ProductCard() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style global jsx>{`
         .card-copy,
         .card-scrim {
           box-sizing: border-box;
@@ -160,23 +140,13 @@ export default function ProductCard() {
           transform: translate(-50%, -50%);
         }
 
-        .card-content-swatchescontainer {
+        .card .swatchescontainer {
           list-style-type: none;
           margin: 0 auto;
-          padding-top: 24px;
           width: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
-        }
-
-        .card-content-colorimage {
-          display: inline-flex;
-          margin: 0 3px;
-        }
-        .card-content-colorimage img {
-          height: 12px;
-          width: 12px;
         }
 
         .card-content-info {
@@ -314,8 +284,8 @@ export default function ProductCard() {
             max-height: 236px;
           }
 
-          .card-content-swatchescontainer {
-            padding-top: 20px;
+          .card .swatchescontainer {
+            margin-top: -20px;
           }
 
           .card-content-info {

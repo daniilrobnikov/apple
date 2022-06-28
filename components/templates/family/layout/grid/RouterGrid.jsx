@@ -18,15 +18,6 @@ export default function RouterGrid() {
                 <p className='router-item-copy'>
                   Just trade in your eligible computer for credit or recycle it
                   for free. It’s good for you and the&nbsp;planet.
-                  <sup className='footnote footnote-number'>
-                    <a
-                      href='#footnote-19'
-                      aria-label='Footnote 17'
-                      data-modal-close=''
-                    >
-                      17
-                    </a>
-                  </sup>
                 </p>
                 <p className='router-item-cta'>
                   <StyledLink
@@ -76,15 +67,6 @@ export default function RouterGrid() {
                 <p className='router-item-copy'>
                   Just trade in your eligible computer for credit or recycle it
                   for free. It’s good for you and the&nbsp;planet.
-                  <sup className='footnote footnote-number'>
-                    <a
-                      href='#footnote-19'
-                      aria-label='Footnote 17'
-                      data-modal-close=''
-                    >
-                      17
-                    </a>
-                  </sup>
                 </p>
                 <p className='router-item-cta'>
                   <StyledLink
@@ -134,27 +116,14 @@ export default function RouterGrid() {
                 <p className='router-item-copy'>
                   And pay over time, interest-free when you choose to check out
                   with Apple&nbsp;Card Monthly&nbsp;Installments.
-                  <span className='footnote footnote-supglyph'>
-                    <a
-                      href='#footnote-2'
-                      aria-label='Footnote † symbol'
-                      data-modal-close=''
-                    >
-                      †
-                    </a>
-                  </span>
                 </p>
                 <p className='router-item-cta'>
                   {' '}
-                  <a
-                    href='/apple-card/'
-                    data-analytics-title='learn more about apple card'
-                    aria-label='Learn more about Apple Card'
-                    className='icon-wrapper'
-                  >
-                    <span className='icon-copy'>Learn more</span>
-                    <span className='icon icon-after more'></span>
-                  </a>
+                  <StyledLink
+                    link={{
+                      href: '/apple-card',
+                    }}
+                  />
                 </p>
               </div>
               <div className='router-item-picture align-bottom'>
@@ -193,14 +162,13 @@ export default function RouterGrid() {
                 <h2 className='router-item-eyebrow'>Accessories</h2>
                 <p className='router-item-headline'>Explore Mac accessories.</p>
                 <p className='router-button'>
-                  <a
-                    href='/us/shop/goto/mac/accessories'
-                    data-analytics-title='shop accessories'
-                    aria-label='Shop Mac accessories'
-                    className='button'
-                  >
-                    Shop
-                  </a>
+                  <StyledLink
+                    link={{
+                      href: '/shop/mac/accessories',
+                      text: 'Shop',
+                      type: 'button',
+                    }}
+                  />
                 </p>
               </div>
               <div className='router-item-picture align-middle'>
@@ -242,15 +210,11 @@ export default function RouterGrid() {
                 </p>
                 <p className='router-item-cta'>
                   {' '}
-                  <a
-                    href='/macos/continuity/'
-                    data-analytics-title='learn more about continuity'
-                    aria-label='Learn more about Continuity'
-                    className='icon-wrapper'
-                  >
-                    <span className='icon-copy'>Learn more</span>
-                    <span className='icon icon-after more'></span>
-                  </a>
+                  <StyledLink
+                    link={{
+                      href: '/macos/continuity/',
+                    }}
+                  />
                 </p>
               </div>
               <div className='router-item-picture align-middle'>
@@ -308,27 +272,20 @@ export default function RouterGrid() {
                 <ul className='router-item-cta links-inline'>
                   <li>
                     {' '}
-                    <a
-                      href='/macbook-air-m1/'
-                      data-analytics-title='learn more about macbook air m1'
-                      aria-label='Learn more about Macbook Air M1'
-                      className='icon-wrapper'
-                    >
-                      <span className='icon-copy'>Learn more</span>
-                      <span className='icon icon-after more'></span>
-                    </a>
+                    <StyledLink
+                      link={{
+                        href: '/macos/macbook-air-m1/',
+                      }}
+                    />
                   </li>
                   <li>
                     {' '}
-                    <a
-                      href='/us/shop/goto/buy_mac/macbook_air_m1'
-                      data-analytics-title='buy macbook air m1'
-                      aria-label='Buy Macbook Air M1'
-                      className='icon-wrapper'
-                    >
-                      <span className='icon-copy'>Buy</span>
-                      <span className='icon icon-after more'></span>
-                    </a>
+                    <StyledLink
+                      link={{
+                        href: '/shop/buy-mac/macbook-air',
+                        text: 'Buy',
+                      }}
+                    />
                   </li>
                 </ul>
               </div>
@@ -391,16 +348,12 @@ export default function RouterGrid() {
                 </p>
                 <p className='router-item-cta'>
                   {' '}
-                  <a
-                    href='/environment/'
-                    data-analytics-title='learn more about apple and the environment'
-                    className='icon-wrapper'
-                  >
-                    <span className='icon-copy'>
-                      Learn more about Apple and the&nbsp;environment
-                    </span>
-                    <span className='icon icon-after more'></span>
-                  </a>
+                  <StyledLink
+                    link={{
+                      href: '/environment/',
+                      text: 'Learn more about Apple and the environment',
+                    }}
+                  />
                 </p>
               </div>
             </div>
@@ -418,29 +371,21 @@ export default function RouterGrid() {
                 <ul className='router-item-cta links-stacked'>
                   <li>
                     {' '}
-                    <a
-                      href='/business/'
-                      data-analytics-title='learn about apple at work'
-                      className='icon-wrapper'
-                    >
-                      <span className='icon-copy'>
-                        Learn about Apple at Work
-                      </span>
-                      <span className='icon icon-after more'></span>
-                    </a>
+                    <StyledLink
+                      link={{
+                        href: '/business/',
+                        text: 'Learn about Apple at Work',
+                      }}
+                    />
                   </li>
                   <li>
                     {' '}
-                    <a
-                      href='/business/mac/'
-                      data-analytics-title='see why mac means business'
-                      className='icon-wrapper'
-                    >
-                      <span className='icon-copy'>
-                        See why Mac means&nbsp;business
-                      </span>
-                      <span className='icon icon-after more'></span>
-                    </a>
+                    <StyledLink
+                      link={{
+                        href: '/business/mac',
+                        text: 'See why Mac means business',
+                      }}
+                    />
                   </li>
                 </ul>
               </div>
@@ -484,16 +429,12 @@ export default function RouterGrid() {
                 </p>
                 <p className='router-item-cta'>
                   {' '}
-                  <a
-                    href='/education/'
-                    data-analytics-title='learn more about apple and education'
-                    className='icon-wrapper'
-                  >
-                    <span className='icon-copy'>
-                      Learn about Apple and&nbsp;Education
-                    </span>
-                    <span className='icon icon-after more'></span>
-                  </a>
+                  <StyledLink
+                    link={{
+                      href: '/education',
+                      text: 'Learn about Apple and Education',
+                    }}
+                  />
                 </p>
               </div>
               <div className='router-item-picture'>
