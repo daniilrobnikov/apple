@@ -4,7 +4,7 @@ import '@/styles/data.css'
 import '@/styles/theme-dark.css'
 import { AppProps } from 'next/app'
 
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 import Layout from '@/components/templates/layout/global/layout'
 
 export default function MyApp({ Component, pageProps }: AppProps) {

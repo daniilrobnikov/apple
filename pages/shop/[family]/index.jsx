@@ -34,11 +34,11 @@ export default function Store({ family, accessories }) {
         </>
       )}
 
-      {cards.slice(0, firstStack).map((card, i) => (
+      {/* {cards.slice(0, firstStack).map((card, i) => (
         <CardShelf key={i}>
           <Card />
         </CardShelf>
-      ))}
+      ))} */}
 
       {family === 'all' && (
         <CardShelf type='halfsize-cardshelf'>
