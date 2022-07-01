@@ -7,7 +7,6 @@
       "@/hooks/*": ["components/hooks/*"],
       "@/layout/*": ["components/templates/layout/*"],
       "@/public/*": ["public/*"],
-
       "@/mongodb/*": ["mongodb/*"]
     }
   }

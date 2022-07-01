@@ -4,6 +4,7 @@ import type { NextRequest } from 'next/server'
 const families = ['/mac', '/ipad', '/watch', '/iphone', '/airpods']
 
 export function middleware(req: NextRequest) {
+  
   if (req.nextUrl.pathname.startsWith('/family')) {
     return NextResponse.redirect(
       new URL(req.nextUrl.pathname.replace('/family', ''), req.url)
