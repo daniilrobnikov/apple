@@ -7,7 +7,7 @@ export default function FamilyNav() {
     <>
       <CardShelf type='family-cardshelf'>
         {familyCards.map((card, i) => (
-          <div className='cards-scroller-item'>
+          <div className='cards-scroller-item' key={i}>
             <Link href={card.url}>
               <div className='family-card cover-link'>
                 <div className='family-card-content'>
