@@ -1,6 +1,6 @@
 
 # Apple
-![App Screenshot](https://res.cloudinary.com/daniilrobnikov/image/upload/v1657444688/apple/Apple_Accessories_Screenshot_io91xw.png/468x300?text=App+Screenshot)
+![App Screenshot](https://res.cloudinary.com/daniilrobnikov/image/upload/v1657444688/apple/Apple_Accessories_Screenshot_io91xw.png)
 
  - Framework: [Next.js](https://nextjs.org/)
  - Database: [MongoDB](https://www.mongodb.com/)
