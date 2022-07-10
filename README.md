@@ -21,8 +21,8 @@
 ## Features
 
 #### Custom Hooks
- - useAnimation - applies animation according to the selected parent node; receives start and end state
- - useWhileInView - simplified useAnimation, animated only being visible for client
+ - useAnimation - applies animation according to the selected parent node; receives the start and end state
+ - useWhileInView - simplified useAnimation, animated only being visible to the client
  - useStickyAnimation - for sticky objects (f.e. to animate videos on scroll)
 
 For better user experience, all hooked animations advanced with easings. To see how it works view [Easings article](https://easings.net/#).
@@ -31,7 +31,7 @@ For better user experience, all hooked animations advanced with easings. To see 
 ## Future Ideas
  - Test on other operating systems
  - Add built-in type declarations with Typescript
- - Add compatibility for mobile application
+ - Add compatibility as a mobile application
  
 ## Environment Variables
 
@@ -55,7 +55,7 @@ Basic CRUD functionality for accessories
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `api_key` | `string` | **Required**. Your API key |
-| `query`   | `string` | Retrieve only accessories that matches key values from [Accessories Schema](https://github.com/daniilrobnikov/apple/blob/main/mongodb/models/Accessory.js) f.e. `?brand=Apple&type.name=Headphones` |
+| `query`   | `string` | Retrieve only accessories that match key values from [Accessories Schema](https://github.com/daniilrobnikov/apple/blob/main/mongodb/models/Accessory.js) f.e. `?brand=Apple&type.name=Headphones` |
 
 #### Get accessory
 
@@ -96,4 +96,4 @@ Basic CRUD functionality for accessories
 
 ## Disclaimer
 
-This site is not fully developed and designed only for learning purposes, visit [Sitemap](https://nextjs.org) to see all completed pages 
+This site is not fully developed and is designed only for learning purposes. Visit [Sitemap](https://nextjs.org) to see all completed pages 
