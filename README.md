@@ -59,7 +59,7 @@ Basic CRUD functionality for accessories
 
 #### Get accessory
 
-```http
+```
   GET /api/accessories/[slug]
 ```
 
@@ -69,13 +69,13 @@ Basic CRUD functionality for accessories
 
 #### Create accessory
 
-```http
+```
   POST /api/accessories
 ```
 
 #### Update accessory
 
-```http
+```
   PUT /api/accessories/[slug]
 ```
 
@@ -85,7 +85,7 @@ Basic CRUD functionality for accessories
 
 #### Delete accessory
 
-```http
+```
   DELETE /api/accessories/[slug]
 ```
 
