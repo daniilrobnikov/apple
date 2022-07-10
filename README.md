@@ -48,7 +48,7 @@ Basic CRUD functionality for accessories
 
 #### Get all accessories
 
-```http
+```
   GET /api/accessories${query}
 ```
 
